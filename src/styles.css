@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
+body {
+    font-family: 'Inconsolata', monospace;
+    color: #333;
+    background-color: #f8f7f6;
+  }
+
+.top {
+    margin-top: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+.group {
+    margin-top: 5rem;
+}
