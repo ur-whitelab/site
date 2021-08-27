@@ -22,3 +22,11 @@ h3 {
 .group {
     /*margin-top: 5rem;*/
 }
+
+.justify-text {
+    text-align: justify;
+}
+
+.openings {
+    margin-top: 3rem;
+}
