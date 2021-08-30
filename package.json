@@ -4,7 +4,7 @@
   "description": "This is a great package",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel src/index.html --host localhost --no-cache ",
+    "start": "node bib/convert.js bib/biblio.txt > src/biblio.html && parcel src/index.html --host localhost --no-cache ",
     "build-prod": "parcel build src/index.html --public-url ./"
   },
   "keywords": [],
@@ -13,5 +13,9 @@
   "devDependencies": {
     "@parcel/transformer-image": "^2.0.0-rc.0",
     "parcel": "^2.0.0-rc.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "posthtml-include": "^1.7.1"
   }
 }

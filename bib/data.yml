@@ -1,0 +1,19 @@
+alcfd:
+  key:
+    - ansari
+    - gandhi
+    - 2021
+  tweet: https://twitter.com/andrewwhite01/status/1424913806447292421
+  link: https://arxiv.org/abs/2108.03293
+  pdf: https://arxiv.org/pdf/2108.03293
+  code: https://github.com/ur-whitelab/alcfd/
+
+maxent:
+  key:
+    - ansari
+    - barrett
+    - 2021
+  tweet: https://twitter.com/andrewwhite01/status/1430357286556405761
+  link: https://arxiv.org/abs/2104.09668
+  pdf: https://arxiv.org/pdf/2104.09668
+  code: https://github.com/ur-whitelab/maxent/
