@@ -17,3 +17,91 @@ maxent:
   link: https://arxiv.org/abs/2104.09668
   pdf: https://arxiv.org/pdf/2104.09668
   code: https://github.com/ur-whitelab/maxent/
+
+counter:
+  key:
+    - counterfactual
+    - 2021
+  tweet: https://twitter.com/andrewwhite01/status/1427268134654914560
+  link: https://doi.org/10.33774/chemrxiv-2021-4qkg8
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/6115baf04cb4797dc42df605/original/model-agnostic-generation-of-counterfactual-explanations-for-molecules.pdf
+  code: https://github.com/ur-whitelab/exmol
+
+ev2:
+  key:
+    - gandhi
+    - battery
+  tweet: https://twitter.com/andrewwhite01/status/1426178869263011842
+  link: https://arxiv.org/abs/2108.05837
+  pdf: https://arxiv.org/pdf/2108.05837
+  code: https://github.com/hgandhi2411/Vehicle_to_grid
+
+nmrgnn:
+  key:
+    - yang
+    - shifts
+  tweet: https://twitter.com/andrewwhite01/status/1414585891583053830
+  link: https://pubs.rsc.org/en/content/articlelanding/2021/sc/d1sc01895g
+  pdf: https://pubs.rsc.org/en/content/articlepdf/2021/sc/d1sc01895g
+  code: https://github.com/ur-whitelab/nmrgnn
+
+pepal:
+  key:
+    - barrett
+    - peptide
+    - active
+  link: https://pubs.acs.org/doi/10.1021/acs.jcim.0c00946
+  pdf: https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.0c00946
+  code: https://github.com/ur-whitelab/peptide-ai
+
+vr:
+  key:
+    - gandhi
+    - real
+    - organic
+  link: https://pubs.acs.org/doi/abs/10.1021/acs.jchemed.9b01161
+  code: https://github.com/ur-whitelab/simview
+
+ab:
+  key:
+    - amirkulova
+    - nmr
+  link: https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.0c07129
+  pdf: https://pubs.acs.org/doi/pdf/10.1021/acs.jpcb.0c07129
+
+htf:
+  key:
+    - hoomd
+  link: https://doi.org/10.21105/joss.02367
+  pdf: https://www.theoj.org/joss-papers/joss.02367/10.21105.joss.02367.pdf
+  code: https://github.com/ur-whitelab/hoomd-tf/
+
+em:
+  key:
+    - chakraborty
+    - microscopy
+  link: https://doi.org/10.1063/5.0009413
+
+gnn:
+  key:
+    - li
+    - xu
+    - graph
+  tweet: https://twitter.com/andrewwhite01/status/1422562950401990658
+  link: https://pubs.rsc.org/en/content/articlehtml/2020/sc/d0sc02458a
+  pdf: https://pubs.rsc.org/en/content/articlepdf/2020/sc/d0sc02458a
+  code: https://github.com/rochesterxugroup/DSGPM
+
+symm:
+  key:
+    - xu
+    - chakrabtory
+  link: https://doi.org/10.1039/D0CP02309D
+  pdf: https://chemrxiv.org/engage/chemrxiv/article-details/60c74618567dfe45edec457d
+
+review:
+  key:
+    - amirkulova
+    - recent
+  link: https://www.tandfonline.com/doi/full/10.1080/08927022.2019.1608988
+  pdf: https://www.tandfonline.com/doi/pdf/10.1080/08927022.2019.1608988

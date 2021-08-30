@@ -6,25 +6,25 @@
 
 4. White, A. & Jiang, S. Local and bulk hydration of zwitterionic glycine and its analogues through molecular simulations. The Journal of Physical Chemistry B 115, 660–667 (2011).
 
-5. White, A. D. et al. Decoding nonspecific interactions from nature. Chemical Science 3, 3488–3494 (2012).
+5. White, A. D., Nowinski, A. K., Huang, W., Keefe, A. J., Sun, F. & Jiang, S. Decoding nonspecific interactions from nature. Chemical Science 3, 3488–3494 (2012).
 
 6. Shao, Q., He, Y., White, A. D. & Jiang, S. Different effects of zwitterion and ethylene glycol on proteins. The Journal of chemical physics 136, 06B607 (2012).
 
-7. White, A. D. et al. Standardizing and simplifying analysis of peptide library data. Journal of chemical information and modeling 53, 493–499 (2013).
+7. White, A. D., Keefe, A. J., Nowinski, A. K., Shao, Q., Caldwell, K. & Jiang, S. Standardizing and simplifying analysis of peptide library data. Journal of chemical information and modeling 53, 493–499 (2013).
 
 8. Brault, N. D., White, A. D., Taylor, A. D., Yu, Q. & Jiang, S. A directly functionalizable surface platform for protein arrays in undiluted human blood plasma. Analytical Chemistry 85, 1447–1453 (2013).
 
 9. White, A. D., Huang, W. & Jiang, S. Role of nonspecific interactions in molecular chaperones through model-based bioinformatics. Biophysical Journal 103, 2484–2491 (2012).
 
-10. Keefe, A. J. et al. Screening nonspecific interactions of peptides without background interference. Biomaterials 34, 1871–1877 (2013).
+10. Keefe, A. J., Caldwell, K. B., Nowinski, A. K., White, A. D., Thakkar, A. & Jiang, S. Screening nonspecific interactions of peptides without background interference. Biomaterials 34, 1871–1877 (2013).
 
-11. White, A. D. et al. Free energy of solvated salt bridges: A simulation and experimental study. The Journal of Physical Chemistry B 117, 7254–7259 (2013).
+11. White, A. D., Keefe, A. J., Ella-Menye, J.-R., Nowinski, A. K., Shao, Q., Pfaendtner, J. & Jiang, S. Free energy of solvated salt bridges: A simulation and experimental study. The Journal of Physical Chemistry B 117, 7254–7259 (2013).
 
 12. Shao, Q., White, A. D. & Jiang, S. Difference of carboxybetaine and oligo (ethylene glycol) moieties in altering hydrophobic interactions: A molecular simulation study. The Journal of Physical Chemistry B 118, 189–194 (2014).
 
 13. Nowinski, A. K., White, A. D., Keefe, A. J. & Jiang, S. Biologically inspired stealth peptide-capped gold nanoparticles. Langmuir 30, 1864–1870 (2014).
 
-14. Mi, L. et al. Chemical insights into dodecylamine spore lethal germination. Chemical Science 5, 3320–3324 (2014).
+14. Mi, L., White, A. D., Shao, Q., Setlow, P., Li, Y. & Jiang, S. Chemical insights into dodecylamine spore lethal germination. Chemical Science 5, 3320–3324 (2014).
 
 15. White, A. D. & Voth, G. A. Efficient and minimal method to bias molecular simulations with experimental data. Journal of chemical theory and computation 10, 3023–3030 (2014).
 
@@ -44,7 +44,7 @@
 
 23. Barrett, R., Jiang, S. & White, A. D. Classifying antimicrobial and multifunctional peptides with bayesian network models. Peptide Science 110, e24079 (2018).
 
-24. Barrett, R. et al. Social and tactile mixed reality increases student engagement in undergraduate lab activities. Journal of Chemical Education 95, 1755–1762 (2018).
+24. Barrett, R., Gandhi, H. A., Naganathan, A., Daniels, D., Zhang, Y., Onwunaka, C., Luehmann, A. & White, A. D. Social and tactile mixed reality increases student engagement in undergraduate lab activities. Journal of Chemical Education 95, 1755–1762 (2018).
 
 25. Amirkulova, D. B. & White, A. D. Recent advances in maximum entropy biasing techniques for molecular dynamics. Molecular Simulation 45, 1285–1294 (2019).
 
@@ -52,13 +52,13 @@
 
 27. Chakraborty, M., Xu, J. & White, A. D. Is preservation of symmetry necessary for coarse-graining? Physical Chemistry Chemical Physics 22, 14998–15005 (2020).
 
-28. Chakraborty, M. et al. Reconstruction of the interatomic forces from dynamic scanning transmission electron microscopy data. Journal of Applied Physics 127, 224301 (2020).
+28. Chakraborty, M., Ziatdinov, M., Dyck, O., Jesse, S., White, A. & Kalinin, S. V. Reconstruction of the interatomic forces from dynamic scanning transmission electron microscopy data. Journal of Applied Physics 127, 224301 (2020).
 
-29. Li, Z. et al. Graph neural network based coarse-grained mapping prediction. Chemical science 11, 9524–9531 (2020).
+29. Li, Z., Wellawatte, G. P., Chakraborty, M., Gandhi, H. A., Xu, C. & White, A. D. Graph neural network based coarse-grained mapping prediction. Chemical science 11, 9524–9531 (2020).
 
 30. Tang, J., Zhang, Y., Luehmann, A. & White, A. Augmented reality improved learning of lower-level students by empowering their participation in collaborative activities. (2020).
 
-31. Barrett, R. et al. Hoomd-tf: Gpu-accelerated, online machine learning in the hoomd-blue molecular dynamics engine. Journal of Open Source Software 5, (2020).
+31. Barrett, R., Chakraborty, M., Amirkulova, D., Gandhi, H., Wellawatte, G. & White, A. Hoomd-tf: Gpu-accelerated, online machine learning in the hoomd-blue molecular dynamics engine. Journal of Open Source Software 5, (2020).
 
 32. Amirkulova, D. B., Chakraborty, M. & White, A. D. Experimentally consistent simulation of aβ21–30 peptides with a minimal NMR bias. The Journal of Physical Chemistry B 124, 8266–8277 (2020).
 
