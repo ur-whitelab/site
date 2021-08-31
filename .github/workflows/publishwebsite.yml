@@ -22,6 +22,11 @@ jobs:
       run: npm ci
     - name: Build
       run: npm run build-prod
+    - name: Talks
+      run: |
+        mkdir -p dist/talks && cd dist/talks
+        wget https://www.dropbox.com/s/grec1uibdrev70n/dist.zip?dl=0 && unzip dist.zip
+        mv dist IBM && cd ../../
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
