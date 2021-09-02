@@ -5,7 +5,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "node bib/convert.js bib/biblio.txt > src/biblio.html && parcel src/index.html --host localhost --no-cache ",
-    "build-prod": "parcel build src/index.html --public-url ./"
+    "build-prod": "node bib/convert.js bib/biblio.txt > src/biblio.html && parcel build src/index.html --public-url ./"
   },
   "keywords": [],
   "author": "",

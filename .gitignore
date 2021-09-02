@@ -19,3 +19,4 @@ dist/*
 
 py/.ipynb_checkpoints/
 .parcel-cache/
+./src/biblio.html
