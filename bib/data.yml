@@ -105,3 +105,12 @@ review:
     - recent
   link: https://www.tandfonline.com/doi/full/10.1080/08927022.2019.1608988
   pdf: https://www.tandfonline.com/doi/pdf/10.1080/08927022.2019.1608988
+
+isls:
+  key:
+    - tang
+    - luehmann
+    - 2020
+  link: https://repository.isls.org//handle/1/6846
+  pdf: https://repository.isls.org/bitstream/1/6846/1/999-1006.pdf
+  
