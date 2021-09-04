@@ -113,4 +113,13 @@ isls:
     - 2020
   link: https://repository.isls.org//handle/1/6846
   pdf: https://repository.isls.org/bitstream/1/6846/1/999-1006.pdf
-  
+
+
+nlp-persp:
+  key:
+    - hocky
+    - white
+    - programming
+  tweet: https://twitter.com/andrewwhite01/status/1432720845638672390
+  link: https://arxiv.org/abs/2108.13360
+  pdf: https://arxiv.org/pdf/2108.13360

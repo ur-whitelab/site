@@ -75,3 +75,5 @@
 38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. (2021).
 
 39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. arXiv preprint arXiv:2108.03293 (2021).
+
+40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. arXiv preprint arXiv:2108.13360 (2021).
