@@ -123,3 +123,12 @@ nlp-persp:
   tweet: https://twitter.com/andrewwhite01/status/1432720845638672390
   link: https://arxiv.org/abs/2108.13360
   pdf: https://arxiv.org/pdf/2108.13360
+  code: https://github.com/whitead/nlcc/
+
+fedchem:
+  key:
+    - luo
+    - federated
+  tweet: https://twitter.com/andrewwhite01/status/1438470336182358017
+  link: https://arxiv.org/abs/2109.07258
+  pdf: https://arxiv.org/pdf/2109.07258

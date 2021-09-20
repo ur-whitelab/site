@@ -76,4 +76,8 @@
 
 39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. arXiv preprint arXiv:2108.03293 (2021).
 
-40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. arXiv preprint arXiv:2108.13360 (2021).
+40. Lewis, A. C., Lee, J. D., Edwards, P. M., Shaw, M. D., Evans, M. J., Moller, S. J., Smith, K. R., Buckley, J. W., Ellis, M., Gillot, S. R., et al. Evaluating the performance of low cost chemical sensors for air pollution research. Faraday discussions 189, 85–103 (2016).
+
+41. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. arXiv preprint arXiv:2108.13360 (2021).
+
+42. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. arXiv preprint arXiv:2109.07258 (2021).
