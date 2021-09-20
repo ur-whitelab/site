@@ -26,7 +26,7 @@ jobs:
       run: |
         mkdir -p dist/talks && cd dist/talks
         wget -O ibm.zip https://www.dropbox.com/s/w0o96fb3flqquag/ibm.zip?dl=0 && unzip ibm
-        wget -O research.zip https://www.dropbox.com/s/hpelizqbft8z32s/research.zip?dl=0 && unzip research && mv dist research
+        wget -O research.zip https://www.dropbox.com/s/pa0fozykj40c7xq/research.zip?dl=0 && unzip research && mv dist research
         cd ../../
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
