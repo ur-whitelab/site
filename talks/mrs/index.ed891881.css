@@ -285,6 +285,8 @@ html {background-color: inherit;}
 .column-3 {
     flex: 30%;
     align-items: center;
+    position: relative;
+    text-align: center;
 }
 
 
