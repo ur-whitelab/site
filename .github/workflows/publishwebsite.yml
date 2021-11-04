@@ -25,9 +25,7 @@ jobs:
     - name: Talks
       run: |
         mkdir -p dist/talks && cd dist/talks
-        wget -O ibm.zip https://www.dropbox.com/s/w0o96fb3flqquag/ibm.zip?dl=0 && unzip ibm
-        wget -O research.zip https://www.dropbox.com/s/pa0fozykj40c7xq/research.zip?dl=0 && unzip research && mv dist research
-        wget -O mrs.zip https://www.dropbox.com/s/gbav03strd123w7/mrs.zip?dl=0 && unzip mrs
+        wget -O research.zip https://www.dropbox.com/s/pa0fozykj40c7xq/research.zip?dl=0 && unzip research && mv dist research        
         rm *.zip
         cd ../../
     - name: Apps
