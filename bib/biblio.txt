@@ -70,7 +70,7 @@
 
 36. Yang, Z., Chakraborty, M. & White, A. D. Predicting chemical shifts with graph neural networks. Chemical Science (2021).
 
-37. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. arXiv preprint arXiv:2108.05837 (2021).
+37. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. ACS Sustainable Chemistry & Engineering (2021).
 
 38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. (2021).
 
