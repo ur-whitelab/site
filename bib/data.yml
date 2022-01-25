@@ -142,3 +142,31 @@ py0:
   tweet: https://twitter.com/andrewwhite01/status/1447361299407675396
   link: https://arxiv.org/abs/2110.03846
   pdf: https://arxiv.org/pdf/2110.03846.pdf
+
+CoOP:
+  key:
+    - Acar
+    - 2022
+    - framework
+  tweet: https://twitter.com/acar_handan/status/1484324063916953602
+  link: https://www.science.org/doi/10.1126/sciadv.abj0305
+  pdf: https://www.science.org/doi/pdf/10.1126/sciadv.abj0305?download=true
+
+symm-necessary:
+  key:
+    - Chakraborty
+    - 2020
+    - symmetry
+  link: https://doi.org/10.1039/D0CP02309D
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/60c74618567dfe45edec457d/original/is-preservation-of-symmetry-necessary-for-coarse-graining.pdf
+
+plumed-nest:
+  key:
+    - promoting
+    - transparency
+    - 2019
+  tweet: https://twitter.com/plumed_org/status/1156225028096241665
+  link: https://www.nature.com/articles/s41592-019-0506-8
+  pdf: https://www.nature.com/articles/s41592-019-0506-8.pdf
+  code: https://www.plumed-nest.org/
+

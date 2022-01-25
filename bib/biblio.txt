@@ -70,7 +70,7 @@
 
 36. Yang, Z., Chakraborty, M. & White, A. D. Predicting chemical shifts with graph neural networks. Chemical Science (2021).
 
-37. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. ACS Sustainable Chemistry & Engineering (2021).
+37. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. ACS Sustainable Chemistry & Engineering 9, 14975–14985 (2021).
 
 38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. (2021).
 
@@ -81,3 +81,5 @@
 41. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. arXiv preprint arXiv:2109.07258 (2021).
 
 42. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. arXiv preprint arXiv:2110.03846 (2021).
+
+43. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science Advances 8, eabj0305 (2022).
