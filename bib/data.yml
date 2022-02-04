@@ -129,10 +129,11 @@ nlp-persp:
 fedchem:
   key:
     - luo
-    - federated
+    - federated    
   tweet: https://twitter.com/andrewwhite01/status/1438470336182358017
   link: https://arxiv.org/abs/2109.07258
   pdf: https://arxiv.org/pdf/2109.07258
+  coed: https://github.com/ur-whitelab/fedchem
 
 py0:
   key:
