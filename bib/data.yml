@@ -143,7 +143,7 @@ py0:
   tweet: https://twitter.com/andrewwhite01/status/1447361299407675396
   link: https://arxiv.org/abs/2110.03846
   pdf: https://arxiv.org/pdf/2110.03846.pdf
-  code: https://doi.org/10.5281/zenodo.6013114
+  code: https://github.com/ur-whitelab/py0
 
 CoOP:
   key:
@@ -153,6 +153,7 @@ CoOP:
   tweet: https://twitter.com/acar_handan/status/1484324063916953602
   link: https://www.science.org/doi/10.1126/sciadv.abj0305
   pdf: https://www.science.org/doi/pdf/10.1126/sciadv.abj0305?download=true
+  code: https://www.plumed-nest.org/eggs/22/006/
 
 symm-necessary:
   key:
