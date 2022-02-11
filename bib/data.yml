@@ -122,8 +122,8 @@ nlp-persp:
     - white
     - programming
   tweet: https://twitter.com/andrewwhite01/status/1432720845638672390
-  link: https://arxiv.org/abs/2108.13360
-  pdf: https://arxiv.org/pdf/2108.13360
+  link: https://doi.org/10.1039/D1DD00009H
+  pdf: https://pubs.rsc.org/en/content/articlepdf/2022/dd/d1dd00009h
   code: https://github.com/whitead/nlcc/
 
 fedchem:
@@ -133,7 +133,7 @@ fedchem:
   tweet: https://twitter.com/andrewwhite01/status/1438470336182358017
   link: https://arxiv.org/abs/2109.07258
   pdf: https://arxiv.org/pdf/2109.07258
-  coed: https://github.com/ur-whitelab/fedchem
+  code: https://github.com/ur-whitelab/fedchem
 
 py0:
   key:
