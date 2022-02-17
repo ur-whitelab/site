@@ -23,8 +23,8 @@ counter:
     - counterfactual
     - 2021
   tweet: https://twitter.com/andrewwhite01/status/1427268134654914560
-  link: https://doi.org/10.33774/chemrxiv-2021-4qkg8
-  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/6115baf04cb4797dc42df605/original/model-agnostic-generation-of-counterfactual-explanations-for-molecules.pdf
+  link: https://doi.org/10.1039/D1SC05259D
+  pdf: https://pubs.rsc.org/en/content/articlepdf/2022/sc/d1sc05259d
   code: https://github.com/ur-whitelab/exmol
 
 ev2:
