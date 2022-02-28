@@ -468,7 +468,7 @@ var _mathEsmJs = require("reveal.js/plugin/math/math.esm.js");
 var _mathEsmJsDefault = parcelHelpers.interopDefault(_mathEsmJs);
 var deck = new _revealJsDefault.default({
     plugins: [_markdownEsmJsDefault.default, _notesEsmJsDefault.default, _highlightEsmJsDefault.default, _mathEsmJsDefault.default],
-    navigationMode: 'linear',
+    //navigationMode: 'linear',
     center: false,
     history: true,
     progress: true

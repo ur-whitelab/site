@@ -1,0 +1,1308 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>NIST🗜️</title>
+
+	<link rel="stylesheet" href="/index.d0573f18.css">
+	<link rel="stylesheet" href="/index.16010b5d.css">
+	<link rel="stylesheet" href="/index.3c039aaf.css">
+	<link rel="stylesheet" href="/index.ed891881.css">
+</head>
+
+<body>
+	<div class="reveal">
+
+		<div class="slides">
+
+			<div style="" class="footer">
+				<p class="footer-img pull-left">
+					<img src="/img/URLogo.png" height="40px" style="margin: 0;">
+				</p>
+				<p class="pull-right footer-text">
+					<span class="footer-link">
+						<a href="http://thewhitelab.org"> http://thewhitelab.org</a>
+					</span>|&nbsp;&nbsp; <span class="attn">@andrewwhite01 </span>
+				</p>
+			</div>
+			<section class="center" data-background="#ffdd00">
+				<h3 class="attn">
+					Iterative Molecular Discovery with interpretable Deep Learning
+				</h3>
+
+				<br>
+
+				<p class="">
+					Andrew White <br>
+					<small>
+						University of Rochester <br>
+						Department of Chemical Engineering </small>
+
+				</p>
+
+				<p class="">
+					<small> <i>
+							University of Buffalo🦬
+							<br>January, 2022</i></small>
+				</p>
+			</section>
+			<section hide-footer="" center="false" data-background-iframe="https://ur-whitelab.github.io/site/">
+				<div class="text-background-dark">
+					<h1 class="attn">The Whitelab</h1>
+				</div>
+			</section>
+			<section hide-footer="">
+				<h2>✨deep
+					learning✨</h2>
+				<p class="left-align">Given $\vec{x}$ and $y$, find a function $\hat{f}(\vec{x})$ that predicts
+					$\hat{y}$</p>
+
+				\[
+				\hat{y} = \sigma\left(\mathbf{W}X + b\right)
+				\]
+
+				<ul class="left-align">
+					<li>$\sigma$ non-linear <strong>activation</strong></li>
+					<li>$\mathbf{W}$ trainable weights</li>
+					<li>$\mathbf{W}$ trainable bias</li>
+				</ul>
+				<p class="left-align">A book on it: <a href="https://dmol.pub">dmol.pub</a></p>
+			</section>
+			<!-- <section data-background="#FFF">
+				<h2>Example of a Neural Network</h2>
+				<img class="r-stretch" src="img/nn.png">
+			</section> -->
+			<section>
+				<h1>What is possible with</h1>
+				\[
+				\hat{y} = \sigma\left(\mathbf{W}X + b\right)
+				\]
+			</section>
+			<section hide-footer="" data-auto-animate="">
+				<p>$x$ is "Robot doing chemistry", $y$ is image</p>
+				<img src="/robot-chem.4b70ef78.png" class="r-stretch">
+				<p class="small">Model: VQGAN+CLIP</p>
+
+			</section>
+			<section hide-footer="" data-auto-animate="">
+				<p>$x$ is "Robot doing chemistry", $y$ is image</p>
+				<img src="/robot-chem-3d.2736ae10.png" class="r-stretch">
+				<p class="small">Model: VQGAN+CLIP</p>
+			</section>
+			<section>
+				<section class="center" data-background-color="#ffdd00">
+					<h2>Designing Neural Networks</h2>
+				</section>
+				<section data-auto-animate="">
+					<h1>Inductive Bias</h1>
+					<p data-id="p"> Explicit choices made in architecture that reflect <span data-id="t">data-generation
+							or solution
+							space.</span> </p>
+					<hr data-id="hr">
+					<div data-id="footer" class="footnotes">
+						Battaglia, PW et al.
+						<i>arXiv:1806.01261 </i>
+						<strong> 2018</strong>
+					</div>
+				</section>
+				<section data-auto-animate="">
+					<h1>Inductive Bias</h1>
+					<p data-id="p"> Explicit choices made in architecture that <strike data-id="t">reflect
+							data-generation or solution
+							space.</strike> <strong class="red">physics</strong> </p>
+					<hr data-id="hr">
+					<div data-id="footer" class="footnotes">
+						Battaglia, PW et al.
+						<i>arXiv:1806.01261 </i>
+						<strong> 2018</strong>
+					</div>
+				</section>
+				<section data-auto-animate="">
+					<h1 class="shrunk-header">
+						Inductive Bias
+					</h1>
+					<div class="row">
+						<div class="small column">
+							<h2>Mol Graph</h2>
+							<img src="/mol.647627c1.png">
+						</div>
+						<div class="small column">
+							<h2>Point Cloud</h2>
+							<img src="/3d.3869a616.png">
+						</div>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section data-auto-animate="">
+					<h1 class="shrunk-header">
+						Inductive Bias
+					</h1>
+					<div class="row">
+						<div class="small column">
+							<h2>Mol Graph</h2>
+							<img src="/mol.647627c1.png" height="100px">
+							<ul>
+								<li>atom permutation equivariance</li>
+								<li>bond permutation equivariance</li>
+							</ul>
+						</div>
+						<div class="small column">
+							<h2>Point Cloud</h2>
+							<img src="/3d.3869a616.png" height="100px">
+							<ul>
+								<li>atom permutation equivariance</li>
+								<li>translation equivariance</li>
+								<li>rotation equivariance</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate="">
+					<h1 class="shrunk-header">
+						Inductive Bias
+					</h1>
+					<div class="row">
+						<div class="small column">
+							<h2>Mol Graph</h2>
+							<img src="/mol.647627c1.png" height="100px">
+							<ul>
+								<li class="attn">atom permutation equivariance</li>
+							</ul>
+						</div>
+						<div class="small column tiny">
+							<table>
+								<thead>
+									<tr>
+										<th style="text-align: right;"> </th>
+										<th style="text-align: right;"> C</th>
+										<th style="text-align: right;"> O</th>
+										<th style="text-align: right;"> N</th>
+										<th style="text-align: right;"> $\hat{f}(x)$</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="attn" data-id="table-a">
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.3</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.8</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 2</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.1</td>
+									</tr>
+									<tr class="attn" data-id="table-b">
+										<td style="text-align: right;"> 3</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.0</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 4</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.0</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 5</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.0</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 6</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.2</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 7</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.5</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 8</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.9</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 9</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.6</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;">10</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.3</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate="" data-auto-animate-unmatched="false">
+					<h1 class="shrunk-header">
+						Inductive Bias
+					</h1>
+					<div class="row">
+						<div class="small column">
+							<h2>Mol Graph</h2>
+							<img src="/mol.647627c1.png" height="100px">
+							<ul>
+								<li class="attn">atom permutation equivariance</li>
+							</ul>
+						</div>
+						<div class="small column tiny">
+							<table>
+								<thead>
+									<tr>
+										<th style="text-align: right;"> </th>
+										<th style="text-align: right;"> C</th>
+										<th style="text-align: right;"> O</th>
+										<th style="text-align: right;"> N</th>
+										<th style="text-align: right;"> $\hat{f}(x)$</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="attn" data-id="table-b">
+										<td style="text-align: right;"> 3</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.0</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.8</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 2</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.1</td>
+									</tr>
+									<tr class="attn" data-id="table-a">
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.3</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 4</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.0</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 5</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.0</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 6</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.2</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 7</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.5</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 8</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.9</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"> 9</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.6</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;">10</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 1</td>
+										<td style="text-align: right;"> 0</td>
+										<td style="text-align: right;"> 0.3</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate="">
+					<h1 class="shrunk-header">
+						Inductive Bias
+					</h1>
+					<div class="row">
+						<div class="small column">
+							<h2>Example</h2>
+							<video src="/mov/pas-traj.mp4" width="640px" data-autoplay="" loop=""></video>
+						</div>
+						<div class="small column">
+							<h2>Point Cloud</h2>
+							<img src="/3d.3869a616.png" height="100px">
+							<ul>
+								<li>atom permutation equivariance</li>
+								<li class="attn">translation equivariance</li>
+								<li class="attn">rotation equivariance</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section data-auto-animate="">
+				<h3>
+					Representation and Model Decisions
+				</h3>
+				<div class="row">
+					<div class="small column">
+						<h2>SMILES</h2>
+						<div style="height: 100px;">
+							<pre><code data-trim="">
+							CCCC1=CC=CC=C1C(=O)
+							N2CCCC[C@H]2C3CCCC3 </code>
+						</pre>
+						</div>
+						<p>Sequence Network <br> (1D Conv, RNN, Transformer)</p>
+					</div>
+					<div class="small column">
+						<h2>Mol Graph</h2>
+						<img src="/mol.647627c1.png" height="100px">
+						<p>Graph Neural Networks</p>
+					</div>
+					<div class="small column">
+						<h2>Points</h2>
+						<img src="/3d.3869a616.png" height="100px">
+						<p>Equivariant Neural Networks</p>
+					</div>
+				</div>
+			</section>
+			<section data-auto-animate="">
+				<h3>
+					Representation and Model Decisions
+				</h3>
+				<div class="row">
+					<div class="small column">
+						<h2>SMILES</h2>
+						<p class="attn">Preferred</p>
+					</div>
+					<div class="small column">
+						<h2>Mol Graph</h2>
+						<p class="attn">If you must</p>
+					</div>
+					<div class="small column">
+						<h2>Points</h2>
+						<p class="attn">Avoid</p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h1>The Power of Text</h1>
+				<p>Text is excellent at predicting scalars &mdash; invariant to permutations.<sup>*</sup>
+					Training is fast, implementations are easy, available in javascript🚀</p>
+				<hr>
+				<div class="footnotes">
+					Via canonicalization
+				</div>
+			</section>
+			<section data-background-iframe="https://whitead.github.io/molecule-dream/">
+			</section>
+			<section>
+				<h1>Topics</h1>
+				<ol>
+					<li>Predicting Chemical Shifts with GNNs📊</li>
+					<li>AI-directed Iterative Design of Peptides🔭</li>
+					<li>XAI with Counterfactuals🔦</li>
+					<li>Collaborative ML🤗</li>
+				</ol>
+			</section>
+			<section>
+				<section data-background-color="#ffdd00">
+					<h2>Predicting Chemical Shifts with GNNs📊</h2>
+					<br><br>
+					<p class="left-align">
+						Yang, Z., Chakraborty, M. & White, A. D. Predicting chemical shifts with graph neural networks.
+						Chemical Science (2021).
+					</p>
+					<div class="left-align">
+						<a href="https://twitter.com/andrewwhite01/status/1414585891583053830">tweet</a>
+						| <a href="https://pubs.rsc.org/en/content/articlelanding/2021/sc/d1sc01895g">link</a>
+						| <a href="https://pubs.rsc.org/en/content/articlepdf/2021/sc/d1sc01895g">pdf</a>
+						| <a href="https://github.com/ur-whitelab/nmrgnn">code</a>
+					</div>
+				</section>
+				<section>
+					<h3>Why?</h3>
+					<p>To infer an ensemble of conformations from shifts $\vec{\delta} = \{\delta_0,\ldots,\delta_i\}$,
+						we
+						need to compare a single conformation $\vec{r}$ via </p>
+					\[
+					f(\vec{r}) = \vec{\delta}
+					\]
+					<p><span class="fragment">where $f$ is differentiable wrt $\vec{r}$ <span class="fragment">and
+								depends on
+								non-bonded interactions.
+
+							</span></span></p>
+				</section>
+				<section data-auto-animate="">
+					<h1>Inductive Bias</h1>
+					<ul>
+						<li>Chemical shift is per-atom. Need perm equivariance</li>
+						<li>Chemical shift should be position dependent</li>
+						<li>Chemical shift should not use descriptors to generalize</li>
+					</ul>
+				</section>
+				<section data-auto-animate="">
+					<h1 class="shrunk-header">Inductive Bias</h1>
+					<ul>
+						<li>Chemical shift is per-atom. Need perm equivariance</li>
+						<li>Chemical shift should be position dependent</li>
+						<li>Chemical shift should not use descriptors to generalize</li>
+					</ul>
+					<p data-id="gnn-p" class="attn">Graph Neural Network with Relative Distances</p>
+				</section>
+				<section hide-footer="" data-auto-animate="" data-background="#FFF">
+					<p data-id="gnn-p" class="attn">Graph Neural Network with Relative Distances</p>
+					<img src="/frag.d5377824.png">
+				</section>
+				<section data-auto-animate="" class="center" data-background-color="#FFF">
+					<p data-id="gnn-p">Graph Neural Network</p>
+					<img src="/dframe.9732090f.png">
+				</section>
+
+				<section data-auto-animate="" class="center" data-background-color="#FFF">
+					<p data-id="gnn-p">Graph Neural Network</p>
+					<img src="/gcn.8417fb60.gif">
+					<p class="small">Graph convolutional neural network example.</p>
+					<div class="footnotes">
+						White, AD
+						<i> Deep Learning for Molecules & Materials</i>
+						<strong> 2021</strong>
+					</div>
+				</section>
+				<section class="center" data-background="#FFF" hide-footer="yes">
+					<h4> Graph Neural Network Architecture (structure of $f(\vec{r})$)</h4>
+					<img src="/NN_new.53172ab0.png" height="450px">
+				</section>
+				<section>
+					<h2>Parameters</h2>
+					<ul class="small">
+						<li>2,262 proteins, 361 metabolite molecules</li>
+						<li>5 million chemical shifts (526,000 fragments)</li>
+						<li>Network Size: 3 edge FC layers (tanh), 4 GCN (relu), 3 FC Layers (tanh) </li>
+						<li>Withheld 20,000 fragments (180,000 chemical shifts)</li>
+						<li>Adam optimizer (0.001), huber loss, 0.15 dropout, 128 node feature dim, 4 edge feature
+							dim
+						</li>
+					</ul>
+				</section>
+				<section data-auto-animate="" class="center" hide-footer="yes">
+					<h1>Results on Proteins</h1>
+					<table class="small">
+						<thead>
+							<tr data-id="h" class="header">
+								<th style="text-align: left;"></th>
+								<th style="text-align: right;">H RMSD</th>
+								<th style="text-align: right;">H <span class="math inline">\(r\)</span></th>
+								<th style="text-align: right;">H<span class="math inline">\(^\alpha\)</span> RMSD
+								</th>
+								<th style="text-align: right;">H<span class="math inline">\(^\alpha\)</span> <span class="math inline">\(r\)</span></th>
+								<th style="text-align: right;">Parameter Number</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-id="r1" class="odd">
+								<td style="text-align: left;"><strong>Label Variance</strong></td>
+								<td style="text-align: right;">0.176</td>
+								<td style="text-align: right;">0.965</td>
+								<td style="text-align: right;">0.138</td>
+								<td style="text-align: right;">0.967</td>
+								<td style="text-align: right;"></td>
+							</tr>
+							<tr data-id="r2" class="even">
+								<td style="text-align: left;"><strong>Model (H)</strong></td>
+								<td style="text-align: right;">0.459</td>
+								<td style="text-align: right;">0.781</td>
+								<td style="text-align: right;">0.264</td>
+								<td style="text-align: right;">0.878</td>
+								<td style="text-align: right;">1,185,437</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-auto-animate="" class="center" hide-footer="yes">
+					<table class="small">
+						<thead>
+							<tr data-id="h" class="header">
+								<th style="text-align: left;"></th>
+								<th style="text-align: right;">H RMSD</th>
+								<th style="text-align: right;">H <span class="math inline">\(r\)</span></th>
+								<th style="text-align: right;">H<span class="math inline">\(^\alpha\)</span> RMSD
+								</th>
+								<th style="text-align: right;">H<span class="math inline">\(^\alpha\)</span> <span class="math inline">\(r\)</span></th>
+								<th style="text-align: right;">Parameter Number</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-id="r1" class="odd">
+								<td style="text-align: left;"><strong>Label Variance</strong></td>
+								<td style="text-align: right;">0.176</td>
+								<td style="text-align: right;">0.965</td>
+								<td style="text-align: right;">0.138</td>
+								<td style="text-align: right;">0.967</td>
+								<td style="text-align: right;"></td>
+							</tr>
+							<tr data-id="r2" class="even">
+								<td style="text-align: left;"><strong>Model (H)</strong></td>
+								<td style="text-align: right;">0.459</td>
+								<td style="text-align: right;">0.781</td>
+								<td style="text-align: right;">0.264</td>
+								<td style="text-align: right;">0.878</td>
+								<td style="text-align: right;">1,185,437</td>
+							</tr>
+							<tr data-id="r3" class="odd">
+								<td style="text-align: left;"><strong>SHIFTX+</strong></td>
+								<td style="text-align: right;">0.455</td>
+								<td style="text-align: right;">0.787</td>
+								<td style="text-align: right;">0.248</td>
+								<td style="text-align: right;">0.890</td>
+								<td style="text-align: right;"></td>
+							</tr>
+							<tr data-id="r4" class="odd">
+								<td style="text-align: left;"><strong>CS2Backbone</strong></td>
+								<td style="text-align: right;">0.716</td>
+								<td style="text-align: right;">0.418</td>
+								<td style="text-align: right;">0.417</td>
+								<td style="text-align: right;">0.708</td>
+								<td style="text-align: right;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section data-auto-animate="" class="center" hide-footer="yes">
+					<table class="small">
+						<thead>
+							<tr data-id="h" class="header">
+								<th style="text-align: left;"></th>
+								<th style="text-align: right;">H RMSD</th>
+								<th style="text-align: right;">H <span class="math inline">\(r\)</span></th>
+								<th style="text-align: right;">H<span class="math inline">\(^\alpha\)</span> RMSD
+								</th>
+								<th style="text-align: right;">H<span class="math inline">\(^\alpha\)</span> <span class="math inline">\(r\)</span></th>
+								<th style="text-align: right;">Parameter Number</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-id="r1" class="odd">
+								<td style="text-align: left;"><strong>Label Variance</strong></td>
+								<td style="text-align: right;">0.176</td>
+								<td style="text-align: right;">0.965</td>
+								<td style="text-align: right;">0.138</td>
+								<td style="text-align: right;">0.967</td>
+								<td style="text-align: right;"></td>
+							</tr>
+							<tr data-id="r2" class="even">
+								<td style="text-align: left;"><strong>Model (H)</strong></td>
+								<td style="text-align: right;">0.459</td>
+								<td style="text-align: right;">0.781</td>
+								<td style="text-align: right;">0.264</td>
+								<td style="text-align: right;">0.878</td>
+								<td style="text-align: right;">1,185,437</td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: left;"><strong>Model (all)</strong></td>
+								<td style="text-align: right;">0.527</td>
+								<td style="text-align: right;">0.718</td>
+								<td style="text-align: right;">0.293</td>
+								<td style="text-align: right;">0.844</td>
+								<td style="text-align: right;">1,185,437</td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: left;"><strong>Medium</strong></td>
+								<td style="text-align: right;">0.511</td>
+								<td style="text-align: right;">0.712</td>
+								<td style="text-align: right;">0.290</td>
+								<td style="text-align: right;">0.848</td>
+								<td style="text-align: right;">297,181</td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: left;"><strong>Small</strong></td>
+								<td style="text-align: right;">0.501</td>
+								<td style="text-align: right;">0.726</td>
+								<td style="text-align: right;">0.288</td>
+								<td style="text-align: right;">0.849</td>
+								<td style="text-align: right;">42,123</td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: left;"><strong>Weighted</strong></td>
+								<td style="text-align: right;">0.471</td>
+								<td style="text-align: right;">0.766</td>
+								<td style="text-align: right;">0.274</td>
+								<td style="text-align: right;">0.865</td>
+								<td style="text-align: right;">1,185,437</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section hide-footer="" data-background="#FFF">
+					<h4>Edge Feature Choice</h4>
+					<img src="/features.ed986a6a.png" class="stretch">
+				</section>
+				<section data-background="#FFF">
+					<h4>Molecule Types</h4>
+					<img src="/types.287a7d2e.png" class="stretch">
+				</section>
+				<section data-background-video="mov/salt.mp4" data-background-video-loop="yes">
+					<div class="text-background-dark">
+						<h3 class="attn">Salt Bridge Sensitivity</h3>
+					</div>
+				</section>
+				<section class="center" data-background-video="mov/salt.mp4" data-background-video-loop="yes">
+					<div class="text-background-dark">
+						<h3 class="attn">Salt Bridge Sensitivity</h3>
+						<img src="/validation.0cae0a4a.png" width="600px">
+					</div>
+				</section>
+				<section data-background="#000">
+					<p>pip install nmrgnn</p>
+					<img src="/demo.4d9506a8.svg" width="100%">
+				</section>
+			</section>
+			<section>
+				<section data-background-color="#ffdd00">
+					<h2>AI-directed Iterative Design of Peptides🔭</h2>
+					<br><br>
+					<p class="left-align"> Barrett R, White AD. Investigating Active Learning and Meta-Learning for
+						Iterative Peptide Design
+						(2021).</p>
+					<div class="paper-info"><a href="https://github.com/ur-whitelab/peptide-ai">code</a> | <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.0c00946">link</a> | <a href="https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.0c00946">pdf</a>
+					</div>
+				</section>
+				<section class="center" data-background="#ffdd00">
+					<p>Can we overcome data sparsity in peptide design by incorporating AI at the first experiment?
+				</p></section>
+				<section class="center" hide-footer="">
+					<h4>Learning to learn with peptide design</h4>
+
+					<p>Can we develop a deep learning network and learning procedure to
+						design across 12 peptide tasks?
+					</p>
+
+					<div class="row">
+						<div class="column">
+							<ul>
+								<li>Antimicrobial</li>
+								<li>Anticancer</li>
+								<li>Antifungal</li>
+								<li>Hemolytic</li>
+								<li>AntiMRSA</li>
+								<li>AntiHIV</li>
+							</ul>
+						</div>
+						<div class="column">
+							<ul>
+								<li>Antiviral</li>
+								<li>Antiparasital</li>
+								<li>Soluble</li>
+								<li>SHP2 Binders</li>
+								<li>TULA2 Binder</li>
+								<li>Human</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section hide-footer="" data-background-color="white">
+					<h4>Network Architecture</h4>
+					<img src="/network_diagram.5552b107.png" class="r-stretch">
+					<p>Inductive bias: permutation invariance</p>
+				</section>
+				<section hide-footer="yes">
+					<h4>Deep learning model performance</h4>
+					<table class="tiny">
+						<thead>
+							<th>Data</th>
+							<th>Model Accuracy</th>
+						</thead>
+
+						<tr>
+							<td> antibacterial </td>
+							<td> 0.88 </td>
+						</tr>
+						<tr>
+							<td> anticancer </td>
+							<td> 0.82 </td>
+						</tr>
+						<tr>
+							<td> antifungal </td>
+							<td> 0.87 </td>
+						</tr>
+						<tr>
+							<td> antiHIV </td>
+							<td> 0.84 </td>
+						</tr>
+						<tr>
+							<td> antiMRSA </td>
+							<td> 0.96 </td>
+						</tr>
+						<tr>
+							<td> antiparasital </td>
+							<td> 0.89
+						</td></tr>
+						<tr>
+							<td> antiviral </td>
+							<td> 0.76 </td>
+						</tr>
+						<tr>
+							<td> hemolytic </td>
+							<td> 0.98 </td>
+						</tr>
+						<tr>
+							<td> soluble </td>
+							<td class="red"> 0.63 </td>
+						</tr>
+						<tr>
+							<td> shp2 </td>
+							<td> 0.90 </td>
+						</tr>
+						<tr>
+							<td> tula2 </td>
+							<td> 0.83 </td>
+						</tr>
+						<tr>
+							<td> human </td>
+							<td> 0.89 </td>
+						</tr>
+
+					</table>
+				</section>
+				<section class="center">
+					<h4>Active Learning</h4>
+					<p>Can we maximize accuracy after training with 50 examples? Must develop strategy
+						to choose which peptide to use next (utility function/acquisition function)
+					</p>
+				</section>
+				<section class="center" data-background="#FFF">
+					<h2>Uncertainty Minimization Strategy</h2>
+					<img src="/ucmin_training_diagram.d76b6fb3.png" class="r-stretch">
+				</section>
+				<section class="center" data-background="#FFF">
+					<h3> Training Curve</h3>
+					<img src="/example.92622e6c.png" width="400px">
+				</section>
+				<section data-background-color="white" hide-footer="yes">
+					<h4> Query By Committee Disagreement</h4>
+					<img src="/qbc.56a84e27.png" class="stretch">
+					<p class="attn"> No improvement over random</p>
+				</section>
+				<section class="center">
+					<h3>Meta-Learning + Active Learning</h3>
+
+					<p>Now, we optimize hyperparameters across tasks. Use leave-one-out cross-validation
+						for datasets, early stopping for regularization.</p>
+
+					$$
+					\psi_{j+1} = \psi_j - \eta \nabla_\psi \mathcal{L}\left[U(\psi_j, K)\right]
+					$$
+
+					<br>
+					<br>
+
+					<div class="footnotes">
+						<ul>
+							<li> Finn C et. al. <strong>2017</strong> arXiv:1703.03400</li>
+							<li> Nichol A et. al. <strong>2018</strong> arXiv:1803.02999
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section data-background-color="white" hide-footer="yes">
+					<h4> Meta-Learning with Active Learning</h4>
+					<img src="/qbc-ml.0ee0d63d.png" class="stretch">
+					<p class="attn"> Consistently better</p>
+				</section>
+				<section data-background-color="white" hide-footer="yes">
+					<h4> More Samples</h4>
+					<img src="/qbc-ml-long.13307752.png" class="stretch">
+				</section>
+				<section data-background-color="white" hide-footer="yes">
+					<h4> Comparing all methods</h4>
+					<img src="/accuracy_barchart.2edee67a.png" class="stretch">
+				</section>
+				<section class="center">
+					<h3>Conclusions</h3>
+					<ul class="small">
+						<li>Deep learning provides good performance across many peptide tasks (all greater than 85%
+							accuracy, many above 95%)</li>
+						<li>Meta-learning allows improved accuracy by leveraging past data. Very important at 10
+							examples</li>
+						<li>Active learning can be a successful strategy for choosing which peptide to test,
+							significantly so when combined with meta-learning and at 50 examples</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section data-background-color="#ffdd00">
+					<h2>XAI with Counterfactuals🔦</h2>
+					<br>
+					<p class="left-align"> Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of
+						counterfactual
+						explanations for molecules. (2021).</p>
+					<div class="paper-info"><a href="https://twitter.com/andrewwhite01/status/1427268134654914560">tweet</a> | <a href="https://doi.org/10.33774/chemrxiv-2021-4qkg8">link</a> | <a href="https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/6115baf04cb4797dc42df605/original/model-agnostic-generation-of-counterfactual-explanations-for-molecules.pdf">pdf</a>
+						| <a href="https://github.com/ur-whitelab/exmol">code</a> </div>
+				</section>
+				<section data-background="#CCC" data-auto-animate="" hide-footer="">
+					<p>What is an explanation of a <span class="red">prediction</span>?</p>
+					<ol class="small">
+						<li class="fragment"><span class="attn">Justification:</span> reasoning for using a prediction,
+							like test
+							error</li>
+						<li class="fragment"><span class="attn">Interpretability:</span> "the degree to which an
+							observer can
+							understand the cause of a
+							decision"</li>
+						<li class="fragment"><span class="attn">Explanation:</span> a presentation of information
+							intended for humans
+							that give the context and
+							cause for a prediction</li>
+					</ol>
+
+					<hr>
+
+					<div class="footnotes">
+						Miller T,
+						<i>Artificial Intelligence</i>
+						<strong>2019</strong>
+					</div>
+				</section>
+				<section data-background="#CCC">
+					<h2>Instance Explanations</h2>
+					<ol>
+						<li>Feature Explanation: which features contributed most to outcome?</li>
+						<li class="fragment">Contrastive Explanation: what would the outcome be if the features were
+							different?</li>
+						<li class="fragment">Counterfactual Explanation: what are the closest features with a different
+							outcome?</li>
+					</ol>
+				</section>
+				<section data-background="#CCC" class="center">
+					<h2>Counterfactual</h2>
+					<p class="left-align">My grant proposal was rejected from NSF.
+						<span class="red">If I had correctly formatted my references, it would have been funded.</span>
+					</p>
+				</section>
+				<section hide-footer="" data-background="#FFF">
+					<h2>Chemistry Counterfactual</h2>
+					<img src="/cf.3662ddd6.jpg">
+				</section>
+				<section data-background="#CCC">
+
+					<p class="left-align">Counterfactuals are solution to optimization. Given prediction $x,\hat{f}(x)$,
+						find $x'$ with</p>
+					<br>
+					\begin{aligned}
+					\texttt{minimize}&\quad d(x, x')\\
+					\texttt{such that}&\quad \hat{f}(x) \neq \hat{f}(x')
+					\end{aligned}
+					<p class="left-align">Challenging because optimization requires $\nabla_x\hat{f}(x)$</p>
+				</section>
+				<section data-background="#FFF" hide-footer="">
+					<p>Use STONED Method to enumerate chemical spcae</p>
+					<img src="/mols.331a5d65.gif">
+
+				</section>
+				<section data-background-color="#FFF" data-background="img/cartoon.png" data-background-size="contain" hide-footer="">
+				</section>
+				<section data-background="#FFF" hide-footer="">
+					<h2>Output</h2>
+					<img src="/gnn-space.08699b29.png" class="r-stretch">
+				</section>
+				<section class="center" data-background="#CCC">
+					<p>pip install exmol</p>
+					<img src="/img/carbon.svg" class="r-stretch">
+				</section>
+			</section>
+			<section>
+				<section data-background-color="#ffdd00">
+					<h2>Collaborative ML🤗</h2>
+					<br><br>
+					<p class="left-align"> Zhu W, White AD, Luo J Federated Learning of Molecular Properties in a
+						Heterogeneous Setting
+						(2021).</p>
+					<div class="paper-info"><a href="https://twitter.com/andrewwhite01/status/1438470336182358017?s=20">tweet</a> | <a href="https://arxiv.org/abs/2109.07258">link</a> | <a href="https://arxiv.org/pdf/2109.07258">pdf</a>
+					</div>
+				</section>
+				<section data-background="#CCC">
+					<h2>deep learning = <br>big data</h2>
+					<p>Chemical data is valuable and siloed. Enough data exists, but it is not shared</p>
+					<img src="/img/data.svg">
+				</section>
+				<section hide-footer="" data-background="#FFF">
+					<h2>Federated 𓃏 Learning</h2>
+					<p>Rather than share training data, share your model</p>
+					<img src="/demo.6ca8dd97.jpg" class="r-stretch">
+				</section>
+				<section class="center">
+					<h2>Federated Averaging (FedAvg)</h2>
+					<p>Average model weights across clients, instead of sharing data or gradients.</p>
+				</section>
+				<!--Showing baseline w/o hetero-->
+				<section data-auto-animate="" class="center">
+					<h2>Baseline Methods</h2>
+					<table class="tiny">
+						<tbody>
+							<tr data-id="t-h" class="odd">
+								<td style="text-align: left;" rowspan="1">Dataset</td>
+								<td style="text-align: center;" colspan="1">Centeralized</td>
+								<td style="text-align: center;" colspan="2">Federated Learning</td>
+							</tr>
+							<tr data-id="t-m" class="even">
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;">MolNet*</td>
+								<td style="text-align: center;">FedAvg</td>
+								<td style="text-align: center;">FedProx</td>
+							</tr>
+							<tr data-id="t-r1" class="odd">
+								<td style="text-align: left;">FreeSolv<span class="math inline">\(\Downarrow\)</span>
+								</td>
+								<td style="text-align: center;">1.40</td>
+								<td style="text-align: center;">1.223</td>
+								<td style="text-align: center;"><strong class="attn">1.216</strong></td>
+							</tr>
+						</tbody>
+					</table>
+					<hr>
+					<p class="small">4 clients, communicate every 30 batches, 643 molecules </p>
+				</section>
+				<!--Showing heterogeneity affect on baseline-->
+				<section data-auto-animate="" class="center">
+					<h2>Baseline Methods</h2>
+					<table class="tiny">
+						<tbody>
+							<tr data-id="t-h" class="odd">
+								<td data-id="t-td-a1" style="text-align: left;" rowspan="2">Dataset</td>
+								<td data-id="t-td-a2" style="text-align: center;"></td>
+								<td data-id="t-td-a3" style="text-align: center;" colspan="1">Centeralized</td>
+								<td data-id="t-td-a4" style="text-align: center;" colspan="2">Federated Learning</td>
+							</tr>
+							<tr data-id="t-m" class="even">
+								<td data-id="t-td-a5" style="text-align: center;"><span class="math inline">\(\alpha\)</span></td>
+								<td data-id="t-td-a6" style="text-align: center;">MolNet*</td>
+								<td data-id="t-td-a7" style="text-align: center;">FedAvg</td>
+								<td data-id="t-td-a8" style="text-align: center;">FedProx</td>
+							</tr>
+							<tr data-id="t-r01" class="odd">
+								<td data-id="t-td-a11" style="text-align: left;" rowspan="3">FreeSolv<span class="math inline">\(\Downarrow\)</span></td>
+								<td data-id="t-td-a12" style="text-align: center;">0.1</td>
+								<td data-id="t-td-a13" style="text-align: center;" rowspan="3">1.40</td>
+								<td data-id="t-td-a14" style="text-align: center;">1.771</td>
+								<td data-id="t-td-a15" style="text-align: center;"><strong class="attn">1.693</strong>
+								</td>
+								
+							</tr>
+							<tr data-id="t-r05" class="even">
+								<td data-id="t-td-a18" style="text-align: center;">0.5</td>
+								<td data-id="t-td-a19" style="text-align: center;">1.445</td>
+								<td data-id="t-td-a20" style="text-align: center;"><strong class="attn"> 1.376</strong>
+								</td>
+								
+							</tr>
+							<tr data-id="t-r1" class="odd">
+								<td data-id="t-td-a22" style="text-align: center;">1</td>
+								<td data-id="t-td-a23" style="text-align: center;">1.223</td>
+								<td data-id="t-td-a24" style="text-align: center;"><strong class="attn">1.216</strong>
+								</td>
+								
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="center">
+					<h2>Improving in Heterogeneous Setting</h2>
+					<p>Only available information is global model, use this to reweight.</p>
+				</section>
+				<section hide-footer="" data-background="#FFF">
+					<h2>Treating Heterogeneous Data</h2>
+					<p>Focus on points of high error and disagreement</p>
+					<img src="/flit.f2eff26d.jpg" class="r-stretch">
+				</section>
+				<!--Showing heterogeneity affect on baseline-->
+				<section data-auto-animate="" class="center">
+					<table class="tiny">
+						<tbody>
+							<tr data-id="t-h" class="odd">
+								<td data-id="t-td-a1" style="text-align: left;" rowspan="2">Dataset</td>
+								<td data-id="t-td-a2" style="text-align: center;"></td>
+								<td data-id="t-td-a3" style="text-align: center;" colspan="1">Centeralized</td>
+								<td data-id="t-td-a4" style="text-align: center;" colspan="2">Federated Learning</td>
+							</tr>
+							<tr data-id="t-m" class="even">
+								<td data-id="t-td-a5" style="text-align: center;"><span class="math inline">\(\alpha\)</span></td>
+								<td data-id="t-td-a6" style="text-align: center;">MolNet*</td>
+								<td data-id="t-td-a7" style="text-align: center;">FedAvg</td>
+								<td data-id="t-td-a8" style="text-align: center;">FedProx</td>
+							</tr>
+							<tr data-id="t-r01" class="odd">
+								<td data-id="t-td-a11" style="text-align: left;" rowspan="3">FreeSolv<span class="math inline">\(\Downarrow\)</span></td>
+								<td data-id="t-td-a12" style="text-align: center;">0.1</td>
+								<td data-id="t-td-a13" style="text-align: center;" rowspan="3">1.40</td>
+								<td data-id="t-td-a14" style="text-align: center;">1.771</td>
+								<td data-id="t-td-a15" style="text-align: center;"><strong class="attn">1.693</strong>
+								</td>
+								
+							</tr>
+							<tr data-id="t-r05" class="even">
+								<td data-id="t-td-a18" style="text-align: center;">0.5</td>
+								<td data-id="t-td-a19" style="text-align: center;">1.445</td>
+								<td data-id="t-td-a20" style="text-align: center;"><strong class="attn"> 1.376</strong>
+								</td>
+								
+							</tr>
+							<tr data-id="t-r1" class="odd">
+								<td data-id="t-td-a23" style="text-align: center;">1</td>
+								<td data-id="t-td-a24" style="text-align: center;">1.223</td>
+								<td data-id="t-td-a25" style="text-align: center;"><strong class="attn">1.216</strong>
+								</td>
+								
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<!--Showing our method on freesol affect on baseline-->
+				<section data-auto-animate="" class="center">
+					<table class="tiny">
+						<tbody>
+							<tr data-id="t-h" class="odd">
+								<td data-id="t-td-a1" style="text-align: left;" rowspan="2">Dataset</td>
+								<td data-id="t-td-a2" style="text-align: center;"></td>
+								<td data-id="t-td-a3" style="text-align: center;" colspan="1">Centeralized</td>
+								<td data-id="t-td-a4" style="text-align: center;" colspan="4">Federated Learning</td>
+							</tr>
+							<tr data-id="t-m" class="even">
+								<td data-id="t-td-a5" style="text-align: center;"><span class="math inline">\(\alpha\)</span></td>
+								<td data-id="t-td-a6" style="text-align: center;">MolNet*</td>
+								<td data-id="t-td-a7" style="text-align: center;">FedAvg</td>
+								<td data-id="t-td-a8" style="text-align: center;">FedProx</td>
+								<td style="text-align: center;">FLIT<span class="math inline">\(_{\textrm{ours}}\)</span></td>
+								<td style="text-align: center;">FLIT+<span class="math inline">\(_{\textrm{ours}}\)</span></td>
+							</tr>
+							<tr data-id="t-r01" class="odd">
+								<td data-id="t-td-a11" style="text-align: left;" rowspan="3">FreeSolv<span class="math inline">\(\Downarrow\)</span></td>
+								<td data-id="t-td-a12" style="text-align: center;">0.1</td>
+								<td data-id="t-td-a13" style="text-align: center;" rowspan="3">1.40</td>
+								<td data-id="t-td-a14" style="text-align: center;">1.771</td>
+								<td data-id="t-td-a15" style="text-align: center;">1.693</td>
+								<td style="text-align: center;">1.634</td>
+								<td style="text-align: center;"><strong class="attn">1.228</strong>
+								</td>
+							</tr>
+							<tr data-id="t-r05" class="even">
+								<td data-id="t-td-a18" style="text-align: center;">0.5</td>
+								<td data-id="t-td-a19" style="text-align: center;">1.445</td>
+								<td data-id="t-td-a20" style="text-align: center;">1.376</td>
+								<td style="text-align: center;">1.366</td>
+								<td style="text-align: center;"><strong class="attn">1.127</strong>
+								</td>
+							</tr>
+							<tr data-id="t-r1" class="odd">
+								<td data-id="t-td-a23" style="text-align: center;">1</td>
+								<td data-id="t-td-a24" style="text-align: center;">1.223</td>
+								<td data-id="t-td-a25" style="text-align: center;">1.216</td>
+								
+								<td style="text-align: center;">1.277</td>
+								<td style="text-align: center;"><strong class="attn">1.061</strong>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<!--Showing full-->
+				<section>
+					<table class="tiny">
+						<tbody>
+							<tr class="odd">
+								<td style="text-align: left;" rowspan="2">Dataset</td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;" colspan="2">Centeralized Training</td>
+								<td style="text-align: center;" colspan="6">Federated Learning</td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: center;"><span class="math inline">\(\alpha\)</span></td>
+								<td style="text-align: center;">MolNet*</td>
+								<td style="text-align: center;">FedChem*<span class="math inline">\(_{\textrm{ours}}\)</span></td>
+								<td style="text-align: center;">FedAvg</td>
+								<td style="text-align: center;">FedProx</td>
+								<td style="text-align: center;">FLIT<span class="math inline">\(_{\textrm{ours}}\)</span></td>
+								<td style="text-align: center;">FLIT+<span class="math inline">\(_{\textrm{ours}}\)</span></td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: left;" rowspan="3">FreeSolv<span class="math inline">\(\Downarrow\)</span></td>
+								<td style="text-align: center;">0.1</td>
+								<td style="text-align: center;" rowspan="3">1.40</td>
+								<td style="text-align: center;" rowspan="3">1.430</td>
+								<td style="text-align: center;">1.771</td>
+								<td style="text-align: center;">1.693</td>
+								<td style="text-align: center;">1.634</td>
+								<td style="text-align: center;"><strong class="attn">1.228</strong></td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: center;">0.5</td>
+								<td style="text-align: center;">1.445</td>
+								<td style="text-align: center;">1.376</td>
+								<td style="text-align: center;">1.366</td>
+								<td style="text-align: center;"><strong class="attn">1.127</strong></td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: center;">1</td>
+								<td style="text-align: center;">1.223</td>
+								<td style="text-align: center;">1.216</td>
+								<td style="text-align: center;">1.277</td>
+								<td style="text-align: center;"><strong class="attn">1.061</strong></td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: left;" rowspan="3">Lipophilicity<span class="math inline">\(\Downarrow\)</span></td>
+								<td style="text-align: center;">0.1</td>
+								<td style="text-align: center;" rowspan="3">0.655</td>
+								<td style="text-align: center;" rowspan="3">0.6290</td>
+								<td style="text-align: center;">0.6361</td>
+								<td style="text-align: center;">0.6403</td>
+								<td style="text-align: center;">0.6563</td>
+								<td style="text-align: center;"><strong class="attn">0.6392</strong></td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: center;">0.5</td>
+								<td style="text-align: center;">0.6306</td>
+								<td style="text-align: center;">0.6365</td>
+								<td style="text-align: center;">0.6368</td>
+								<td style="text-align: center;"><strong class="attn">0.6270</strong></td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: center;">1</td>
+								<td style="text-align: center;">0.6505</td>
+								<td style="text-align: center;">0.6474</td>
+								<td style="text-align: center;">0.6443</td>
+								<td style="text-align: center;"><strong class="attn">0.6403</strong></td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: left;" rowspan="3">ESOL<span class="math inline">\(\Downarrow\)</span></td>
+								<td style="text-align: center;">0.1</td>
+								<td style="text-align: center;" rowspan="3">0.97</td>
+								<td style="text-align: center;" rowspan="3">0.6570</td>
+								<td style="text-align: center;">0.8016</td>
+								<td style="text-align: center;">0.7702</td>
+								<td style="text-align: center;">0.7788</td>
+								<td style="text-align: center;"><strong class="attn">0.7642</strong></td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: center;">0.5</td>
+								<td style="text-align: center;">0.7524</td>
+								<td style="text-align: center;">0.7382</td>
+								<td style="text-align: center;">0.7426</td>
+								<td style="text-align: center;"><strong class="attn">0.7119</strong></td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: center;">1</td>
+								<td style="text-align: center;">0.7056</td>
+								<td style="text-align: center;">0.6828</td>
+								<td style="text-align: center;"><strong class="attn">0.6705</strong></td>
+								<td style="text-align: center;">0.6998</td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: left;" rowspan="3">QM9<span class="math inline">\(\Downarrow\)</span></td>
+								<td style="text-align: center;">0.1</td>
+								<td style="text-align: center;" rowspan="3">2.35</td>
+								<td style="text-align: center;" rowspan="3">0.0890</td>
+								<td style="text-align: center;">0.5889</td>
+								<td style="text-align: center;">0.6036</td>
+								<td style="text-align: center;">0.5713</td>
+								<td style="text-align: center;"><strong class="attn">0.5356</strong></td>
+							</tr>
+							<tr class="odd">
+								<td style="text-align: center;">0.5</td>
+								<td style="text-align: center;">0.5906</td>
+								<td style="text-align: center;">0.5751</td>
+								<td style="text-align: center;">0.5658</td>
+								<td style="text-align: center;"><strong class="attn">0.5222</strong></td>
+							</tr>
+							<tr class="even">
+								<td style="text-align: center;">1</td>
+								<td style="text-align: center;">0.5786</td>
+								<td style="text-align: center;">0.5691</td>
+								<td style="text-align: center;">0.5621</td>
+								<td style="text-align: center;"><strong class="attn">0.5282</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section class="center">
+					<h2>Future of Deep Learning</h2>
+					<p>Easy sharing of models, rather than data, to build global predictive models. Common proposed
+						applications are
+						location
+						data in phones, training on image recognition, speech.
+					</p>
+				</section>
+			</section>
+			<section>
+				<h1>Synthesizing Code from Natural Language</h1>
+			</section>
+			<section>
+				<img src="/img/nlcc.svg">
+			</section>
+			<section hide-footer="" data-background="#CCC">
+				<p>Perspective on GPT-3/Codex in chemistry</p>
+				<img src="/img/perspective.png" class="r-stretch">
+			</section>
+			<section class="center">
+				<h1>Discussion</h1>
+			</section>
+		</div>
+	</div>
+	<script src="/index.2bd76647.js" defer=""></script>
+</body>
+
+</html>
