@@ -34,6 +34,10 @@ jobs:
         wget -O exe.zip https://www.dropbox.com/s/c25yg42ouck6t7c/exe.zip?dl=0 && unzip exe && mv exe rxns
         rm *.zip
         cd ../../
+    - name: Blog
+      run: |
+        wget -O blog.zip https://www.dropbox.com/s/4b8k1njb2monzia/_site.zip?dl=0 && unzip blog && mv _site blog
+        rm *.zip        
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
