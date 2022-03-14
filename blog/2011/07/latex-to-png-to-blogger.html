@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Latex to PNG to Blogger</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/2011/07/latex-to-png-to-blogger.html">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>Latex to PNG to Blogger</h1>
+      
+      <p class="text-muted">Jul 16, 2011 • Andrew White</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="css-full-post-content js-full-post-content">
+I just wanted to put at the top what you need to follow along with this post. Everything below is written assuming you're using a Unix terminal and you have pdflatex and imagemagick installed. For <a href="http://www.ubuntu.com/">Ubunu</a>, the de facto linux distribution, type this into your terminal window to get these programs:<br /><br /><pre class="brush: plain; toolbar: false">sudo apt-get install imagemagick<br />sudo apt-get install pdflatex<br /></pre><br />Due to my failure in making nice looking equations in my <a href="http://crowsandcats.blogspot.com/2011/07/predator-prey-models-and-global-warming.html">last posts</a>, I worked on discovering a solution. Naturally, I tried to google Latex and Blogger. <a href="http://www.latex-project.org/">Latex</a> is what I usually use for formatting equations, so that is what I was hoping to find.&nbsp;Unfortunately, most of the ideas I found for inserting equations into Blogger relied on hosted scripts and random people providing image hosting. I tried two solutions described in blogs and both didn't work, due to the site hosting the rendering engine being down. If you would like to convert LaTeX code directly into PNGs on the web, you can try <a href="http://www.codecogs.com/latex/eqneditor.php">codecogs</a>, but I find the website to appear pretty Spammy and you cannot have very much control over your results. But, hey, it works.<br /><br />Next idea: use Latex to write equations, use pdflatex to turn them into PDFs, and then use&nbsp;<a href="http://www.imagemagick.org/script/index.php">ImageMagick</a> to convert the PDFs into PNGs. Easy, right? Well, here are the results:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-L2ibQN1ugEc/TiEkjF7pUII/AAAAAAAAACw/f_ZF98jQ09Y/s1600/foo.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-L2ibQN1ugEc/TiEkjF7pUII/AAAAAAAAACw/f_ZF98jQ09Y/s1600/foo.png" /></a></div><br /><br /><a name='more'></a><br /><br />Pretty cool! So, here it is step by step. First, I need to create the LaTex for the equation:<br /><script src="https://gist.github.com/whitead/14920105c78390098daa.js"></script>The key point here for the LaTeX is that there needs to be the <code> \pagestyle{empty}</code>. That removes the footer (page numbers) in the output PDFs.<br /><br />Next step is to create the PDF from the LaTeX code. Type this at in the terminal:<br /><pre class="brush: shell; toolbar: false">pdflatex eq.tex<br /></pre>At this point, you should have a giant PDF with a single equation at the top. Now, this is where the magick happens. Using the <code>convert</code> command from ImageMagick, we'll simultaneously crop it, center it, adjust the resolution and turn the equation into a PNG:<br /><pre class="brush: shell; toolbar: false">convert -trim +repage -density 150 eq.pdf eq.png<br /></pre>The <code>density</code> is what controls the resolution of the output. At this point, the equation looks like this:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-L2ibQN1ugEc/TiEkjF7pUII/AAAAAAAAACw/f_ZF98jQ09Y/s1600/foo.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-L2ibQN1ugEc/TiEkjF7pUII/AAAAAAAAACw/f_ZF98jQ09Y/s1600/foo.png" /></a></div><br />Simple! Now, the last problem is the Blogger template I'm using puts a drop-shadow around images by default. You have to remove that in order to make it look like the equations actually belong in the blog. The actual code that needs to be removed from the Blogger HTML design varies depending on which template you're using, but I removed the HIGHLIGHTED LINES ONLY for the best results:<br /><script src="https://gist.github.com/whitead/17ab335e0eabf8f500c2.js"></script><br />Finally, to put it all together, I created this bash script which takes in a file which should have equations listed with one on each line and converts them into PNGs labeled 1.png, 2.png, etc. Good for quick equations, but it won't work with multiple line equations.<br /><script src="https://gist.github.com/whitead/8b62b9996ae6c173669e.js"></script>
+</div>
+      </div>
+    </div>
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

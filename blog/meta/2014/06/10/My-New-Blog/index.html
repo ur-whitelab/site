@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My New Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/meta/2014/06/10/My-New-Blog/">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>My New Blog</h1>
+      
+      <h4> I switched from blogspot to have more flexibility. This page demonstrates some features </h4>
+      
+      <p class="text-muted">Jun 10, 2014</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<p>My new blog platform is a static <a href="http://jekyllrb.com">jekyll</a> blog
+with <a href="http://getbootstrap.com">bootstrap</a> for the styling. This solves a
+huge headache of mine, which was syntax highlighting and equations. I
+now write my posts in markdown and LaTeX, which will make me post so
+much more. You can make your own blog like this at my repo:
+<a href="http://github.com/whitead/SM-Blog">github.com/whitead/SM-Blog</a>. Here’s
+a few features from the blog:</p>
+
+<h2 id="image-management">Image Management</h2>
+
+<p>Simply add <code class="highlighter-rouge">{% post_image spr.jpg %}</code> to add an image</p>
+
+<p><a href="/Blog/assets/img/My-New-Blog/spr.jpg" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/My-New-Blog/spr_preview.jpg" alt="" /></a></p>
+
+<!-- more -->
+
+<h2 id="syntax-highlighting">Syntax Highlighting</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Andrew'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Andrew' to STDOUT.</span></code></pre></figure>
+
+<h2 id="equations">Equations</h2>
+
+<p>Here is an equation displayed using <a href="http://mathjax.org">Mathjax</a>:</p>
+
+<div>
+    \[
+        (Ax - 2)^2 \alpha \chi
+    \]
+</div>
+
+<h2 id="chart">Chart</h2>
+
+<p>Now here is a chart made using <a href="http://d3.org">D3</a>, the data-diven document model.</p>
+
+<div class="chart">
+
+</div>
+
+<h2 id="in-text-citations">In text citations</h2>
+
+<p>Ruby was written by <a class="citation" href="#ruby">(Flanagan &amp; Matsumoto, 2008)</a></p>
+
+<ol class="bibliography"><li><div class="bib"><span id="ruby">Flanagan, D., &amp; Matsumoto, Y. (2008). <i>The Ruby Programming Language</i>. O’Reilly Media.</span></div>
+</li></ol>
+
+<style>
+
+.chart div {
+       font: 10px;
+       background-color: steelblue;
+       text-align: right;
+       padding: 3px;
+       margin: 1px;
+       color: white;
+
+}
+
+</style>
+
+<script type="text/javascript">
+
+var data = [4,8,15,16,23,42]
+
+d3.select(".chart")
+	.selectAll("div")
+	.data(data)
+	.enter().append("div")
+	.style("width", function(d) {return d * 10 + "px"; })
+	.text(function(d) {return d; });
+</script>
+
+
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="disqus col-md-8 col-md-offset-2">
+	    <div id="disqus_thread"></div>
+	    <script type="text/javascript">
+              var disqus_shortname = 'crowsandcats'; 
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+	    </script>
+	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+      </div>
+    </div>    
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

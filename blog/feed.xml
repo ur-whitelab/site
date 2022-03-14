@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A Blog</title>
+    <description>Interesting thoughts and tutorials from the White Lab at the University of Rochester.</description>
+    <link>http://thewhitelab.org/Blog/</link>
+    <atom:link href="http://thewhitelab.org/Blog/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>VMD render preferences</title>
+        <description>&lt;p&gt;Here are some notes on my preferences for rendering with VMD’s
+tachyon. For example, this comparison of some proteins was made with the Space Filling method below:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/vmd-render-preferences/sars2cov.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/vmd-render-preferences/sars2cov_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;space-filling-good-for-proteins&quot;&gt;Space Filling (good for proteins)&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Choose VDW Drawing Method with AOChalky as the material (Graphics-&amp;gt;Representation…).&lt;/li&gt;
+  &lt;li&gt;Turn ofo axes (Display-&amp;gt;Axes-&amp;gt;off)&lt;/li&gt;
+  &lt;li&gt;Enable shadows and ambient occlusion (Display-&amp;gt;Display Settings…)&lt;/li&gt;
+  &lt;li&gt;Make carbon gray (Graphics-&amp;gt;Colors). Choose name “C” and change it to gray.&lt;/li&gt;
+  &lt;li&gt;(Optional) Change background to white (in colors, Display-&amp;gt;Background)&lt;/li&gt;
+  &lt;li&gt;Render (File-&amp;gt;Render…) and choose Tachyon as the rendering engine. See &lt;a href=&quot;/Blog/2013/04/changing-image-size-in-tachyon-in-vmd.html&quot;&gt;how to change image size&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;(Optional) The default colors in VMD are over-saturated. You can open with Gimp and choose Colors-&amp;gt;Saturation… Turn it down to about 0.8&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/vmd-render-preferences/protein.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/vmd-render-preferences/protein_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;cartoon-style-good-for-organic-molecules&quot;&gt;Cartoon Style (good for organic molecules)&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Choose CPK Drawing Method with AOEdgy as the material (Graphics-&amp;gt;Representation…).&lt;/li&gt;
+  &lt;li&gt;Increase bond radius to 0.5&lt;/li&gt;
+  &lt;li&gt;Turn of axes (Display-&amp;gt;Axes-&amp;gt;off)&lt;/li&gt;
+  &lt;li&gt;Enable shadows and ambient occlusion (Display-&amp;gt;Display Settings…)&lt;/li&gt;
+  &lt;li&gt;Make carbon gray (Graphics-&amp;gt;Colors). Choose name “C” and change it to gray.&lt;/li&gt;
+  &lt;li&gt;Modify material (Graphics-&amp;gt;Materials). Change Specular to 0, Shininess to 0.2, Outline to 3.0, OutlineWidth to 0.75&lt;/li&gt;
+  &lt;li&gt;(Optional) Change background to white (in colors, Display-&amp;gt;Background)&lt;/li&gt;
+  &lt;li&gt;Render (File-&amp;gt;Render…) and choose Tachyon as the rendering engine. See &lt;a href=&quot;/Blog/2013/04/changing-image-size-in-tachyon-in-vmd.html&quot;&gt;how to change image size&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;(Optional) The default colors in VMD are over-saturated. You can open with Gimp and choose Colors-&amp;gt;Saturation… Turn it down to about 0.8&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/vmd-render-preferences/salt.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/vmd-render-preferences/salt_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Mar 2020 00:00:00 -0600</pubDate>
+        <link>http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-render-preferences/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-render-preferences/</guid>
+      </item>
+    
+      <item>
+        <title>VMD movie script</title>
+        <description>&lt;p&gt;Here are two example scripts for making movies in VMD. The first
+is shown below and the other controls the camera to follow an interesting
+part of the simulation.&lt;/p&gt;
+
+&lt;video width=&quot;320&quot; height=&quot;240&quot; autoplay=&quot;&quot; loop=&quot;&quot;&gt;
+  &lt;source src=&quot;/Blog/assets/vmd-movie-scripts/ff-small.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+&lt;/video&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;rotate-and-change-representation&quot;&gt;Rotate and Change Representation&lt;/h2&gt;
+
+&lt;p&gt;This script makes a movie of the molecule rotating and stops
+halfway to change the representation. Most of the script is set-up.
+The loop to make the movie starts on line 75.&lt;/p&gt;
+
+&lt;style&gt;
+    .gistcontainer {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.gistcontainer:target .show {display:none;}
+.gistcontainer:target {max-height:none;}
+&lt;/style&gt;
+
+&lt;div class=&quot;gistcontainer&quot; id=&quot;gist1&quot;&gt;
+  &lt;a href=&quot;#gist1&quot; class=&quot;show&quot;&gt;&lt;button&gt;Expand Script&lt;/button&gt;&lt;/a&gt;
+  &lt;script src=&quot;https://gist.github.com/whitead/512773c4185ab3db48e854c21651165d.js&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;video width=&quot;800&quot; height=&quot;600&quot; loop=&quot;&quot; controls=&quot;&quot;&gt;
+  &lt;source src=&quot;/Blog/assets/vmd-movie-scripts/ff.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+&lt;/video&gt;
+
+&lt;h2 id=&quot;complex-camera-movement&quot;&gt;Complex Camera Movement&lt;/h2&gt;
+
+&lt;p&gt;This script follows a list of key-points with the camera given by an external file (called &lt;code class=&quot;highlighter-rouge&quot;&gt;hindices.txt&lt;/code&gt;).
+In the example, the camera is following the positive charge site of a hydronium ion from an ab initio molecular
+dynamics simulation. The simulation is from White et al.&lt;a class=&quot;citation&quot; href=&quot;#White2017&quot;&gt;(White et al., 2017)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;style&gt;
+    .gistcontainer {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.gistcontainer:target .show {display:none;}
+.gistcontainer:target {max-height:none;}
+&lt;/style&gt;
+
+&lt;div class=&quot;gistcontainer&quot; id=&quot;gist2&quot;&gt;
+  &lt;a href=&quot;#gist2&quot; class=&quot;show&quot;&gt;&lt;button&gt;Expand Script&lt;/button&gt;&lt;/a&gt;
+&lt;script src=&quot;https://gist.github.com/whitead/81b8cdea8b2ca03f9ca833bfa3124744.js&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/7de68dos3qY&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;converting-frames-into-a-movie&quot;&gt;Converting frames into a movie&lt;/h2&gt;
+
+&lt;p&gt;Here’s how you actually convert the images coming from VMD and these scripts into a movie using the &lt;code class=&quot;highlighter-rouge&quot;&gt;ffmpeg&lt;/code&gt; program. Make sure you
+set your render size to match the movie size (there is a line in the scripts for this).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg &lt;span class=&quot;nt&quot;&gt;-framerate&lt;/span&gt; 60 &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; image2 &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; animate.%04d.dat.tga &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;:v h264 &lt;span class=&quot;nt&quot;&gt;-crf&lt;/span&gt; 5 &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;:v libx264 &lt;span class=&quot;nt&quot;&gt;-movflags&lt;/span&gt; +faststart &lt;span class=&quot;nt&quot;&gt;-vf&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;800:600,format&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;yuv420p out.mp4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;White2017&quot;&gt;White, A. D., Knight, C., Hocky, G. M., &amp;amp; Voth, G. A. (2017). Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. &lt;i&gt;Journal of Chemical Physics&lt;/i&gt;, &lt;i&gt;146&lt;/i&gt;(4). https://doi.org/10.1063/1.4974837&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 08 Mar 2020 00:00:00 -0600</pubDate>
+        <link>http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-movie-scripts/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-movie-scripts/</guid>
+      </item>
+    
+      <item>
+        <title>EDS Lammps Coordination Number</title>
+        <description>&lt;p&gt;This tutorial will show you how to reproduce the method in the recent
+White et al. water AIMD paper &lt;a class=&quot;citation&quot; href=&quot;#White2017&quot;&gt;(White et al., 2017)&lt;/a&gt;. The
+goal of the method is to minimally bias a water simulation to match a
+reference RDF. We will first convert a reference RDF into a set of
+reference scalar coordination number moments. Then, an NVT simulation
+is run to find a minimal bias which causes the coordination numbers to
+match their reference values. It won’t be covered here, but the bias
+can then be used to run NVE simulations or in conjunction with other
+free-energy methods. This tutorial will use classical simulations in
+Lammps instead of AIMD in CP2K so that results can be obtained in a
+reasonable amount of time.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
+
+&lt;p&gt;This tutorial utilizes Docker to run simulations and perform
+analysis. The only tools you’ll need are the Docker package (called
+docker.io on Ubuntu). Docker is available on both Windows and
+Linux. Git is also used for version control, but if you’d prefer not
+to install it you can download the tutorial files by navigating to
+&lt;a href=&quot;https://github.com/ur-whitelab/tutorials&quot;&gt;github.com/ur-whitelab/tutorials&lt;/a&gt;
+and downloading a zip file.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-up&quot;&gt;Setting up&lt;/h2&gt;
+
+&lt;p&gt;First get the Docker image to obtain required for this tutorial:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker pull whitelab/tutorial-lammps-cn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now let’s get the files for the tutorial. I will use [tutor-dir] to
+indicate the root directory which you’re using for this tutorial.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/ur-whitelab/tutorials &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tutor-dir]
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tutor-dir]/eds-coordination-tutorial
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In general, you run commands using the Docker container like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tutor-dir]:/home/whitelab/scratch whitelab/tutorial-lammps-cn &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I will use &lt;code class=&quot;highlighter-rouge&quot;&gt;pwd&lt;/code&gt; as a shortcut for &lt;code class=&quot;highlighter-rouge&quot;&gt;[tutor-dir]&lt;/code&gt;. Note this will not
+work on Windows, where you’ll need to put your complete path in
+Windows path notation.&lt;/p&gt;
+
+&lt;h2 id=&quot;unbiased-simulation&quot;&gt;Unbiased Simulation&lt;/h2&gt;
+
+&lt;p&gt;Let’s start by seeing what our unbiased overstructured water
+simulation looks like. Our classic molecular dynamics water model
+mimics the overstructuring of DFT 300K water. Begin the simulation
+using this command &lt;code class=&quot;highlighter-rouge&quot;&gt;lammps -var name unbiased -in lammps.in&lt;/code&gt; with the
+Docker container. This runs an NVT simulation with the name
+‘Unbiased’. The complete command with the docker container preamble is:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn lammps &lt;span class=&quot;nt&quot;&gt;-var&lt;/span&gt; name unbiased &lt;span class=&quot;nt&quot;&gt;-in&lt;/span&gt; lammps.in
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will take a little while and generate a few files with the label
+‘unbiased’. To analyze them, we can use the included &lt;code class=&quot;highlighter-rouge&quot;&gt;python3&lt;/code&gt; script
+with &lt;code class=&quot;highlighter-rouge&quot;&gt;python3 analyze_run.py unbiased&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You should see a few images showing the evolution of the coordination
+number of water oxygen with water oxygen along with an average radial
+distribution function (RDF) and temperature for the simulation. Radial
+distribution functions (RDFs) are (transformed) probability
+distributions. Here’s the RDF:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, the unbiased simulation has a significantly higher
+first-peak and general overstructuring relative to the experimental
+RDF.&lt;/p&gt;
+
+&lt;h2 id=&quot;converting-rdf-to-coordination-number-scalars&quot;&gt;Converting RDF to Coordination Number Scalars&lt;/h2&gt;
+
+&lt;p&gt;To fix this overstructuring, we will now bias the experiment directed
+simulation (EDS) method (missing reference). The minimal
+biasing EDS method can only bias scalars (missing reference), not distributions. There is a method for minimal biasing of
+probability distirbutions like RDFs, but it is generally too slow to
+converge for use on AIMD &lt;a class=&quot;citation&quot; href=&quot;#White2015&quot;&gt;(White et al., 2015)&lt;/a&gt;, so we will
+skip it for this tutorial. Thus the first step is to convert the RDF
+into scalars so that EDS can be used. The implementation of EDS is in
+Plumed2,&lt;a class=&quot;citation&quot; href=&quot;#PLUMED&quot;&gt;(Bonomi et al., 2009)&lt;/a&gt; which is a free-energy methods library
+with integration in many common simulation engines.&lt;/p&gt;
+
+&lt;p&gt;The chosen scalars are coordination number and moments of it. See
+&lt;a href=&quot;/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/&quot;&gt;this post&lt;/a&gt; for a
+description of the parameters involved and how to choose them. After
+the coordination number parameters are chosen (&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt; and
+&lt;script type=&quot;math/tex&quot;&gt;r_0&lt;/script&gt;), the reference RDF can be used to generate the reference
+coordination number averages. This is done using this python &lt;a href=&quot;https://gist.github.com/whitead/ba45b7aff24bf353ae93a96dfc3855d2&quot;&gt;this
+script&lt;/a&gt;,
+which is included in the tutorial files.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Let’s convert the reference RDF then into the scalar coordination
+numbers. This RDF is of water at 300K as determined by X-ray
+scattering &lt;a class=&quot;citation&quot; href=&quot;#Skinner2013&quot;&gt;(Skinner et al., 2013)&lt;/a&gt;. We follow the parameters from the
+White et al. 2017 AIMD water paper &lt;a class=&quot;citation&quot; href=&quot;#White2017&quot;&gt;(White et al., 2017)&lt;/a&gt;
+for the &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;r_0&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;, and the cutoff, but we must
+calculate the exact density for our system. Our simulation is 128
+water molecules in a box of size 15.6629 Å. Due to how RDFs is connected
+to coordination number, the density is &lt;script type=&quot;math/tex&quot;&gt;N - 1 / d^3&lt;/script&gt;. Thus our
+density is 0.0333 Å &lt;script type=&quot;math/tex&quot;&gt;^3&lt;/script&gt;.Run for each moment as shown below:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py &lt;span class=&quot;nt&quot;&gt;-moment&lt;/span&gt; 0 &lt;span class=&quot;nt&quot;&gt;-r0&lt;/span&gt; 2.3 &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 6 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; 12 &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0.7 &lt;span class=&quot;nt&quot;&gt;-rmax&lt;/span&gt; 7.0 reference.rdf aimd 0.0333
+
+docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py &lt;span class=&quot;nt&quot;&gt;-moment&lt;/span&gt; 1 &lt;span class=&quot;nt&quot;&gt;-r0&lt;/span&gt; 2.3 &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 6 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; 12 &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0.7 &lt;span class=&quot;nt&quot;&gt;-rmax&lt;/span&gt; 7.0 reference.rdf aimd 0.0333
+
+docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py &lt;span class=&quot;nt&quot;&gt;-moment&lt;/span&gt; 2 &lt;span class=&quot;nt&quot;&gt;-r0&lt;/span&gt; 2.3 &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 6 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; 12 &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0.7 &lt;span class=&quot;nt&quot;&gt;-rmax&lt;/span&gt; 7.0 reference.rdf aimd 0.0333
+
+docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py &lt;span class=&quot;nt&quot;&gt;-moment&lt;/span&gt; 3 &lt;span class=&quot;nt&quot;&gt;-r0&lt;/span&gt; 2.3 &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 6 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; 12 &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0.7 &lt;span class=&quot;nt&quot;&gt;-rmax&lt;/span&gt; 7.0 reference.rdf aimd 0.0333
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;this will output the following information about the RDF:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;r0 = 2.3, n = 6.0, m = 12.0, w = 0.7, Exact: 0.4297167332248187, Approximate: 2.9893015681855717
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;with a possible warning about the truncation error. We can run this
+with different values for moment to get the higher coordination number
+moments as well. The approximate coordination numbers are the ones we
+will use for biasing. For a description on the difference between the
+exact and approximate, see &lt;a href=&quot;/Blog/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/&quot;&gt;this post&lt;/a&gt;. The final
+values are&lt;/p&gt;
+
+&lt;table class=&quot;table table-striped table-responsive&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; Moment &lt;/th&gt;
+      &lt;th&gt; Set-Point &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;2.99&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;8.45&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;24.16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;69.60&lt;/td&gt;
+    &lt;/tr&gt;
+
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; these particular values are set in a file called
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;set_points.txt&lt;/code&gt; for generating the plots. If you experiment with
+ different parameters/cutoffs, be sure to change the values in the file so that
+ your plots correctly show them.&lt;/p&gt;
+
+&lt;h2 id=&quot;biasing-water-simulation&quot;&gt;Biasing Water Simulation&lt;/h2&gt;
+
+&lt;p&gt;The next step is to now bias the water simulation. We don’t need to
+modify the basic simulation, but we’ll add some items to our plumed
+input file. Let’s start by defining the coordination number
+moments. Open the &lt;code class=&quot;highlighter-rouge&quot;&gt;biased.plumed&lt;/code&gt; file and you should see:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UNITS LENGTH=A ENERGY=kcal/mol TIME=fs
+oxygen: GROUP ATOMS=1-384:3
+cn0: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} MEAN
+cn1: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=1 MEAN
+cn2: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=2 MEAN
+cn3: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=3 MEAN
+eds: EDS ARG=cn0.mean PERIOD=250 CENTER=2.99 OUT_RESTART=biased_eds.restart TEMP=300
+PRINT ARG=cn0.mean,cn1.mean,cn2.mean,cn3.mean STRIDE=50 FILE=biased_cn.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The first line sets the units to match the units in the reference
+RDF. The next line creates a group for the oxygen atoms. The
+parameters for the coordination number are set to match we used for
+the &lt;code class=&quot;highlighter-rouge&quot;&gt;convert_gr.py&lt;/code&gt; script. The &lt;code class=&quot;highlighter-rouge&quot;&gt;R_POWER&lt;/code&gt; parameter is the moment,
+&lt;code class=&quot;highlighter-rouge&quot;&gt;D_MAX&lt;/code&gt; is the &lt;code class=&quot;highlighter-rouge&quot;&gt;rmax&lt;/code&gt; (cutoff), &lt;code class=&quot;highlighter-rouge&quot;&gt;D_0&lt;/code&gt; is the &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt; parameter and the
+others are named the same. We use the &lt;code class=&quot;highlighter-rouge&quot;&gt;NOSTRETCH&lt;/code&gt; keyword to ensure
+our function computed on the RDF matches identically what is from
+plumed. Notice as well that we use &lt;code class=&quot;highlighter-rouge&quot;&gt;MEAN&lt;/code&gt;, so that we are looking at
+the average coordination number moment. There is no biasing
+information yet.&lt;/p&gt;
+
+&lt;p&gt;Now we add the biasing information. Copy the file/rename it to be
+&lt;code class=&quot;highlighter-rouge&quot;&gt;biased-1.plumed&lt;/code&gt;. Add the line below starts with “&lt;code class=&quot;highlighter-rouge&quot;&gt;eds:&lt;/code&gt;” :&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UNITS LENGTH=A ENERGY=kcal/mol TIME=fs
+oxygen: GROUP ATOMS=1-384:3
+cn0: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} MEAN
+cn1: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=1 MEAN
+cn2: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=2 MEAN
+cn3: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=3 MEAN
+eds: EDS ARG=cn0.mean PERIOD=250 CENTER=2.99 OUT_RESTART=biased_eds.restart TEMP=300
+PRINT ARG=cn0.mean,cn1.mean,cn2.mean,cn3.mean STRIDE=50 FILE=biased_cn.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We’re only biasing the coordination number (0th moment) with this
+one. Remember to rename this file to be &lt;code class=&quot;highlighter-rouge&quot;&gt;biased-1.plumed&lt;/code&gt;. Our period
+was selected to be 250 timesteps (125 fs), which gives the simulation
+sometime to adjust to changes to the bias.&lt;/p&gt;
+
+&lt;p&gt;Now are ready to start the simulation. Begin it with:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn lammps &lt;span class=&quot;nt&quot;&gt;-var&lt;/span&gt; name biased-1 &lt;span class=&quot;nt&quot;&gt;-in&lt;/span&gt; lammps.in
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;analysis-of-eds-simulation&quot;&gt;Analysis of EDS simulation&lt;/h3&gt;
+
+&lt;p&gt;Now we need to check the convergence to ensure that the coordination
+number matched our set-point. Again, run the analysis script:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased biased-1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;One of the plots, &lt;code class=&quot;highlighter-rouge&quot;&gt;cn_comparison.png&lt;/code&gt;, shows the trace of the
+coordination number over the simulation. As you can see, the biased
+line converges to the set-point. The plot is shown below:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Each of the subplots is one of the coordination number moments. They
+are scaled to their set-points, so that the y-axes are similar. We can
+now see the effect of biasing more moments. The RDF after biasing with
+improvement is shown below&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;changing-the-number-of-moments&quot;&gt;Changing the number of moments&lt;/h3&gt;
+
+&lt;p&gt;Using the the same starting file, add another set-point
+moments. Again, copy the &lt;code class=&quot;highlighter-rouge&quot;&gt;biased.plumed&lt;/code&gt; file to make a
+&lt;code class=&quot;highlighter-rouge&quot;&gt;biased-2.plumed&lt;/code&gt; file with the EDS information. Now add another entry to the &lt;code class=&quot;highlighter-rouge&quot;&gt;ARG&lt;/code&gt; on the &lt;code class=&quot;highlighter-rouge&quot;&gt;eds:&lt;/code&gt; line.
+The entry is &lt;code class=&quot;highlighter-rouge&quot;&gt;cn1.mean&lt;/code&gt;, so that you’ll now have &lt;code class=&quot;highlighter-rouge&quot;&gt;ARG=cn0.mean,cn1.mean&lt;/code&gt;. Run the simulation
+and analyze the results&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn lammps &lt;span class=&quot;nt&quot;&gt;-var&lt;/span&gt; name biased-2 &lt;span class=&quot;nt&quot;&gt;-in&lt;/span&gt; lammps.in
+docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased biased-1 biased-2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The additional moment provides, arguably, a little improvement but not
+as much as going from no bias to one moment. This is because the
+moments are correlated and there are diminishing returns to adding
+more bias. You can try adding more to see this effect (make sure to
+extend the simulation time).&lt;/p&gt;
+
+&lt;p&gt;You can get some insight into the algorithm from the diagnostic plot
+(&lt;code class=&quot;highlighter-rouge&quot;&gt;biases_comparison.png&lt;/code&gt;), which shows each the parameters used to
+calculate the EDS updates. This plot is shown below for 1,2 and 4
+moments.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;cleaning-up&quot;&gt;Cleaning up&lt;/h3&gt;
+
+&lt;p&gt;If you’d like to make the directory clean again to restart the
+tutorial, run &lt;code class=&quot;highlighter-rouge&quot;&gt;git clean -fX&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;White2017&quot;&gt;White, A. D., Knight, C., Hocky, G. M., &amp;amp; Voth, G. A. (2017). Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. &lt;i&gt;Journal of Chemical Physics&lt;/i&gt;, &lt;i&gt;146&lt;/i&gt;(4). https://doi.org/10.1063/1.4974837&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;White2015&quot;&gt;White, A., Dama, J., &amp;amp; Voth, G. A. (2015). Designing Free Energy Surfaces that Match Experimental Data with Metadynamics. &lt;i&gt;Journal of Chemical Theory and Computation&lt;/i&gt;, 150430155138001. https://doi.org/10.1021/acs.jctc.5b00178&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;PLUMED&quot;&gt;Bonomi, M., Branduardi, D., Bussi, G., Camilloni, C., Provasi, D., Raiteri, P., Donadio, D., Marinelli, F., Pietrucci, F., Broglia, R. A., &amp;amp; Parrinello, M. (2009). PLUMED: A portable plugin for free-energy calculations with molecular dynamics. &lt;i&gt;Computer Physics Communications&lt;/i&gt;, &lt;i&gt;180&lt;/i&gt;(10), 1961–1972. https://doi.org/10.1016/j.cpc.2009.05.011&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Skinner2013&quot;&gt;Skinner, L. B., Huang, C., Schlesinger, D., Pettersson, L. G. M., Nilsson, A., &amp;amp; Benmore, C. J. (2013). Benchmark oxygen-oxygen pair-distribution function of ambient water from x-ray diffraction measurements with a wide Q-range. &lt;i&gt;The Journal of Chemical Physics&lt;/i&gt;, &lt;i&gt;138&lt;/i&gt;(7), 074506. https://doi.org/10.1063/1.4790861&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Wed, 10 May 2017 00:00:00 -0500</pubDate>
+        <link>http://thewhitelab.org/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/</guid>
+      </item>
+    
+      <item>
+        <title>Peptide self-assembly of FF</title>
+        <description>&lt;p&gt;I’ve decided to start summarizing literature topics on areas I’m
+interested in on my blog. I’m starting with peptide self-assembly of
+diphenylalanine. This is a very incomplete survey of work on it.&lt;/p&gt;
+
+&lt;p&gt;One of the most common self-assembling motifs is diphenylalanine, or
+FF in the amino acid code alphabet. FF is the shortest self-assembling
+peptide sequence. It is stable up to 100&lt;span&gt;°&lt;/span&gt;C and
+150&lt;span&gt;°&lt;/span&gt;C with dry heating &lt;a class=&quot;citation&quot; href=&quot;#Saul2006FFTemperature&quot;&gt;(Sedman et al., 2006)&lt;/a&gt;, it has a Young’s modulous of 19 GPa (somewhere between human bone
+and concrete) &lt;a class=&quot;citation&quot; href=&quot;#Rousso2005FFStrength&quot;&gt;(Kol et al., 2005)&lt;/a&gt; and is stable in harsh
+solvents such as acetone and alcohol &lt;a class=&quot;citation&quot; href=&quot;#Gazit2006FFStability&quot;&gt;(Adler-Abramovich et al., 2006)&lt;/a&gt;. FF, or some variation of it, is thought to become an important
+building block in future biological applications &lt;a class=&quot;citation&quot; href=&quot;#li2010FFTutorial&quot;&gt;(Yan et al., 2010)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Here’s what FF looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Peptide-self-assembly-of-FF/FF.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Peptide-self-assembly-of-FF/FF_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Görbitz was the first to characterize the self-assembling motif &lt;a class=&quot;citation&quot; href=&quot;#Goerbitz2001FirstFF&quot;&gt;(Görbitz, 2001)&lt;/a&gt;. Interestingly, it is related to the
+beta-amyloid self-assembling proteins that are implicated in
+Alzheimer’s disease &lt;a class=&quot;citation&quot; href=&quot;#Gaizt2003FFAlzheimersNanowire&quot;&gt;(Reches &amp;amp; Gazit, 2003)&lt;/a&gt;. FF can
+form different structures including vesicles, nanotubes/nanowires,
+fibrils, and ribbons depending on solvent and concentration&lt;a class=&quot;citation&quot; href=&quot;#Wei2012FFStructers&quot;&gt;(Guo et al., 2012; Reches &amp;amp; Gazit, 2003)&lt;/a&gt;.  These component
+structures can be combined into larger hydrogels, an important
+material for tissue engineering &lt;a class=&quot;citation&quot; href=&quot;#Gazit2006FFHydrogel&quot;&gt;(Mahler et al., 2006)&lt;/a&gt;. One
+variation of FF peptides, QQKFQFQFEQQ, has been used to great
+success by Joel Collier at UChicago for designing materials for
+vaccines &lt;a class=&quot;citation&quot; href=&quot;#Collier2012FFVaccine&quot;&gt;(Rudra et al., 2012)&lt;/a&gt;. Zhou &lt;em&gt;et al.&lt;/em&gt; created
+hydrogels as tissue scaffolding by using FF with an RGD group, a cell
+bindinig epitope &lt;a class=&quot;citation&quot; href=&quot;#Zhou2009RGDFF&quot;&gt;(Zhou et al., 2009)&lt;/a&gt;. What’s fascinating is that
+this experimental study and some others use Fmoc-FF instead of just
+FF, which means they leave the N-terminus protected after synthesis
+with an Fmoc group. Fmoc, short for Fluorenylmethyloxycarbonyl
+chloride, is a three-ringed ester group and has much stronger
+π-π interactions than FF alone. You have to be careful not to
+confuse such Fmoc work with modeling work, since no one models the
+Fmoc group that I know of.&lt;/p&gt;
+
+&lt;h2 id=&quot;peptide-inorganic-hybrid-materials&quot;&gt;Peptide-Inorganic Hybrid Materials&lt;/h2&gt;
+
+&lt;p&gt;FF has also been combined with inorganic compounds to form some very
+interesting materials. Ryu &lt;em&gt;et al.&lt;/em&gt; created photoluminescent
+nanotubes by combining FF with terbuium and europium, two lanthanide
+ions &lt;a class=&quot;citation&quot; href=&quot;#Ryu2009&quot;&gt;(Ryu et al., 2009)&lt;/a&gt;. One of the first papers on non-biological
+applications was casting the self-assembled structures into silver
+nanowires &lt;a class=&quot;citation&quot; href=&quot;#Reches2003&quot;&gt;(Reches &amp;amp; Gazit, 2003)&lt;/a&gt;. You can also print self-assembled
+peptides from an inkjet printer onto surfaces, although I’m a little
+unsure on what the purpose is &lt;a class=&quot;citation&quot; href=&quot;#AdlerAbramovich2008&quot;&gt;(Adler‐Abramovich &amp;amp; Gazit, 2008)&lt;/a&gt;. There is
+lots of work in encapsulation applications, where for example a drug
+is encapsulated in a hydrogel (with a cross-linking compound) and
+slowly released. Newer work is in combining self-assembling peptides
+with conducting polymers, another fascinating application &lt;a class=&quot;citation&quot; href=&quot;#Goldshtein2012&quot;&gt;(Goldshtein et al., 2012)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;modeling-work&quot;&gt;Modeling Work&lt;/h2&gt;
+
+&lt;p&gt;Molecule modeling of FF is challenging because the self-assembly
+process involves many rare events (binding of peptides) and a large
+length scale, two of the most difficult challenges in molecular
+modeling. One approach is to use simplified, or coarse-grained
+models. One example of coarse-graining is relative entropy matching,
+pioneered by M Scott Shell at UC Berkely. Joohyun, a student of his,
+studied the system in 2013 with this coarse-graining technique to see
+if there are differences between zwitterionic and neutral FF
+self-assembling peptides &lt;a class=&quot;citation&quot; href=&quot;#Shell2013CGModel&quot;&gt;(Jeon et al., 2013)&lt;/a&gt;. Using the
+coarse-graining technique they were able to simulate up to 168
+peptides at an effective concentration of 151 mg/ml. The authors of
+found that hydrophobic clustering played a more important role than
+charges or even &lt;span&gt; π-π &lt;/span&gt; ring-stacking which has been
+hypothesized to be important for forming oligmers. In the crystal
+structure they simulated, derived from NMR data, they did find some
+salt bridge contacts in the zwitterionic case.&lt;/p&gt;
+
+&lt;p&gt;Brute-force computation is another approach. Tamamis &lt;em&gt;et al.&lt;/em&gt; studied
+self-assembling FF &lt;a class=&quot;citation&quot; href=&quot;#Archontis2009AAFFMD&quot;&gt;(Tamamis et al., 2009)&lt;/a&gt; with 12 or 8
+peptides in their simulation. They observed ring-like structures
+forming between FF N- and C-termini, indicating strong salt bridging
+relative to hydrophobic interactions. It is unclear if the rings are
+actually precursor oligmers in the self-assembly process or due to an
+over-estimation of salt-bridges due to the implicit solvent model
+Tamamis &lt;em&gt;et al.&lt;/em&gt; used (GBSW). Joohyun &lt;em&gt;et al.&lt;/em&gt; noted their her work that
+the implicit solvent simulations (GBSA) produced invalid oligmer
+structures &lt;a class=&quot;citation&quot; href=&quot;#Shell2013CGModel&quot;&gt;(Jeon et al., 2013)&lt;/a&gt;, although they found no
+attraction between peptides, not over-attractive rings.&lt;/p&gt;
+
+&lt;p&gt;I read some about non-linear embedding or mannifold learning
+techniques from Andrew Ferguson, who is relatively new to the field
+and from University of Illinois at Urbana-Champaign. I’m interested to
+see if he applies these techniques to peptide self-assembly. Andrew,
+who worked with Pablo Debenedetti at Princeton, uses mannifold
+learning techniques to reduce the degrees of freedom in these
+self-assembling systems &lt;a class=&quot;citation&quot; href=&quot;#Ferguson2014ColloidAssembly&quot;&gt;(Long &amp;amp; Ferguson, 2014)&lt;/a&gt;. I
+haven’t seen any results for peptide systems from him yet, but I’m
+looking forward to it.&lt;/p&gt;
+
+&lt;h1 id=&quot;cited-references&quot;&gt;Cited References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Saul2006FFTemperature&quot;&gt;Sedman, V. L., Adler-Abramovich, L., Allen, S., Gazit, E., &amp;amp; Tendler, S. J. B. (2006). Direct Observation of the Release of Phenylalanine from Diphenylalanine Nanotubes. &lt;i&gt;J. Am. Chem. Soc.&lt;/i&gt;, &lt;i&gt;128&lt;/i&gt;(21), 6903–6908. https://doi.org/10.1021/ja060358g&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Rousso2005FFStrength&quot;&gt;Kol, N., Adler-Abramovich, L., Barlam, D., Shneck, R. Z., Gazit, E., &amp;amp; Rousso, I. (2005). Self-Assembled Peptide Nanotubes Are Uniquely Rigid Bioinspired Supramolecular Structures. &lt;i&gt;Nano Lett.&lt;/i&gt;, &lt;i&gt;5&lt;/i&gt;(7), 1343–1346. https://doi.org/10.1021/nl0505896&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Gazit2006FFStability&quot;&gt;Adler-Abramovich, L., Reches, M., Sedman, V. L., Allen, S., Tendler, S. J. B., &amp;amp; Gazit, E. (2006). Thermal and Chemical Stability of Diphenylalanine Peptide Nanotubes:  Implications for Nanotechnological Applications. &lt;i&gt;Langmuir&lt;/i&gt;, &lt;i&gt;22&lt;/i&gt;(3), 1313–1320. https://doi.org/10.1021/la052409d&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;li2010FFTutorial&quot;&gt;Yan, X., Zhu, P., &amp;amp; Li, J. (2010). Self-assembly and application of diphenylalanine-based nanostructures. &lt;i&gt;Chem. Soc. Rev.&lt;/i&gt;, &lt;i&gt;39&lt;/i&gt;(6), 1877–1890. https://doi.org/10.1039/b915765b&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Goerbitz2001FirstFF&quot;&gt;Görbitz, C. H. (2001). Nanotube Formation by Hydrophobic Dipeptides. &lt;i&gt;Chem. Eur. J.&lt;/i&gt;, &lt;i&gt;7&lt;/i&gt;(23), 5153–5159. https://doi.org/10.1002/1521-3765(20011203)7:23%3C5153::aid-chem5153%3E3.0.co;2-n&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Gaizt2003FFAlzheimersNanowire&quot;&gt;Reches, M., &amp;amp; Gazit, E. (2003). Casting Metal Nanowires Within Discrete Self-Assembled Peptide Nanotubes. &lt;i&gt;Science&lt;/i&gt;, &lt;i&gt;300&lt;/i&gt;(5619), 625–627. https://doi.org/10.1126/science.1082387&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Wei2012FFStructers&quot;&gt;Guo, C., Luo, Y., Zhou, R., &amp;amp; Wei, G. (2012). Probing the Self-Assembly Mechanism of Diphenylalanine-Based Peptide Nanovesicles and Nanotubes. &lt;i&gt;ACS Nano&lt;/i&gt;, &lt;i&gt;6&lt;/i&gt;(5), 3907–3918. https://doi.org/10.1021/nn300015g&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Gazit2006FFHydrogel&quot;&gt;Mahler, A., Reches, M., Rechter, M., Cohen, S., &amp;amp; Gazit, E. (2006). Rigid, Self-Assembled Hydrogel Composed of a Modified Aromatic Dipeptide. &lt;i&gt;Adv. Mater.&lt;/i&gt;, &lt;i&gt;18&lt;/i&gt;(11), 1365–1370. https://doi.org/10.1002/adma.200501765&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Collier2012FFVaccine&quot;&gt;Rudra, J. S., Sun, T., Bird, K. C., Daniels, M. D., Gasiorowski, J. Z., Chong, A. S., &amp;amp; Collier, J. H. (2012). Modulating Adaptive Immune Responses to Peptide Self-Assemblies. &lt;i&gt;ACS Nano&lt;/i&gt;, &lt;i&gt;6&lt;/i&gt;(2), 1557–1564. https://doi.org/10.1021/nn204530r&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Zhou2009RGDFF&quot;&gt;Zhou, M., Smith, A. M., Das, A. K., Hodson, N. W., Collins, R. F., Ulijn, R. V., &amp;amp; Gough, J. E. (2009). Self-assembled peptide-based hydrogels as scaffolds for anchorage-dependent cells . &lt;i&gt;Biomaterials &lt;/i&gt;, &lt;i&gt;30&lt;/i&gt;(13), 2523–2530. https://doi.org/http://dx.doi.org/10.1016/j.biomaterials.2009.01.010&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Ryu2009&quot;&gt;Ryu, J., Lim, S. Y., &amp;amp; Park, C. B. (2009). Photoluminescent Peptide Nanotubes. &lt;i&gt;Advanced Materials&lt;/i&gt;, &lt;i&gt;21&lt;/i&gt;(16), 1577–1581. https://doi.org/10.1002/adma.200802700&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Reches2003&quot;&gt;Reches, M., &amp;amp; Gazit, E. (2003). Casting metal nanowires within discrete self-assembled peptide nanotubes. &lt;i&gt;Science (New York, N.Y.)&lt;/i&gt;, &lt;i&gt;300&lt;/i&gt;(5619), 625–627. https://doi.org/10.1126/science.1082387&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;AdlerAbramovich2008&quot;&gt;Adler‐Abramovich, L., &amp;amp; Gazit, E. (2008). Controlled patterning of peptide nanotubes and nanospheres using inkjet printing technology. &lt;i&gt;Journal of Peptide Science&lt;/i&gt;, &lt;i&gt;November 2007&lt;/i&gt;, 217–223. https://doi.org/10.1002/psc&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Goldshtein2012&quot;&gt;Goldshtein, K., Golodnitsky, D., Peled, E., Adler-Abramovich, L., Gazit, E., Khatun, S., Stallworth, P., &amp;amp; Greenbaum, S. (2012). Effect of peptide nanotube filler on structural and ion-transport properties of solid polymer electrolytes. &lt;i&gt;Solid State Ionics&lt;/i&gt;, &lt;i&gt;220&lt;/i&gt;, 39–46. https://doi.org/10.1016/j.ssi.2012.05.028&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Shell2013CGModel&quot;&gt;Jeon, J., Mills, C. E., &amp;amp; Shell, M. S. (2013). Molecular Insights into Diphenylalanine Nanotube Assembly: All-Atom Simulations of Oligomerization. &lt;i&gt;The Journal of Physical Chemistry B&lt;/i&gt;, &lt;i&gt;117&lt;/i&gt;(15), 3935–3943. https://doi.org/10.1021/jp308280d&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Archontis2009AAFFMD&quot;&gt;Tamamis, P., Adler-Abramovich, L., Reches, M., Marshall, K., Sikorski, P., Serpell, L., Gazit, E., &amp;amp; Archontis, G. (2009). Self-Assembly of Phenylalanine Oligopeptides: Insights from Experiments and Simulations. &lt;i&gt;Biophysical Journal&lt;/i&gt;, &lt;i&gt;96&lt;/i&gt;(12), 5020–5029. https://doi.org/10.1016/j.bpj.2009.03.026&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Ferguson2014ColloidAssembly&quot;&gt;Long, A. W., &amp;amp; Ferguson, A. L. (2014). Nonlinear Machine Learning of Patchy Colloid Self-Assembly Pathways and Mechanisms. &lt;i&gt;The Journal of Physical Chemistry B&lt;/i&gt;, &lt;i&gt;118&lt;/i&gt;(15), 4228–4244. https://doi.org/10.1021/jp500350b&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 01 Jul 2014 12:24:23 -0500</pubDate>
+        <link>http://thewhitelab.org/Blog/peptide-assembly/2014/07/01/Peptide-self-assembly-of-FF/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/peptide-assembly/2014/07/01/Peptide-self-assembly-of-FF/</guid>
+      </item>
+    
+      <item>
+        <title>McGovern-de Pablo Boundary Corrected Hills</title>
+        <description>&lt;p&gt;Metadynamics is a way of overcoming energetic barriers in molecular
+simulation &lt;a class=&quot;citation&quot; href=&quot;#metadynamics&quot;&gt;(Laio &amp;amp; Parrinello, 2002)&lt;/a&gt;. It’s part of a class of algorithms
+that focus on making rare-events more frequent in simulations. It’s
+been getting quite popular: it even has it’s own &lt;a href=&quot;http://en.wikipedia.org/wiki/Metadynamics&quot;&gt;wikipedia
+page&lt;/a&gt;. One problem with the
+method is that it has systematic errors at boundaries and this was
+recently fixed via a method introduced by Michael McGovern and Juan de
+Pablo &lt;a class=&quot;citation&quot; href=&quot;#McGdP-Hills&quot;&gt;(McGovern &amp;amp; de Pablo, 2013)&lt;/a&gt;. I’m recording the equations here in,
+since I use an implementation of it and the derivatives weren’t shown
+in the manuscript, which are necessary for the implementation. &lt;!-- more --&gt;	Perhaps one of the handful of other people in the world that would care about
+this may stumble upon my blog one day. I should also say that the
+method has been very useful in my own research and I’m a big fan.&lt;/p&gt;
+
+&lt;p&gt;The equation for the bias added with the McGovern-de Pablo Hills is&lt;/p&gt;
+
+&lt;div style=&quot;display:none&quot;&gt;
+  \[
+       \newcommand{\erf}{\mathop{\rm erf}\nolimits}
+  \]
+&lt;/div&gt;
+
+&lt;div&gt;\[
+V(\vec{s}) = \frac{W e^{\sum_i^N\frac{-(x_i - s_i)^2}{2\sigma_i^2}}}{\prod_i^N C_i \left[\erf\left(\frac{s_i - L_i}{\sqrt{2}\sigma_i}\right) + \erf\left(\frac{U_i - s_i}{\sqrt{2}\sigma_i}\right)\right]}
+\]&lt;/div&gt;
+
+&lt;div&gt;\[
+C_i = \sqrt{\frac{\pi}{2}}\frac{\sigma_i}{U_i - L_i}
+\]&lt;/div&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;W&lt;/script&gt; is the hill height parameter, &lt;script type=&quot;math/tex&quot;&gt;s_i&lt;/script&gt; is the observed
+sample in the &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;th collective variable, &lt;script type=&quot;math/tex&quot;&gt;\sigma_i&lt;/script&gt; is collective
+variable width, &lt;script type=&quot;math/tex&quot;&gt;L_i&lt;/script&gt; is the lower boundary of the &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;th
+collective variable and &lt;script type=&quot;math/tex&quot;&gt;U_i&lt;/script&gt; is the upper boundary. We can break up the equation into component pieces like so&lt;/p&gt;
+
+&lt;div&gt;\[
+V(\vec{s}) = \frac{f(\vec{s})}{\prod_i^N g_i(\vec{s})}
+\]&lt;/div&gt;
+
+&lt;div&gt;\[
+f(\vec{s}) = W e^{\sum_i^N\frac{-(x_i - s_i)^2}{2\sigma_i^2}}
+\]&lt;/div&gt;
+
+&lt;div&gt;\[
+g_i(s_i) = C_i \left[\erf\left(\frac{s_i - L_i}{\sqrt{2}\sigma_i}\right) + \erf\left(\frac{U_i - s_i}{\sqrt{2}\sigma_i}\right)\right]
+\]&lt;/div&gt;
+
+&lt;p&gt;Finally, the derivative, which is not shown in the manuscript, is&lt;/p&gt;
+
+&lt;div&gt;\[
+\frac{\partial V(\vec{s})}{\partial s_j}  = \frac{\frac{\partial f(\vec{s})}{\partial s_j} - \frac{f(\vec{s})}{g_j(s_j)}\frac{\partial g_j(s_j)}{\partial s_j}}{\prod_i^N g(\vec{s})}
+\]&lt;/div&gt;
+
+&lt;div&gt;\[
+\frac{\partial f(\vec{s})}{\partial s_j} = -\frac{W(x_j - s_j)}{\sigma^2}e^{\sum_i \frac{-(x_i - s_i)^2}{2\sigma_i^2}}
+\]&lt;/div&gt;
+
+&lt;div&gt;
+\[
+\frac{\partial g_i(s_i)}{\partial s_i} = \frac{C_i}{2\sigma_i}\sqrt{\frac{2}{\pi}}\; \left[e^{-\frac{(s_i - L_i)^2}{2\sigma_i^2}} - e^{-\frac{(U_i - s_i)^2}{2\sigma_i^2}} \right]
+\]
+&lt;/div&gt;
+
+&lt;h1 id=&quot;cited-references&quot;&gt;Cited References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;metadynamics&quot;&gt;Laio, A., &amp;amp; Parrinello, M. (2002). Escaping free-energy minima. &lt;i&gt;Proceedings of the National Academy of Sciences of the United States of America&lt;/i&gt;, &lt;i&gt;99&lt;/i&gt;(20), 12562–12566. https://doi.org/10.1073/pnas.202427399&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;McGdP-Hills&quot;&gt;McGovern, M., &amp;amp; de Pablo, J. (2013). A boundary correction algorithm for metadynamics in multiple dimensions. &lt;i&gt;The Journal of Chemical Physics&lt;/i&gt;, &lt;i&gt;139&lt;/i&gt;(8), 084102. https://doi.org/10.1063/1.4818153&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 27 Jun 2014 04:00:00 -0500</pubDate>
+        <link>http://thewhitelab.org/Blog/molecular-dynamics/2014/06/27/McGovern-De-Pablo-Boundary-Corrected-Hills/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/molecular-dynamics/2014/06/27/McGovern-De-Pablo-Boundary-Corrected-Hills/</guid>
+      </item>
+    
+      <item>
+        <title>Nanoparticle Cathode Graphic</title>
+        <description>&lt;p&gt;I decided to make a graphic representing the materials described in
+Sun &lt;em&gt;et al.&lt;/em&gt; &lt;a class=&quot;citation&quot; href=&quot;#Sun2013Nanostructured&quot;&gt;(Sun et al., 2012)&lt;/a&gt; Nickel-rich transition
+metal nanoparticles, LiNi&lt;script type=&quot;math/tex&quot;&gt;_{1-x}&lt;/script&gt;M&lt;script type=&quot;math/tex&quot;&gt;_x&lt;/script&gt;O&lt;script type=&quot;math/tex&quot;&gt;_2&lt;/script&gt;, where M is the
+transition metal, have high energy density. In this paper, they added
+a gradient between a nickel-rich core and a manganese outer-shell that
+has good energy density (215 mA h g&lt;script type=&quot;math/tex&quot;&gt;^{-1}&lt;/script&gt;) and good thermal
+stability at high temperature, a common failing for other
+nanoparticle-based cathode materials. They also added a secondary
+needle-like particle, which I didn’t put in my graphic. Here’s the
+picture:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/cathode.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/cathode_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;It’s a very simple image to make in &lt;a href=&quot;www.blender.org&quot;&gt;Blender&lt;/a&gt;
+actually. The first step is creating an emitting surface for the
+lithium. I just created a flat square and added a particle system to
+it that emits particles in the normal direction. The second piece is
+the nanoparticles, which are just spheres duplicated using the array
+modifier. My geometry looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/geo.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/geo_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that the lithium particles need to be in a separate layer than
+the nanoparticles. The particles have an emission texture and are the
+only lighting for the scene. The nanoparticle texture is just a ‘Magic
+Texture’ with some diffuse red. The cycles renderer is used for the
+node editing process. That’s where the cool stuff happens.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-1.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-1_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The lithium layer is on the far-left. It’s both blurred and
+translated, giving it that ghosting look that makes it move. It’s then
+is overlayed on the nanoparticle layer. Finally, I apply three
+sequential defocusings, to give it that tiny-object effect&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-2.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-2_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Maybe I’ll go back and add some needle-like particles someday.&lt;/p&gt;
+
+&lt;h1 id=&quot;cited-references&quot;&gt;Cited References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;Sun2013Nanostructured&quot;&gt;Sun, Y.-K., Chen, Z., Noh, H.-J., Lee, D.-J., Jung, H.-G., Ren, Y., Wang, S., Yoon, C. S., Myung, S.-T., &amp;amp; Amine, K. (2012). Nanostructured high-energy cathode materials for advanced lithium batteries. &lt;i&gt;Nat Mater&lt;/i&gt;, &lt;i&gt;11&lt;/i&gt;(11), 942–947. https://doi.org/10.1038/nmat3435&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 24 Jun 2014 12:24:23 -0500</pubDate>
+        <link>http://thewhitelab.org/Blog/graphics/2014/06/24/Nanoparticle-Cathode-Graphic/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/graphics/2014/06/24/Nanoparticle-Cathode-Graphic/</guid>
+      </item>
+    
+      <item>
+        <title>Coordination Number Implementation Notes</title>
+        <description>&lt;p&gt;I wrote these notes partially to try out the new plotting, math, and
+citation support in my blog. These notes are for using coordination
+number as a collective variable for biasing a molecule dynamics
+simulation.&lt;/p&gt;
+
+&lt;p&gt;Using the pair-pair correlation function, coordination number in a
+statistical ensemble is:&lt;/p&gt;
+
+&lt;div&gt;
+\begin{equation}
+\left&amp;lt;N(r_0)\right&amp;gt; = \rho \int_0^R\,dr\left[ 1 - u(r - r_0) \right] 4\pi r^2 g(r)
+\end{equation}
+&lt;/div&gt;
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;\rho&lt;/script&gt; is the number density and &lt;script type=&quot;math/tex&quot;&gt;u(r)&lt;/script&gt; is the heaviside function&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;In a molecular dynamics simulation, it’s calculated as&lt;/p&gt;
+
+&lt;div&gt;
+\[
+\left&amp;lt;N(r_0)\right&amp;gt; = \frac{1}{N_pT} \sum_{t=0}^T \sum_{i &amp;lt; j} 1 - u(r_{ij} - r_0)
+\]
+&lt;/div&gt;
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;N_p&lt;/script&gt; is the number of particle pairs and &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; is the number of frames used in the calculation.&lt;/p&gt;
+
+&lt;p&gt;To create a soft-derivative, the following mollified heaviside is used&lt;/p&gt;
+
+&lt;div&gt;
+\[
+1 - u(r - r_0) \approx h(s,n,m) =  \left\{ \begin{array}{lr}
+\frac{1 - s^n}{1 - s^m} &amp;amp; s &amp;gt; 1\\
+1 &amp;amp; s &amp;lt; 1\\
+\end{array}\right.
+\]
+&lt;/div&gt;
+
+&lt;p&gt;where&lt;/p&gt;
+
+&lt;div&gt;
+\[
+s = \frac{r - r_0}{w}
+\]
+&lt;/div&gt;
+
+&lt;h2 id=&quot;moments-of-coordination-number&quot;&gt;Moments of Coordination Number&lt;/h2&gt;
+
+&lt;p&gt;The idea of studying moments of coordination number was probably
+thought of before, but I used it in one of my recent papers and didn’t
+see it previously in the literature. We can use higher coordination
+number moments with this equation using the pair-pair correlation
+function&lt;/p&gt;
+
+&lt;div&gt; 
+\[
+\left&amp;lt;r^iN(r_0)\right&amp;gt; = \rho \int_0^R\,dr \left[ 1 - u(r - r_0)
+\right] 4\pi r^{2+i} g(r) 
+\] 
+&lt;/div&gt;
+
+&lt;p&gt;In simulation it’s calculated as&lt;/p&gt;
+&lt;div&gt;
+\[
+\left&amp;lt;r^iN(r_0)\right&amp;gt; = \frac{1}{N_pT} \sum_{t=0}^T \sum_{i &amp;lt; j} r^i(1 - u(r_{ij} - r_0))
+\]
+&lt;/div&gt;
+
+&lt;p&gt;With the mollification, there is simply an extra &lt;script type=&quot;math/tex&quot;&gt;r^i&lt;/script&gt; term added.&lt;/p&gt;
+
+&lt;h2 id=&quot;choosing-parameters&quot;&gt;Choosing Parameters&lt;/h2&gt;
+
+&lt;p&gt;There are a few considerations for choosing parameters. Assuming
+you’re biasing a simulation with coordination number, it’s important
+to balance good properties of the derivative with accuracy in the
+function. Read the next paragraph for details, but essentially start
+with &lt;script type=&quot;math/tex&quot;&gt;m=12,\,n=6&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt; as half the distance from the start of the
+rise of the first peak in &lt;script type=&quot;math/tex&quot;&gt;g(r)&lt;/script&gt; to the first minimum and &lt;script type=&quot;math/tex&quot;&gt;r_0&lt;/script&gt; as
+the start of the rise of the first peak. Next, increase &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt; as much
+as possible while maintaining accuracy and then increase &lt;script type=&quot;math/tex&quot;&gt;m - n&lt;/script&gt; as
+much as possible while still keeping good overlap between &lt;script type=&quot;math/tex&quot;&gt;h'(s)&lt;/script&gt;
+and &lt;script type=&quot;math/tex&quot;&gt;g(r)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;The overlap between the derivative, &lt;script type=&quot;math/tex&quot;&gt;h'(s)&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;g(r)&lt;/script&gt; determines
+how low the forces will be. More overlap, means low forces distributed
+across many particles. Less overlap means very high forces on a small
+number of particles. Controlling &lt;script type=&quot;math/tex&quot;&gt;h'(s)&lt;/script&gt; is done by increasing
+&lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt;, which scales the entire line, or by decreasing &lt;script type=&quot;math/tex&quot;&gt;m - n&lt;/script&gt;, which
+elongates the tails. The second consideration is accuracy. Sharpening
+the tails is the single most important consideration because long
+tails can drastically increase &lt;script type=&quot;math/tex&quot;&gt;h(s)&lt;/script&gt;. This is from the &lt;script type=&quot;math/tex&quot;&gt;r^2&lt;/script&gt; term
+seen in Equation 1. Thus, making &lt;script type=&quot;math/tex&quot;&gt;m - n&lt;/script&gt; large increases accuracy.&lt;/p&gt;
+
+&lt;p&gt;A plot of &lt;script type=&quot;math/tex&quot;&gt;h(s)&lt;/script&gt; along with its derivatives for &lt;script type=&quot;math/tex&quot;&gt;w=1,\,r_0=1&lt;/script&gt; is
+shown below:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div id=&quot;root&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-3 alert alert-warning&quot; style=&quot;display:none;&quot;&gt; 
+    parameters must be integers and n &amp;lt; m
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-2&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;span class=&quot;input-group-addon&quot;&gt;n&lt;/span&gt;
+      &lt;input type=&quot;integer&quot; class=&quot;form-control&quot; id=&quot;n-number&quot; placeholder=&quot;6&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-2&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;span class=&quot;input-group-addon&quot;&gt;m&lt;/span&gt;
+      &lt;input type=&quot;integer&quot; class=&quot;form-control&quot; id=&quot;m-number&quot; placeholder=&quot;12&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-3&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;span class=&quot;input-group-addon&quot;&gt;i&lt;/span&gt;
+      &lt;input type=&quot;integer&quot; class=&quot;form-control&quot; id=&quot;moment-number&quot; placeholder=&quot;moment&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-2&quot;&gt;
+    &lt;span id=&quot;update-button&quot; class=&quot;btn btn-default&quot;&gt; Update&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;implementation-notes&quot;&gt;Implementation Notes&lt;/h2&gt;
+
+&lt;p&gt;I first saw this mollification from the
+&lt;a href=&quot;http://plumed-code.org&quot;&gt;PLUMED&lt;/a&gt; free energy calculation package &lt;a class=&quot;citation&quot; href=&quot;#PLUMED&quot;&gt;(Bonomi et al., 2009)&lt;/a&gt;, but I don’t know where it originally came from.&lt;/p&gt;
+
+&lt;p&gt;There is a removable discontinuity of this function:&lt;/p&gt;
+&lt;div&gt;
+\[
+h(s=1, n, m) = \frac{n}{m}
+\]
+&lt;/div&gt;
+&lt;p&gt;with a derivative of&lt;/p&gt;
+&lt;div&gt;
+\[
+h(s=1, n, m) = \frac{n(n - m)}{2m}
+\]
+&lt;/div&gt;
+
+&lt;p&gt;If &lt;script type=&quot;math/tex&quot;&gt;h(r)&lt;/script&gt; is truncated at &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;(R - r_0) / w &gt; 1&lt;/script&gt;, the error is approximately&lt;/p&gt;
+&lt;div&gt;
+\[
+h(r) - h(R) \lt \epsilon \approx \frac{s^n}{s^m}
+\]
+&lt;/div&gt;
+&lt;p&gt;which means &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; may be chosen for a given tolerance &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; as&lt;/p&gt;
+&lt;div&gt;
+\[
+R = w\epsilon^{1 / (n - m)} + r_0
+\]
+&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div&gt;
+\[
+S = \epsilon^{1 / (n - m)}
+\]
+&lt;/div&gt;
+
+&lt;p&gt;The derivative may be calculated as&lt;/p&gt;
+&lt;div&gt;
+\[
+\frac{\partial}{\partial x_i} h(s) = \frac{\partial h(s)}{\partial s_i}  \frac{\partial s_i}{\partial x_i} =   \frac{ns^n(1 - s^m) - ms^m(1 - s^n)}{s(1 - s^m)^2} \frac{\partial s}{\partial x_i}
+\]
+\[
+\frac{\partial s}{\partial x_i} = \frac{x_i}{wr}
+\]
+&lt;/div&gt;
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;x_i&lt;/script&gt; is the &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;th moment of the pairwise distance vector &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Maximizing re-use of pieces of the calculation, the following form can be used:&lt;/p&gt;
+
+&lt;div&gt;
+\[
+s = (r - r_0) / w, \, a = s^n, \, b = s^m
+\]
+\[
+h(s) = (1 - a) / (1 - b)
+\]
+\[
+\frac{\partial h(s) }{\partial x_i} = \frac{na(1 - b) - mb(1 - a)}{wrs(1 - b)^2} x_i
+\]
+&lt;/div&gt;
+
+&lt;p&gt;The derivative with moments is slightly different:&lt;/p&gt;
+&lt;div&gt;
+\[
+\frac{\partial}{\partial x_i} r^ih(s) = \left[ir^{i-1} h(s) + r^i\frac{\partial h(s)}{w\partial s}\right] \frac{x_i}{r}
+\]
+&lt;/div&gt;
+
+&lt;p&gt;Colvars, another free energy calculation package, enforces only even
+numerator and denominator exponents (&lt;script type=&quot;math/tex&quot;&gt;m,n&lt;/script&gt;) &lt;a class=&quot;citation&quot; href=&quot;#COLVARS&quot;&gt;(Fiorin et al., 2013)&lt;/a&gt;. This
+allows them to avoid taking square roots in the calculations. That is
+a nice trick, but it would also require only even moments for the
+coordination numbers with moments. I’ve found that in practice to
+be too restrictive.&lt;/p&gt;
+
+&lt;h2 id=&quot;cited-references&quot;&gt;Cited References&lt;/h2&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;PLUMED&quot;&gt;Bonomi, M., Branduardi, D., Bussi, G., Camilloni, C., Provasi, D., Raiteri, P., Donadio, D., Marinelli, F., Pietrucci, F., Broglia, R. A., &amp;amp; Parrinello, M. (2009). PLUMED: A portable plugin for free-energy calculations with molecular dynamics. &lt;i&gt;Computer Physics Communications&lt;/i&gt;, &lt;i&gt;180&lt;/i&gt;(10), 1961–1972. https://doi.org/10.1016/j.cpc.2009.05.011&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;COLVARS&quot;&gt;Fiorin, G., Klein, M. L., &amp;amp; Hénin, J. (2013). Using collective variables to drive molecular dynamics simulations. &lt;i&gt;Molecular Physics&lt;/i&gt;, &lt;i&gt;111&lt;/i&gt;(22-23), 3345–3362. https://doi.org/10.1080/00268976.2013.813594&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ol&gt;
+
+&lt;style&gt;
+
+#root {
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#plot-controls {
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.margin {
+  fill:none;
+}
+
+.canvas {
+  fill:none;
+}
+
+.particle {
+  fill: #FFF;
+  stroke: #222;
+  stroke-width: 2px;
+}
+
+.line {
+  fill:none;
+  stroke: #3355FF;
+  stroke-width: 2px;
+}
+
+.line-area {
+  fill: #3355FF;
+  opacity: 0.2;
+}
+
+
+.axis {
+  shape-rendering: crispEdges;
+  stroke-width: 1px;
+}
+
+.x.axis .minor, .y.axis .minor {
+  stroke-opacity: .5;
+}
+
+
+.y.axis line, .y.axis path, .x.axis line, .x.axis path {
+  fill: none;
+  stroke: #222;
+}
+
+.y.label, .x.label {
+    font-weight: normal;
+    font-size: 100%;
+}
+
+.legend {
+    padding: 5px;
+    font: 15px sans-serif;
+    background: yellow;
+    box-shadow: 2px 2px 1px #888;
+ }
+&lt;/style&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var margin = 100, labelMargin = 50;
+    
+var width = Math.min(500, $('.post-content').width()) - margin - labelMargin
+var height = Math.min(400, $('.post-content').height()) - margin -labelMargin;
+
+d3.select('#root').style('width', width + margin + labelMargin + 'px')
+    .style('height', height + margin + labelMargin + 'px');
+
+var svg = d3.select('#root').append('svg')
+    .attr(&quot;width&quot;, width + margin + labelMargin)
+    .attr(&quot;height&quot;, height + margin + labelMargin);
+
+
+svg.append(&quot;rect&quot;)
+    .attr(&quot;width&quot;, width + margin)
+    .attr(&quot;height&quot;, height + margin)
+      .classed(&quot;margin&quot;, true);
+
+plot_group = svg.append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, 
+          &quot;translate(&quot; + (margin / 2 + labelMargin) + 
+          &quot;,&quot; + (margin / 2) + &quot;)&quot;);
+  
+plot_group.append(&quot;rect&quot;)
+    .attr(&quot;width&quot;, width)
+    .attr(&quot;height&quot;, height)
+    .classed(&quot;canvas&quot;, true);
+
+var xScale, yScale, xAxis, yAxis;
+
+function setup_axis(xExtent, yExtent) {
+    xScale = d3.scale.linear().domain(xExtent).range([0,width]);
+    yScale = d3.scale.linear().domain(yExtent).range([height,25]);
+
+    xAxis = d3.svg.axis()
+	.scale(xScale)
+        .tickValues([1,2,3,4,5])
+	.tickFormat(d3.format(&quot;d&quot;));
+    yAxis = d3.svg.axis()
+	.scale(yScale).orient(&quot;left&quot;)
+        .ticks(5);
+
+    //remove existing axis
+    plot_group.select('.x.axis').remove()
+    plot_group.select('.x.label').remove()
+    plot_group.select('.y.axis').remove()
+    plot_group.select('.y.label').remove()
+
+  // Add the x-axis.
+    plot_group.append(&quot;g&quot;)
+	.attr(&quot;class&quot;, &quot;x axis&quot;)
+	.attr(&quot;transform&quot;, &quot;translate(0,&quot; + yScale(0) + &quot;)&quot;)
+	.call(xAxis);
+    
+    plot_group.append(&quot;text&quot;)
+	.attr(&quot;class&quot;, &quot;x label&quot;)
+	.attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+	.attr(&quot;x&quot;, width / 2)
+	.attr(&quot;y&quot;, yScale(0) + margin / 2)
+	.text(&quot;r&quot;);
+    
+// Add the y-axis.
+    plot_group.append(&quot;g&quot;)
+	.attr(&quot;class&quot;, &quot;y axis&quot;)
+	.call(yAxis);
+    
+    plot_group.append(&quot;text&quot;)
+	.attr(&quot;class&quot;, &quot;y label&quot;)
+	.attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+	.attr(&quot;transform&quot;, &quot;translate(&quot; + (-margin / 2) + &quot;, &quot; + height / 2 + &quot;) rotate(-90)&quot;)
+	.text(&quot;h(r)&quot;);
+}
+
+//slowly plot effect
+function pathTween(data, line) {
+    var interpolate = d3.scale.quantile()
+        .domain([0,1])
+	.range(d3.range(1, data.length + 1));
+    return function(t) {
+	return line(data.slice(0, interpolate(t)));
+    };
+}
+
+//plot the data
+function plot(data) {
+    var line = d3.svg.line().interpolate('basis')
+        .x(function(d) {
+	    return xScale(d.x);
+	})
+        .y(function(d) {
+	    return yScale(d.y);
+	});
+    return plot_group.append(&quot;path&quot;)
+	.attr(&quot;d&quot;, line(data[0])).classed(&quot;line&quot;, true)
+	.transition()
+	.duration(1000)
+	.attrTween(&quot;d&quot;,function(){return pathTween(data, line);});
+}
+
+//create an array of x,y accessrs from x and a function
+function make_data(x, fxn) {
+    return x.map(function(x) {return {x:x, y:fxn(x)};});
+}
+
+function hs(x, x0, w, n, m, moment) {
+    var s = (x - x0) / w;
+    var x_mom = Math.pow(x,moment);
+    if(s &lt;= 0)
+	return x_mom;
+    if(s &gt; 0.99 &amp;&amp; s &lt; 1.01) 
+	return x_mom * n / m;
+    return x_mom * (1 - Math.pow(s,n)) / (1 - Math.pow(s,m));
+}
+
+function dhs(x, x0, w, n, m, moment) {
+
+    var s = (x - x0) / w;
+    var x_mom = Math.pow(x,moment);
+    var x_dmom = 0;
+    if(moment &gt; 0)
+	x_dmom = moment * Math.pow(x,moment - 1);
+    
+    if(s &lt;= 0)
+	return x_dmom;
+
+    if(s &gt; 0.99 &amp;&amp; s &lt; 1.01) 
+	return x_dmom * n / m +	 x_mom * n*(n - m) / (2 * m);
+	
+    
+    var a = Math.pow(s,n);
+    var b = Math.pow(s,m);
+    var sder =  -(n * a * ( 1 - b ) - m * b * (1 - a)) / (s * (1 - b) * ( 1 - b));
+    return sder * x_mom + (1 - a) / (1 - b) * x_dmom;
+}
+
+var colors = { 0: [&quot;h(r)&quot;, &quot;#2222DD&quot;],
+	       1: [&quot;h'(r)&quot;, &quot;#DD2233&quot;] };
+
+var x = d3.range(0,5.025,0.025);
+var hsdata = make_data(x, function(x) {return hs(x, 1, 1, 6, 12, 0)});
+var dhsdata = make_data(x, function(x) {return dhs(x, 1, 1, 6, 12, 0)});
+
+var yExtent = d3.extent(d3.merge([hsdata, dhsdata]), function(d) { return d.y; });
+setup_axis([0,5], yExtent);
+
+plot(hsdata).style(&quot;stroke&quot;, colors[0][1]);
+plot(dhsdata).style(&quot;stroke&quot;, colors[1][1]);
+
+// add legend   
+var legend = plot_group.append(&quot;g&quot;)
+    .attr(&quot;class&quot;, &quot;legend&quot;)
+    .attr(&quot;x&quot;, width - 100 - 25)
+    .attr(&quot;y&quot;, 0 + 25)
+    .attr(&quot;height&quot;, 100)
+    .attr(&quot;width&quot;, 100)
+    
+legend.selectAll('rect')
+    .data([0,1])
+    .enter()
+    .append(&quot;rect&quot;)
+    .attr(&quot;x&quot;, width - 60 - 25)
+    .attr(&quot;y&quot;, function(d, i){ return i *  50 + 25;})
+    .attr(&quot;width&quot;, 15)
+    .attr(&quot;height&quot;, 3)
+    .style(&quot;fill&quot;, function(d) { 
+        var color = colors[d][1];
+        return color;
+    })
+      
+legend.selectAll('text')
+    .data([0,1])
+    .enter()
+    .append(&quot;text&quot;)
+    .attr(&quot;x&quot;, width - 40 - 25)
+    .attr(&quot;y&quot;, function(d, i){ return i *  50 + 32;})
+    .text(function(d) {
+        var text = colors[d][0];
+        return text;
+    });
+ 
+    $('#update-button').click(function() {
+	var n = 6;
+	if($('#n-number').val() != &quot;&quot;)
+	    n = parseInt($('#n-number').val());
+	var m = 12;
+	if($('#m-number').val() != &quot;&quot;)
+	    m = parseInt($('#m-number').val());
+
+	var mom = 0;
+	if($('#moment-number').val() != &quot;&quot;)
+	    mom = parseInt($('#moment-number').val());
+
+
+	if(isNaN(mom) || isNaN(n) || isNaN(m) || n &gt; m) {
+	    $('.alert').fadeIn();
+	    return;
+	}
+	
+	$('.alert').fadeOut();
+
+	plot_group.selectAll(&quot;.line&quot;).remove();
+
+	var hsdata = make_data(x, function(x) {
+	    return hs(x, 1, 1, n, m, mom)});
+	var dhsdata = make_data(x, function(x) {
+	    return dhs(x, 1, 1, n, m, mom)});
+
+	var yExtent = d3.extent(d3.merge([hsdata, dhsdata]), 
+				function(d) { return d.y; });
+	setup_axis([0,5], yExtent);
+
+	plot(hsdata).style(&quot;stroke&quot;, colors[0][1]);
+	plot(dhsdata).style(&quot;stroke&quot;, colors[1][1]);
+
+    });
+&lt;/script&gt;
+
+</description>
+        <pubDate>Fri, 20 Jun 2014 12:24:23 -0500</pubDate>
+        <link>http://thewhitelab.org/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/</guid>
+      </item>
+    
+      <item>
+        <title>My New Blog</title>
+        <description>&lt;p&gt;My new blog platform is a static &lt;a href=&quot;http://jekyllrb.com&quot;&gt;jekyll&lt;/a&gt; blog
+with &lt;a href=&quot;http://getbootstrap.com&quot;&gt;bootstrap&lt;/a&gt; for the styling. This solves a
+huge headache of mine, which was syntax highlighting and equations. I
+now write my posts in markdown and LaTeX, which will make me post so
+much more. You can make your own blog like this at my repo:
+&lt;a href=&quot;http://github.com/whitead/SM-Blog&quot;&gt;github.com/whitead/SM-Blog&lt;/a&gt;. Here’s
+a few features from the blog:&lt;/p&gt;
+
+&lt;h2 id=&quot;image-management&quot;&gt;Image Management&lt;/h2&gt;
+
+&lt;p&gt;Simply add &lt;code class=&quot;highlighter-rouge&quot;&gt;{% post_image spr.jpg %}&lt;/code&gt; to add an image&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/My-New-Blog/spr.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/My-New-Blog/spr_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;syntax-highlighting&quot;&gt;Syntax Highlighting&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Andrew'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Andrew' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;equations&quot;&gt;Equations&lt;/h2&gt;
+
+&lt;p&gt;Here is an equation displayed using &lt;a href=&quot;http://mathjax.org&quot;&gt;Mathjax&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div&gt;
+    \[
+        (Ax - 2)^2 \alpha \chi
+    \]
+&lt;/div&gt;
+
+&lt;h2 id=&quot;chart&quot;&gt;Chart&lt;/h2&gt;
+
+&lt;p&gt;Now here is a chart made using &lt;a href=&quot;http://d3.org&quot;&gt;D3&lt;/a&gt;, the data-diven document model.&lt;/p&gt;
+
+&lt;div class=&quot;chart&quot;&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;in-text-citations&quot;&gt;In text citations&lt;/h2&gt;
+
+&lt;p&gt;Ruby was written by &lt;a class=&quot;citation&quot; href=&quot;#ruby&quot;&gt;(Flanagan &amp;amp; Matsumoto, 2008)&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;bib&quot;&gt;&lt;span id=&quot;ruby&quot;&gt;Flanagan, D., &amp;amp; Matsumoto, Y. (2008). &lt;i&gt;The Ruby Programming Language&lt;/i&gt;. O’Reilly Media.&lt;/span&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ol&gt;
+
+&lt;style&gt;
+
+.chart div {
+       font: 10px;
+       background-color: steelblue;
+       text-align: right;
+       padding: 3px;
+       margin: 1px;
+       color: white;
+
+}
+
+&lt;/style&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+var data = [4,8,15,16,23,42]
+
+d3.select(&quot;.chart&quot;)
+	.selectAll(&quot;div&quot;)
+	.data(data)
+	.enter().append(&quot;div&quot;)
+	.style(&quot;width&quot;, function(d) {return d * 10 + &quot;px&quot;; })
+	.text(function(d) {return d; });
+&lt;/script&gt;
+
+</description>
+        <pubDate>Tue, 10 Jun 2014 12:24:23 -0500</pubDate>
+        <link>http://thewhitelab.org/Blog/meta/2014/06/10/My-New-Blog/</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/meta/2014/06/10/My-New-Blog/</guid>
+      </item>
+    
+      <item>
+        <title>Replaying a Lammps Trajectory</title>
+        <description>&lt;div class=&quot;css-full-post-content js-full-post-content&quot;&gt;
+&lt;b&gt;EDIT: &lt;/b&gt;Turns out I just didn't google the correct words, LAMMPS does have one. It's the command rerun. Oops.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://lammps.sandia.gov/&quot;&gt;LAMMPS&lt;/a&gt;, the molecular dynamics engine, doesn't have a replay function allowing one to go back and calculate properties on a trajectory, especially forces and energies. This came up in my work and I got started on writing some new LAMMPS code to accomplish this. I wanted to be able to calculate forces with a different potential on a trajectory. Anyway, I realized you can accomplish this just by using the LAMMPS looping variables. No new code necessary. It can be done by using the &lt;code&gt;read_dump&lt;/code&gt; command to load particular trajectory frame. A sample input script is below &lt;br /&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;a name='more'&gt;&lt;/a&gt;&lt;script src=&quot;https://gist.github.com/whitead/9325454.js&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div class=&quot;css-full-comments-content js-full-comments-content&quot;&gt;
+&lt;div class=&quot;css-full-comment js-full-comment&quot;&gt;
+  &lt;div class=&quot;css-comment-user-link js-comment-user-link&quot;&gt;
+  &lt;a href=&quot;http://www.blogger.com/profile/06391501831614499958&quot;&gt;
+  &lt;div class=&quot;css-comment-name js-comment-name&quot;&gt;
+    John Savage
+  &lt;/div&gt;
+  &lt;/a&gt;
+  &lt;div class=&quot;css-comment-date js-comment-date&quot;&gt;
+    2014-04-12T00:40:31.178Z
+  &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;css-comment-content js-comment-content&quot;&gt;
+    http://lammps.sandia.gov/doc/rerun.html
+  &lt;/div&gt;
+  &lt;br/&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        <pubDate>Mon, 03 Mar 2014 14:11:00 -0600</pubDate>
+        <link>http://thewhitelab.org/Blog/2014/03/replaying-lammps-trajectory.html</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/2014/03/replaying-lammps-trajectory.html</guid>
+      </item>
+    
+      <item>
+        <title>Predicting the Future of Simulations</title>
+        <description>&lt;div class=&quot;css-full-post-content js-full-post-content&quot;&gt;
+In my day job, molecular modeling, I simulate the position and velocity of every atom in biological molecules. As you can imagine, doing this yields nearly complete information about whatever biological system I'm studying and allows me to predict the behavior of proteins. Well, that's the theory. It's more complex than that and often fails spectacularly in practice. Ignore that for now. Let's focus on the systems that can be simulated. In 1982 CHARMM, one the first molecular dynamics tool capable of simulating tiny proteins, was released. It was possible to simulate a small protein for one tenth of one billionth of one second. Now we can simulate a protein for one thousandth of a second. That's an increase of 10^7 in the speed of molecular simulations in about 30 years. In 1990, we were able to simulate lysozyme, a small protein, for few billionths of a seconds. Now we can simulate a virus for a few billionths of a second. That's an increase in about 10^4 mass of molecular simulations in 30 years. Assuming continued exponential growth (see plots below), here are my upcoming interesting milestones in computer simulation&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;style&gt;#chemistry { border-collapse:collapse; } #chemistry tr.alt td  { color:#000000; } #chemistry th { font-size:1.1em; text-align:left; padding-top:5px; padding-bottom:4px; background-color:#21bb53; color:#ffffff; } #chemistry td, #chemistry th  { font-size:1em; border:1px solid #21bb53; padding:3px 7px 2px 7px; }  &lt;/style&gt; &lt;br /&gt;&lt;table id=&quot;chemistry&quot;&gt;  &lt;tbody&gt;&lt;tr&gt;      &lt;th&gt;Year &lt;/th&gt;      &lt;th&gt;Event&lt;/th&gt;  &lt;/tr&gt;&lt;tr&gt;      &lt;td&gt;2023&lt;/td&gt;      &lt;td&gt;The first simulation of every atom in a ribosome for 10 milliseconds&lt;/td&gt;  &lt;/tr&gt;&lt;tr&gt;      &lt;td&gt;2038&lt;/td&gt;      &lt;td&gt;The first simulation of every atom in a virus for 1 second&lt;/td&gt;  &lt;/tr&gt;&lt;tr&gt;      &lt;td&gt;2131&lt;/td&gt;      &lt;td&gt;The first simulation of every atom of a cell for 1 hour&lt;/td&gt;  &lt;/tr&gt;&lt;tr&gt;      &lt;td&gt;2191&lt;/td&gt;      &lt;td&gt;We can simulate every atom of every cell in a heart for 1 heartbeat&lt;/td&gt;  &lt;/tr&gt;&lt;tr&gt;      &lt;td&gt;2227&lt;/td&gt;      &lt;td&gt;Every atom of every cell in a human brain can be simulated as fast they move in a human brain&lt;/td&gt;  &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;a name='more'&gt;&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;Here's the data used to make these predictions:   &lt;br /&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;/div&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;http://2.bp.blogspot.com/-J6ZlpCjajNo/UvOFNzRAy_I/AAAAAAAAE38/Os0TNf1M0l8/s1600/plot_2.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://2.bp.blogspot.com/-J6ZlpCjajNo/UvOFNzRAy_I/AAAAAAAAE38/Os0TNf1M0l8/s1600/plot_2.png&quot; height=&quot;300&quot; width=&quot;400&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;http://2.bp.blogspot.com/-zyXqR2GL8Es/UvOFPwdwXFI/AAAAAAAAE4I/2RWW_tZfe7A/s1600/plot_3.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://2.bp.blogspot.com/-zyXqR2GL8Es/UvOFPwdwXFI/AAAAAAAAE4I/2RWW_tZfe7A/s1600/plot_3.png&quot; height=&quot;300&quot; width=&quot;400&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://4.bp.blogspot.com/-mEFIB2-Geow/UvOGAjxDEQI/AAAAAAAAE4U/8da4eQAtAdo/s1600/plot_4.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://4.bp.blogspot.com/-mEFIB2-Geow/UvOGAjxDEQI/AAAAAAAAE4U/8da4eQAtAdo/s1600/plot_4.png&quot; height=&quot;300&quot; width=&quot;400&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;/div&gt;This post is a work in progress and I'll throw the links to the sources up when I have a chance. The key numbers are doubling time in timescale of simulations every 14 months and atom number/mass every 26 months.
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 06 Feb 2014 12:56:00 -0600</pubDate>
+        <link>http://thewhitelab.org/Blog/2014/02/predicting-future-of-simulations.html</link>
+        <guid isPermaLink="true">http://thewhitelab.org/Blog/2014/02/predicting-future-of-simulations.html</guid>
+      </item>
+    
+  </channel>
+</rss>

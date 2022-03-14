@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Approximate Restricted Integer Partition With Exact Part Number</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/2013/04/approximate-restricted-integer.html">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>Approximate Restricted Integer Partition With Exact Part Number</h1>
+      
+      <p class="text-muted">Apr 12, 2013 • Andrew White</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="css-full-post-content js-full-post-content">
+I'm interested in a certain type of mathematical structure this week: integer partitions. An integer partition, <code> p(n)</code>, is the set of sets of integers that add up to <code>n</code>. For example,<br /><br /><ul><li><code>p(3) = 1 + 1 + 1, 1 + 2, 3</code></li><li><code>p(4) = 1 + 1 + 1 + 1, 1 + 1 + 2, 2 + 2, ...</code></li></ul><br /><a name='more'></a><br /><br />Each grouping of integers that add up to <code>n</code> is a partition. I'm interested in partitions where the number of integers is fixed, the order is fixed, and the integers are bounded. This makes more sense if you view it as a problem of putting numbers into boxes. Let's say you have four boxes: <u>&nbsp;</u> <u>&nbsp;</u> <u>&nbsp;</u> <u>&nbsp;</u>. You want to partition 8. An example would be then: <u>2</u> <u>3</u> <u>1</u> <u>2</u>. Or perhaps <u>2</u> <u>2</u> <u>2</u> <u>2</u>. <br /><br />The next restriction is on the bounds of each number. With the previous example, let's say I now restrict each integer to be less than 4. So <u>3</u> <u>3</u> <u>0</u> <u>2</u> would work. I'll call this function <code>b(n, m, k)</code> where <code>n</code> is the sum to partition, <code>m</code> is the number of parts, and <code>k</code> is the maximum at each position. The range of <code>b</code> will 0 through infinity because I'm going to have it count the number of partitions, not be the set of partitions. <br /><br />An algorithm to calculate <code>b(n, m, k)</code> is given below in python. It works exactly like you would expect: enumerating the exponential number of partitions. The only trick it does is know when a partition it is trying will fail. For example, if you're trying to do the previous example and you have <u>1</u> <u>0</u> <u>&nbsp;</u> <u>&nbsp;</u>, there are no two other numbers that will cause the partition to sum to 8 (<code>1 + 0 + 3 + 3 = 7</code>). That helps reduce the number of partitions it attempts. Here's the code:<br /><br /><pre>#Recursive restricted block partition. Each call reduces the sum, n,<br /># and m, the number of parts.<br />def blockpart(n, m, k):<br />    <br />    #Is the number of parts only 1?<br />    if(m == 1):<br />        #Trivial: to partition n into one part, we need to be able to use  n<br />        if(n &lt; k):<br />            return 1<br />        else:<br />            return 0<br />    #what is the highest possible sum we may have<br />    #that will still be a valid partition<br />    smax = m * (k - 1)<br />    #This is the lowest term we can add to the partition (subtract from sum)<br />    start = n - k + 1<br /><br />    #If the lowest is too high, then we aren't able to get a valid partition<br />    if( start &gt; smax):<br />        return 0<br /><br />    paths = 0<br /><br />    #add up all possible other partitions after subtracting choices<br />    #to place in the current part (m)<br />    for i in range(max(0,start), 1 + min(smax, n)):<br />        paths += blockpart(i, m - 1, k)<br /><br />    return paths<br /></pre><br /><br />Anyway, it turns out that as <code>n</code> grows, it may be approximated by the equation:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-naENmlKTIMY/UWd-HLfLZ-I/AAAAAAAAA_k/T4i9TgUoPo4/s1600/1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-naENmlKTIMY/UWd-HLfLZ-I/AAAAAAAAA_k/T4i9TgUoPo4/s1600/1.png" /></a></div><br />&nbsp;Who discovered that equation? Me. And I'm sure many other people. Here's the fit of the equation, where the dots are the results of the python program and the red lines are the approximation.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-zNbyTNB-0m8/UWd92QffVVI/AAAAAAAAA_U/qkz4oFkGhuc/s1600/plot_2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-zNbyTNB-0m8/UWd92QffVVI/AAAAAAAAA_U/qkz4oFkGhuc/s1600/plot_2.png" /></a></div>&nbsp;  <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-b3uKuv5TW2Q/UWd95gA9pcI/AAAAAAAAA_c/hxout8FQQ2M/s1600/plot_20.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-b3uKuv5TW2Q/UWd95gA9pcI/AAAAAAAAA_c/hxout8FQQ2M/s1600/plot_20.png" /></a></div><br /><br />Find out next time on Crows and Cats how I derived that equation!
+</div>
+<div class="css-full-comments-content js-full-comments-content">
+<div class="css-full-comment js-full-comment">
+  <div class="css-comment-user-link js-comment-user-link">
+  <a href="http://www.blogger.com/profile/16027149520635478756">
+  <div class="css-comment-name js-comment-name">
+    akon
+  </div>
+  </a>
+  <div class="css-comment-date js-comment-date">
+    2013-06-20T12:23:05.747Z
+  </div>
+  </div>
+  <div class="css-comment-content js-comment-content">
+    Hi andrew, this equation is interesting . . can you help me clear a doubt on this. <br />what is complexity of this equation.. does it work if m=10, for a large value of n <br /><br />thanks in advance
+  </div>
+  <br/>
+</div>
+<div class="css-full-comment js-full-comment">
+  <div class="css-comment-user-link js-comment-user-link">
+  <a href="http://www.blogger.com/profile/12233134401389651425">
+  <div class="css-comment-name js-comment-name">
+    Andrew White
+  </div>
+  </a>
+  <div class="css-comment-date js-comment-date">
+    2013-06-25T17:06:31.081Z
+  </div>
+  </div>
+  <div class="css-comment-content js-comment-content">
+    The equation works great at high m,k. The value of n is limited to m * k, so your choice of k will determine how high n can be. If you run into integer overflow, just replace the leading k^m term with a 1 and now you&#39;re working with fraction of total possible partitions instead of number of partitions.
+  </div>
+  <br/>
+</div>
+</div>
+      </div>
+    </div>
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

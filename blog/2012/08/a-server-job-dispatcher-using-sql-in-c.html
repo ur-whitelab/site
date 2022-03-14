@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>A server job dispatcher using SQL in C</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/2012/08/a-server-job-dispatcher-using-sql-in-c.html">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>A server job dispatcher using SQL in C</h1>
+      
+      <p class="text-muted">Aug 24, 2012 • Andrew White</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="css-full-post-content js-full-post-content">
+OK, imagine this: you would like to execute some jobs on your server, but you don't want a fancy job dispatcher. You just want to put some parameters into a SQL table and have the table updated when the job is done. Perhaps you have trouble imagining that. However, that was my fantasy while writing a webapp in codeigniter, a lovely php framework. I had some statistics to calculate and I didn't want to calculate them in codeigniter, so I wrote some R scripts. The scripts are time consuming, so you can't just call them from the server process. If you do, the webpage will stop loading and wait for the scripts to finish. Well, just run them in the background and update the page with javascript when the scripts are finished, right? Not if there are one hundred people using the server at once. You need to control the number of simultaneous jobs. Hence the need for a job dispatcher. <br /><br /><a name='more'></a><br /><br />I thought I came up with a clever solution so I thought I'd share it. Let me first say, that part of the reason I chose this solution is because I was interested in practicing my C. The particular features of C I'm playing with are: signalling, forking, and SQL. So here is my list of what this program does:<br /><br /><ol><li>Creates a deamon&nbsp;</li><li>Deamon periodically monitors SQL table&nbsp;</li><li>When something changes, it exectues a command&nbsp;</li></ol>&nbsp;Let's look at part 1, which I learned from <a href="http://http//www.danielhall.me/2010/01/writing-a-daemon-in-c/">here</a>. The idea in part 1 is to create a daemon to make the program its own session, so that when you close the terminal window the program won't exit. Here's the minimum code to accomplish this:<br /><br /><script src="https://gist.github.com/whitead/b862bbe34dc356314572.js"></script>This first bit of code forks the program. We basically cloned our code, and now two copies are running from the same point in the code. The only difference between the two programs is that pid is 0 for the new program and greater than 0 for the old one. We use this to elminate the original program, making our copy have no parent process. If it had a parent, then if the parent process exits so would the child process. Now that we killed the child's parent, we need to move it to its own session so that it won't exit if the session is exited. That is what the last line of code accomplishes. In the full program below, there are some extra bits to close the stdin/stdout and open a system log file. <br /><br />Step 2 means we need to monitor the SQL table for changes. For now, assume our table has two columns: a filename column and a dispatch column. When we wish to execute a job, we make the dispatch column NULL. That is the signal to the daemon that it should execute its job on that row, where the filename is a parameter to the job. Here is the minimum code to accomplish this: <br /><script src="https://gist.github.com/whitead/d287cf7837753cf9cb34.js"></script>The first section of code sets up the variables we need to interact with a MySQL database in C, including things like username, database name, etc. The next section of code connects to the database, with some error checking. Next, we preform a query to determine if there is a column with a NULL in the dispatch column. We check if our query had any results, and if so we know it's time to execute the job again.  <br /><br />The next thing we need to do is call this code from our daemon. The easiest way is to check every so many seconds. This may be accomplished with this code: <br /><script src="https://gist.github.com/whitead/7f72c41bb77b0eaa7e28.js"></script>However, we may wish to instead signal our program. This is why I wrote the program in C, in fact, to play with signals. In Linux, one program may signal another. If data is uploaded to my server, for example, I want to tell my daemon right away and can have my server signal it. We must simply tell the operating system what to do when our program is signaled. It is much simpler than it sounds: <br /><pre class="brush: c; toolbar: false">signal(SIGALRM, wait_for_change);<br /><br /><br /></pre>This code says that when we are signalled, we call the wait for change method. Notice that if we were waiting, we would go back to the top of the loop and call check_for_change(). Thus, we will immediately check for a change. To signal the program, we may use this command from either the terminal or another program: <br /><pre class="brush: plain; toolbar: false">pkill -ALRM [program name]<br /></pre>There is one slight problem, however. Signals can come at any time in our code. You can imagine that it would be bad if we were in the middle of querying the SQL database or executing a job and we went straight to the check_for_change code. We would leave open files, open connections, and other badness. So we "lock" and "unlock" our code when it is important that we aren't interrupted by a signal. Here are these two method: <br /><script src="https://gist.github.com/whitead/57435b59178589bc03c0.js"></script>They are relatively simple; they just say that we're blocking the SIGALRM signal when locked and unblock it when unlocked. So, when we are about to do something delicate in the code, we call lock() and when finished we call unlock(). <br />Finally, we need to set-up a job manager. Basically, we want to allow only a finite number of jobs to execute at any given time. I won't go into too much detail of the code, but here's the simple explanation of how it works:<br /><ol><li>If the counter for the number of jobs is greater than 0, fork the program like we did for the deamon but without creating a new session. We decrement the number of jobs we can execute.</li><li>When a child finishes, it will signal the daemon. The daemon records that a child finished.</li></ol><br />In theory, the child signals (step 2) could be used to conut the number of children processes that have finished. However, I've found practically that this doesn't always work. If a child crashes, somehow the parent isn't always signaled. Maybe someone more knowledgeable can leave a comment about that. I instead have the children construct empty files when they start and delete them when finished. Then the parent program just counts the number of these files to get the number of running jobs. These files are also useful for debugging information. <br />That's basically it. Here now is the complete program. It contains locks and unlocks, much more error handling, and logging compared to what we've seen before.  <br /><script src="https://gist.github.com/whitead/d784fb6a5af8fe0c885f.js"></script>
+</div>
+      </div>
+    </div>
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

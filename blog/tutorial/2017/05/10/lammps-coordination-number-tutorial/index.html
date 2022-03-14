@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EDS Lammps Coordination Number</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>EDS Lammps Coordination Number</h1>
+      
+      <h4> EDS Tutorial for Biasing Coordination Number in Lammps with Water </h4>
+      
+      <p class="text-muted">May 10, 2017</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<p>This tutorial will show you how to reproduce the method in the recent
+White et al. water AIMD paper <a class="citation" href="#White2017">(White et al., 2017)</a>. The
+goal of the method is to minimally bias a water simulation to match a
+reference RDF. We will first convert a reference RDF into a set of
+reference scalar coordination number moments. Then, an NVT simulation
+is run to find a minimal bias which causes the coordination numbers to
+match their reference values. It won’t be covered here, but the bias
+can then be used to run NVE simulations or in conjunction with other
+free-energy methods. This tutorial will use classical simulations in
+Lammps instead of AIMD in CP2K so that results can be obtained in a
+reasonable amount of time.</p>
+
+<!-- more -->
+
+<h2 id="requirements">Requirements</h2>
+
+<p>This tutorial utilizes Docker to run simulations and perform
+analysis. The only tools you’ll need are the Docker package (called
+docker.io on Ubuntu). Docker is available on both Windows and
+Linux. Git is also used for version control, but if you’d prefer not
+to install it you can download the tutorial files by navigating to
+<a href="https://github.com/ur-whitelab/tutorials">github.com/ur-whitelab/tutorials</a>
+and downloading a zip file.</p>
+
+<h2 id="setting-up">Setting up</h2>
+
+<p>First get the Docker image to obtain required for this tutorial:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull whitelab/tutorial-lammps-cn
+</code></pre></div></div>
+
+<p>Now let’s get the files for the tutorial. I will use [tutor-dir] to
+indicate the root directory which you’re using for this tutorial.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/ur-whitelab/tutorials <span class="o">[</span>tutor-dir]
+<span class="nb">cd</span> <span class="o">[</span>tutor-dir]/eds-coordination-tutorial
+</code></pre></div></div>
+
+<p>In general, you run commands using the Docker container like this:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="o">[</span>tutor-dir]:/home/whitelab/scratch whitelab/tutorial-lammps-cn <span class="o">[</span><span class="nb">command</span><span class="o">]</span>
+</code></pre></div></div>
+
+<p>I will use <code class="highlighter-rouge">pwd</code> as a shortcut for <code class="highlighter-rouge">[tutor-dir]</code>. Note this will not
+work on Windows, where you’ll need to put your complete path in
+Windows path notation.</p>
+
+<h2 id="unbiased-simulation">Unbiased Simulation</h2>
+
+<p>Let’s start by seeing what our unbiased overstructured water
+simulation looks like. Our classic molecular dynamics water model
+mimics the overstructuring of DFT 300K water. Begin the simulation
+using this command <code class="highlighter-rouge">lammps -var name unbiased -in lammps.in</code> with the
+Docker container. This runs an NVT simulation with the name
+‘Unbiased’. The complete command with the docker container preamble is:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn lammps <span class="nt">-var</span> name unbiased <span class="nt">-in</span> lammps.in
+</code></pre></div></div>
+
+<p>This will take a little while and generate a few files with the label
+‘unbiased’. To analyze them, we can use the included <code class="highlighter-rouge">python3</code> script
+with <code class="highlighter-rouge">python3 analyze_run.py unbiased</code>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased
+</code></pre></div></div>
+
+<p>You should see a few images showing the evolution of the coordination
+number of water oxygen with water oxygen along with an average radial
+distribution function (RDF) and temperature for the simulation. Radial
+distribution functions (RDFs) are (transformed) probability
+distributions. Here’s the RDF:</p>
+
+<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_preview.jpg" alt="" /></a></p>
+
+<p>As you can see, the unbiased simulation has a significantly higher
+first-peak and general overstructuring relative to the experimental
+RDF.</p>
+
+<h2 id="converting-rdf-to-coordination-number-scalars">Converting RDF to Coordination Number Scalars</h2>
+
+<p>To fix this overstructuring, we will now bias the experiment directed
+simulation (EDS) method (missing reference). The minimal
+biasing EDS method can only bias scalars (missing reference), not distributions. There is a method for minimal biasing of
+probability distirbutions like RDFs, but it is generally too slow to
+converge for use on AIMD <a class="citation" href="#White2015">(White et al., 2015)</a>, so we will
+skip it for this tutorial. Thus the first step is to convert the RDF
+into scalars so that EDS can be used. The implementation of EDS is in
+Plumed2,<a class="citation" href="#PLUMED">(Bonomi et al., 2009)</a> which is a free-energy methods library
+with integration in many common simulation engines.</p>
+
+<p>The chosen scalars are coordination number and moments of it. See
+<a href="/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/">this post</a> for a
+description of the parameters involved and how to choose them. After
+the coordination number parameters are chosen (<script type="math/tex">n</script>, <script type="math/tex">m</script>, <script type="math/tex">w</script> and
+<script type="math/tex">r_0</script>), the reference RDF can be used to generate the reference
+coordination number averages. This is done using this python <a href="https://gist.github.com/whitead/ba45b7aff24bf353ae93a96dfc3855d2">this
+script</a>,
+which is included in the tutorial files.</p>
+
+<hr />
+
+<p>Let’s convert the reference RDF then into the scalar coordination
+numbers. This RDF is of water at 300K as determined by X-ray
+scattering <a class="citation" href="#Skinner2013">(Skinner et al., 2013)</a>. We follow the parameters from the
+White et al. 2017 AIMD water paper <a class="citation" href="#White2017">(White et al., 2017)</a>
+for the <script type="math/tex">w</script>, <script type="math/tex">r_0</script>, <script type="math/tex">n</script>, <script type="math/tex">m</script>, and the cutoff, but we must
+calculate the exact density for our system. Our simulation is 128
+water molecules in a box of size 15.6629 Å. Due to how RDFs is connected
+to coordination number, the density is <script type="math/tex">N - 1 / d^3</script>. Thus our
+density is 0.0333 Å <script type="math/tex">^3</script>.Run for each moment as shown below:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py <span class="nt">-moment</span> 0 <span class="nt">-r0</span> 2.3 <span class="nt">-n</span> 6 <span class="nt">-m</span> 12 <span class="nt">-w</span> 0.7 <span class="nt">-rmax</span> 7.0 reference.rdf aimd 0.0333
+
+docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py <span class="nt">-moment</span> 1 <span class="nt">-r0</span> 2.3 <span class="nt">-n</span> 6 <span class="nt">-m</span> 12 <span class="nt">-w</span> 0.7 <span class="nt">-rmax</span> 7.0 reference.rdf aimd 0.0333
+
+docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py <span class="nt">-moment</span> 2 <span class="nt">-r0</span> 2.3 <span class="nt">-n</span> 6 <span class="nt">-m</span> 12 <span class="nt">-w</span> 0.7 <span class="nt">-rmax</span> 7.0 reference.rdf aimd 0.0333
+
+docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 convert_gr.py <span class="nt">-moment</span> 3 <span class="nt">-r0</span> 2.3 <span class="nt">-n</span> 6 <span class="nt">-m</span> 12 <span class="nt">-w</span> 0.7 <span class="nt">-rmax</span> 7.0 reference.rdf aimd 0.0333
+</code></pre></div></div>
+<p>this will output the following information about the RDF:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r0 = 2.3, n = 6.0, m = 12.0, w = 0.7, Exact: 0.4297167332248187, Approximate: 2.9893015681855717
+</code></pre></div></div>
+
+<p>with a possible warning about the truncation error. We can run this
+with different values for moment to get the higher coordination number
+moments as well. The approximate coordination numbers are the ones we
+will use for biasing. For a description on the difference between the
+exact and approximate, see <a href="/Blog/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/">this post</a>. The final
+values are</p>
+
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th> Moment </th>
+      <th> Set-Point </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2.99</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>8.45</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>24.16</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>69.60</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<p><em>Note:</em> these particular values are set in a file called
+ <code class="highlighter-rouge">set_points.txt</code> for generating the plots. If you experiment with
+ different parameters/cutoffs, be sure to change the values in the file so that
+ your plots correctly show them.</p>
+
+<h2 id="biasing-water-simulation">Biasing Water Simulation</h2>
+
+<p>The next step is to now bias the water simulation. We don’t need to
+modify the basic simulation, but we’ll add some items to our plumed
+input file. Let’s start by defining the coordination number
+moments. Open the <code class="highlighter-rouge">biased.plumed</code> file and you should see:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UNITS LENGTH=A ENERGY=kcal/mol TIME=fs
+oxygen: GROUP ATOMS=1-384:3
+cn0: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} MEAN
+cn1: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=1 MEAN
+cn2: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=2 MEAN
+cn3: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=3 MEAN
+eds: EDS ARG=cn0.mean PERIOD=250 CENTER=2.99 OUT_RESTART=biased_eds.restart TEMP=300
+PRINT ARG=cn0.mean,cn1.mean,cn2.mean,cn3.mean STRIDE=50 FILE=biased_cn.log
+</code></pre></div></div>
+
+<p>The first line sets the units to match the units in the reference
+RDF. The next line creates a group for the oxygen atoms. The
+parameters for the coordination number are set to match we used for
+the <code class="highlighter-rouge">convert_gr.py</code> script. The <code class="highlighter-rouge">R_POWER</code> parameter is the moment,
+<code class="highlighter-rouge">D_MAX</code> is the <code class="highlighter-rouge">rmax</code> (cutoff), <code class="highlighter-rouge">D_0</code> is the <code class="highlighter-rouge">w</code> parameter and the
+others are named the same. We use the <code class="highlighter-rouge">NOSTRETCH</code> keyword to ensure
+our function computed on the RDF matches identically what is from
+plumed. Notice as well that we use <code class="highlighter-rouge">MEAN</code>, so that we are looking at
+the average coordination number moment. There is no biasing
+information yet.</p>
+
+<p>Now we add the biasing information. Copy the file/rename it to be
+<code class="highlighter-rouge">biased-1.plumed</code>. Add the line below starts with “<code class="highlighter-rouge">eds:</code>” :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UNITS LENGTH=A ENERGY=kcal/mol TIME=fs
+oxygen: GROUP ATOMS=1-384:3
+cn0: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} MEAN
+cn1: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=1 MEAN
+cn2: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=2 MEAN
+cn3: COORDINATIONNUMBER SPECIES=oxygen SWITCH={RATIONAL D_0=2.3 NN=6 MM=12 R_0=0.7 D_MAX=7 NOSTRETCH} R_POWER=3 MEAN
+eds: EDS ARG=cn0.mean PERIOD=250 CENTER=2.99 OUT_RESTART=biased_eds.restart TEMP=300
+PRINT ARG=cn0.mean,cn1.mean,cn2.mean,cn3.mean STRIDE=50 FILE=biased_cn.log
+</code></pre></div></div>
+
+<p>We’re only biasing the coordination number (0th moment) with this
+one. Remember to rename this file to be <code class="highlighter-rouge">biased-1.plumed</code>. Our period
+was selected to be 250 timesteps (125 fs), which gives the simulation
+sometime to adjust to changes to the bias.</p>
+
+<p>Now are ready to start the simulation. Begin it with:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn lammps <span class="nt">-var</span> name biased-1 <span class="nt">-in</span> lammps.in
+</code></pre></div></div>
+
+<h3 id="analysis-of-eds-simulation">Analysis of EDS simulation</h3>
+
+<p>Now we need to check the convergence to ensure that the coordination
+number matched our set-point. Again, run the analysis script:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased biased-1
+</code></pre></div></div>
+
+<p>One of the plots, <code class="highlighter-rouge">cn_comparison.png</code>, shows the trace of the
+coordination number over the simulation. As you can see, the biased
+line converges to the set-point. The plot is shown below:</p>
+
+<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_preview.jpg" alt="" /></a></p>
+
+<p>Each of the subplots is one of the coordination number moments. They
+are scaled to their set-points, so that the y-axes are similar. We can
+now see the effect of biasing more moments. The RDF after biasing with
+improvement is shown below</p>
+
+<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1_preview.jpg" alt="" /></a></p>
+
+<h3 id="changing-the-number-of-moments">Changing the number of moments</h3>
+
+<p>Using the the same starting file, add another set-point
+moments. Again, copy the <code class="highlighter-rouge">biased.plumed</code> file to make a
+<code class="highlighter-rouge">biased-2.plumed</code> file with the EDS information. Now add another entry to the <code class="highlighter-rouge">ARG</code> on the <code class="highlighter-rouge">eds:</code> line.
+The entry is <code class="highlighter-rouge">cn1.mean</code>, so that you’ll now have <code class="highlighter-rouge">ARG=cn0.mean,cn1.mean</code>. Run the simulation
+and analyze the results</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn lammps <span class="nt">-var</span> name biased-2 <span class="nt">-in</span> lammps.in
+docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased biased-1 biased-2
+</code></pre></div></div>
+
+<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2_preview.jpg" alt="" /></a></p>
+
+<p>The additional moment provides, arguably, a little improvement but not
+as much as going from no bias to one moment. This is because the
+moments are correlated and there are diminishing returns to adding
+more bias. You can try adding more to see this effect (make sure to
+extend the simulation time).</p>
+
+<p>You can get some insight into the algorithm from the diagnostic plot
+(<code class="highlighter-rouge">biases_comparison.png</code>), which shows each the parameters used to
+calculate the EDS updates. This plot is shown below for 1,2 and 4
+moments.</p>
+
+<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison_preview.jpg" alt="" /></a></p>
+
+<h3 id="cleaning-up">Cleaning up</h3>
+
+<p>If you’d like to make the directory clean again to restart the
+tutorial, run <code class="highlighter-rouge">git clean -fX</code>.</p>
+
+<h3 id="references">References</h3>
+
+<ol class="bibliography"><li><div class="bib"><span id="White2017">White, A. D., Knight, C., Hocky, G. M., &amp; Voth, G. A. (2017). Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. <i>Journal of Chemical Physics</i>, <i>146</i>(4). https://doi.org/10.1063/1.4974837</span></div>
+</li>
+<li><div class="bib"><span id="White2015">White, A., Dama, J., &amp; Voth, G. A. (2015). Designing Free Energy Surfaces that Match Experimental Data with Metadynamics. <i>Journal of Chemical Theory and Computation</i>, 150430155138001. https://doi.org/10.1021/acs.jctc.5b00178</span></div>
+</li>
+<li><div class="bib"><span id="PLUMED">Bonomi, M., Branduardi, D., Bussi, G., Camilloni, C., Provasi, D., Raiteri, P., Donadio, D., Marinelli, F., Pietrucci, F., Broglia, R. A., &amp; Parrinello, M. (2009). PLUMED: A portable plugin for free-energy calculations with molecular dynamics. <i>Computer Physics Communications</i>, <i>180</i>(10), 1961–1972. https://doi.org/10.1016/j.cpc.2009.05.011</span></div>
+</li>
+<li><div class="bib"><span id="Skinner2013">Skinner, L. B., Huang, C., Schlesinger, D., Pettersson, L. G. M., Nilsson, A., &amp; Benmore, C. J. (2013). Benchmark oxygen-oxygen pair-distribution function of ambient water from x-ray diffraction measurements with a wide Q-range. <i>The Journal of Chemical Physics</i>, <i>138</i>(7), 074506. https://doi.org/10.1063/1.4790861</span></div>
+</li></ol>
+
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="disqus col-md-8 col-md-offset-2">
+	    <div id="disqus_thread"></div>
+	    <script type="text/javascript">
+              var disqus_shortname = 'crowsandcats'; 
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+	    </script>
+	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+      </div>
+    </div>    
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

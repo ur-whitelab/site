@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>McGovern-de Pablo Boundary Corrected Hills</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/molecular-dynamics/2014/06/27/McGovern-De-Pablo-Boundary-Corrected-Hills/">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>McGovern-de Pablo Boundary Corrected Hills</h1>
+      
+      <h4> Some details on implementing the boundary corrected hills described by McGovern and De Pablo for metadynamics simulations </h4>
+      
+      <p class="text-muted">Jun 27, 2014</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<p>Metadynamics is a way of overcoming energetic barriers in molecular
+simulation <a class="citation" href="#metadynamics">(Laio &amp; Parrinello, 2002)</a>. It’s part of a class of algorithms
+that focus on making rare-events more frequent in simulations. It’s
+been getting quite popular: it even has it’s own <a href="http://en.wikipedia.org/wiki/Metadynamics">wikipedia
+page</a>. One problem with the
+method is that it has systematic errors at boundaries and this was
+recently fixed via a method introduced by Michael McGovern and Juan de
+Pablo <a class="citation" href="#McGdP-Hills">(McGovern &amp; de Pablo, 2013)</a>. I’m recording the equations here in,
+since I use an implementation of it and the derivatives weren’t shown
+in the manuscript, which are necessary for the implementation. <!-- more -->	Perhaps one of the handful of other people in the world that would care about
+this may stumble upon my blog one day. I should also say that the
+method has been very useful in my own research and I’m a big fan.</p>
+
+<p>The equation for the bias added with the McGovern-de Pablo Hills is</p>
+
+<div style="display:none">
+  \[
+       \newcommand{\erf}{\mathop{\rm erf}\nolimits}
+  \]
+</div>
+
+<div>\[
+V(\vec{s}) = \frac{W e^{\sum_i^N\frac{-(x_i - s_i)^2}{2\sigma_i^2}}}{\prod_i^N C_i \left[\erf\left(\frac{s_i - L_i}{\sqrt{2}\sigma_i}\right) + \erf\left(\frac{U_i - s_i}{\sqrt{2}\sigma_i}\right)\right]}
+\]</div>
+
+<div>\[
+C_i = \sqrt{\frac{\pi}{2}}\frac{\sigma_i}{U_i - L_i}
+\]</div>
+
+<p>where <script type="math/tex">W</script> is the hill height parameter, <script type="math/tex">s_i</script> is the observed
+sample in the <script type="math/tex">i</script>th collective variable, <script type="math/tex">\sigma_i</script> is collective
+variable width, <script type="math/tex">L_i</script> is the lower boundary of the <script type="math/tex">i</script>th
+collective variable and <script type="math/tex">U_i</script> is the upper boundary. We can break up the equation into component pieces like so</p>
+
+<div>\[
+V(\vec{s}) = \frac{f(\vec{s})}{\prod_i^N g_i(\vec{s})}
+\]</div>
+
+<div>\[
+f(\vec{s}) = W e^{\sum_i^N\frac{-(x_i - s_i)^2}{2\sigma_i^2}}
+\]</div>
+
+<div>\[
+g_i(s_i) = C_i \left[\erf\left(\frac{s_i - L_i}{\sqrt{2}\sigma_i}\right) + \erf\left(\frac{U_i - s_i}{\sqrt{2}\sigma_i}\right)\right]
+\]</div>
+
+<p>Finally, the derivative, which is not shown in the manuscript, is</p>
+
+<div>\[
+\frac{\partial V(\vec{s})}{\partial s_j}  = \frac{\frac{\partial f(\vec{s})}{\partial s_j} - \frac{f(\vec{s})}{g_j(s_j)}\frac{\partial g_j(s_j)}{\partial s_j}}{\prod_i^N g(\vec{s})}
+\]</div>
+
+<div>\[
+\frac{\partial f(\vec{s})}{\partial s_j} = -\frac{W(x_j - s_j)}{\sigma^2}e^{\sum_i \frac{-(x_i - s_i)^2}{2\sigma_i^2}}
+\]</div>
+
+<div>
+\[
+\frac{\partial g_i(s_i)}{\partial s_i} = \frac{C_i}{2\sigma_i}\sqrt{\frac{2}{\pi}}\; \left[e^{-\frac{(s_i - L_i)^2}{2\sigma_i^2}} - e^{-\frac{(U_i - s_i)^2}{2\sigma_i^2}} \right]
+\]
+</div>
+
+<h1 id="cited-references">Cited References</h1>
+
+<ol class="bibliography"><li><div class="bib"><span id="metadynamics">Laio, A., &amp; Parrinello, M. (2002). Escaping free-energy minima. <i>Proceedings of the National Academy of Sciences of the United States of America</i>, <i>99</i>(20), 12562–12566. https://doi.org/10.1073/pnas.202427399</span></div>
+</li>
+<li><div class="bib"><span id="McGdP-Hills">McGovern, M., &amp; de Pablo, J. (2013). A boundary correction algorithm for metadynamics in multiple dimensions. <i>The Journal of Chemical Physics</i>, <i>139</i>(8), 084102. https://doi.org/10.1063/1.4818153</span></div>
+</li></ol>
+
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="disqus col-md-8 col-md-offset-2">
+	    <div id="disqus_thread"></div>
+	    <script type="text/javascript">
+              var disqus_shortname = 'crowsandcats'; 
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+	    </script>
+	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+      </div>
+    </div>    
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

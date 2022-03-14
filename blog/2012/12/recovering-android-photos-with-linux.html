@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recovering Android Photos with Linux</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/2012/12/recovering-android-photos-with-linux.html">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>Recovering Android Photos with Linux</h1>
+      
+      <p class="text-muted">Dec 29, 2012 • Andrew White</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="css-full-post-content js-full-post-content">
+As noticed by others on the Internet, it is possible to recover photos from an Android phone that were deleted. It is impossible, as far as I know, to recover the full resolution photos. You may, however, recover the thumbnails and those are often large. This also allows you to recover photos which weren't saved, like those from text messages. The problem though is that methods I found while googling require you to edit the image files in a hex editor. For example, as&nbsp;demonstrated&nbsp;in <a href="http://www.youtube.com/watch?v=0PH54OmYlqY">this video</a>. I've instead written a python script which automates this greatly simplifying the fact that you need to recover all the pictures to find one in particular.<br /><br /><br /><a name='more'></a><br /><br /><br />The approach is to write a short python script which automates the hex editing necessary and then execute the script on all the cache files. Pretty straight forward. As usual, this only works on Linux and I have no idea about other OSes.<br /><br />The first step is to find your tec cache files. Plug the phone into a computer and turn on USB storage. Navigate around until you find any tec files, which are cached thumbnails. For me, the path is /sdcard/DCIM/Camera/cache<br /><br />Once you have the files on your computer in a folder (do not edit the originals on your phone!), you need to open a text editor to create the python script. This script in python is pretty simple:<br /><br /><script src="https://gist.github.com/whitead/b85d0cb344a1b39fe74e.js"></script>Once you have that python script written in a text file, for example "tec2jpg.py", make it executable with  <br /><pre class="brush: shell; toolbar: false;">chmod +x tec2jpg.py<br /></pre>The final ingredient is to execute the python script on all the tec files in a directory. This can be done using this little bash for loop in the command line when you are in the directory containing the tec files: <br /><pre class="brush: shell; toolbar: false;">for i in `ls *tec`; <br />  do NAME=`basename $i .tec`;  <br />  path/to/python-script/tec2jpg.py $NAME.tec $NAME.jpg; <br />done;<br /></pre>That's it! You should at this point have jpegs for all the original tec cached thumbnails. I have only tested this on my Samsung galaxy, so I have no idea if it works on other phones. Best of luck!
+</div>
+      </div>
+    </div>
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

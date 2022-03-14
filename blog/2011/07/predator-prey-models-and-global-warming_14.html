@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Predator-Prey Models and Global Warming Followup</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/2011/07/predator-prey-models-and-global-warming_14.html">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>Predator-Prey Models and Global Warming Followup</h1>
+      
+      <p class="text-muted">Jul 15, 2011 • Andrew White</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="css-full-post-content js-full-post-content">
+I thought I'd follow up my&nbsp;<a href="http://crowsandcats.blogspot.com/2011/07/predator-prey-models-and-global-warming.html">last post</a>&nbsp;with some information on some of the tools I used. I'm not going to talk about how I made the equations, because they came out terrible and I'm trying to come up with a new way. I guess if anyone is curious: I made them in <a href="http://www.latex-project.org/">LaTeX</a>&nbsp;and used <a href="http://www.gimp.org/">gimp</a>&nbsp;to convert them to PNGs.<br /><br />Ok, so let's see how I made the graphics. Here's the first graphic, in case anyone forgot.<br /><div class="separator" style="clear: both; text-align: center;"></div><br /><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-ho3tmOw0KwQ/ThbJWYH9zGI/AAAAAAAAACs/z4NyOD3NTNQ/s1600/graphic.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-ho3tmOw0KwQ/ThbJWYH9zGI/AAAAAAAAACs/z4NyOD3NTNQ/s1600/graphic.png" /></a></div><br /><a name='more'></a><br /><br />The first step in creating the graphic was, obviously, to solve the ODEs. I used&nbsp;<a href="http://www.scipy.org/">SciPy</a>&nbsp;for that. Specifically, I used the odeint command. It's pretty simple to use in fact. Here's what it looks like:<br /><br /><script src="https://gist.github.com/whitead/f139e40e5623ce4eceb3.js"></script><br />This function is part of the NumPy python packages, so you can easily work with systems of equations, like the one seen in&nbsp;<a href="http://crowsandcats.blogspot.com/2011/07/predator-prey-models-and-global-warming.html">Predator-Prey Models and Global Warming</a>. The function <code>derivative_fxn</code> needs to return the derivative given x and the time. Note, that x may be an array. The args=(...) allows you to pass a tuple of arguments to give to the <code> derivative_fxn</code>.<br /><br />Anyway, so that is odeint. Now, for the full script used to solve the predator-prey models:<br /><br /><script src="https://gist.github.com/whitead/eb822b4a9ffbdddfbdb9.js"></script><br />The advantage to using SciPy is the ability to spice up the ODE with some programming, which allowed me to calculate the solution at each of the temperatures pretty easily. Now, how to graph it? I've been pretty hot on <a href="http://www.r-project.org/">R</a>&nbsp;lately for my graphs. Some people like the combination of SciPy and <a href="http://matplotlib.sourceforge.net/">matplotlib</a>, which is powerful. But, for publication quality graphics, R is what I use.<br /><br />I won't go into too much detail on the script, but you can probably figure out most of it from below. The great thing about python and R is that you can open up the languages in an interactive terminal and go line by line to examine how a script works. The disadvantage to being an interactive language, especially for R, is the performance hit. Anyway, without further ado here is the R plotting script:<br /><div class="separator" style="clear: both; text-align: -webkit-auto;"><br /></div><script src="https://gist.github.com/whitead/b1e97e0728300683bd87.js"></script><br />That's it! Now I just need to figure out how to format equations...
+</div>
+      </div>
+    </div>
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

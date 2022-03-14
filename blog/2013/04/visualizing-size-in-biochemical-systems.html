@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Visualizing Size in Biochemical Systems</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/2013/04/visualizing-size-in-biochemical-systems.html">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>Visualizing Size in Biochemical Systems</h1>
+      
+      <p class="text-muted">Apr 16, 2013 • Andrew White</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="css-full-post-content js-full-post-content">
+I decided to waste a few hours and make a <a href="http://www.blender.org/">Blender</a> image based on my post on the <a href="http://crowsandcats.blogspot.com/2013/04/relative-size-of-proteins-nanoparticles.html">relative size of common elements in biochemical systems</a>. Using 1 blender unit = 1 nm, I modeled a gold nanoparticle, an antibody, albumin, an iron oxide nanoparticle, a 10 amino acid length peptide, and salicylic acid.<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-_5lYpEKpmak/UWzLDvE7ZqI/AAAAAAAABBM/LWfT-6bdoto/s1600/full_annotation.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-_5lYpEKpmak/UWzLDvE7ZqI/AAAAAAAABBM/LWfT-6bdoto/s400/full_annotation_thumb.png"/></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><br /><br /><a name='more'></a><br /><br />The nanoparticles were created using dupliverts on Icospheres in Blender. Albumin and the Antibody were created by rendering them as STL files in <a href="http://www.ks.uiuc.edu/Research/vmd/">VMD</a>&nbsp;using the surf representation.&nbsp;Once imported into Blender, a decimate modifier followed by remesh (octree depth of 7, smooth) fixed the STL meshes nicely. A 5 iteration smooth modifier fixed any&nbsp;artifacts after the remeshing. Make sure to turn on smooth shading. The peptide and salicylic acid were made the same way, except using the VDW representation instead of the surf. No remeshing is necessary, other than enabling smooth shading. Rendering was done at 150% with 75 samples and the image was scaled down in GIMP to 100% using cubic interpolation (a ghetto denoising technique that works well). Finally, the annotations were added in Inkscape. Here's a zoom of the smaller elements.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-iCV4vyCbBEE/UWzLr364_sI/AAAAAAAABBQ/fjdvU5RECTY/s1600/zoom.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="241" src="http://1.bp.blogspot.com/-iCV4vyCbBEE/UWzLr364_sI/AAAAAAAABBQ/fjdvU5RECTY/s400/zoom.png" width="400" /></a></div><br />
+</div>
+<div class="css-full-comments-content js-full-comments-content">
+<div class="css-full-comment js-full-comment">
+  <div class="css-comment-user-link js-comment-user-link">
+  <a href="http://www.blogger.com/profile/03974169101497535737">
+  <div class="css-comment-name js-comment-name">
+    somersault18:24
+  </div>
+  </a>
+  <div class="css-comment-date js-comment-date">
+    2013-05-04T06:33:26.953Z
+  </div>
+  </div>
+  <div class="css-comment-content js-comment-content">
+    Very nice work! I love to see blender being used in scientific visualizations! I use it all the time in my own work too, if you are interested, check my website: http://www.somersault1824.com
+  </div>
+  <br/>
+</div>
+<div class="css-full-comment js-full-comment">
+  <div class="css-comment-user-link js-comment-user-link">
+  <a href="http://www.blogger.com/profile/03754332034038151272">
+  <div class="css-comment-name js-comment-name">
+    Jonathan Carvaz
+  </div>
+  </a>
+  <div class="css-comment-date js-comment-date">
+    2014-01-20T19:21:34.948Z
+  </div>
+  </div>
+  <div class="css-comment-content js-comment-content">
+    I have a question.  How many atoms of gold are in the gold nanoparticle?<br />
+  </div>
+  <br/>
+</div>
+<div class="css-full-comment js-full-comment">
+  <div class="css-comment-user-link js-comment-user-link">
+  <a href="http://www.blogger.com/profile/12233134401389651425">
+  <div class="css-comment-name js-comment-name">
+    Andrew White
+  </div>
+  </a>
+  <div class="css-comment-date js-comment-date">
+    2014-01-28T14:39:41.091Z
+  </div>
+  </div>
+  <div class="css-comment-content js-comment-content">
+    The lattice structure is probably not correct, but in the image there are 10,242 gold atoms. 
+  </div>
+  <br/>
+</div>
+</div>
+      </div>
+    </div>
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

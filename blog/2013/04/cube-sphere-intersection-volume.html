@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cube-Sphere Intersection Volume</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/2013/04/cube-sphere-intersection-volume.html">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>Cube-Sphere Intersection Volume</h1>
+      
+      <p class="text-muted">May 1, 2013 • Andrew White</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<div class="css-full-post-content js-full-post-content">
+This week's math problem was particularly difficult. I wanted to know the intersection volume between a cube and a sphere. Imagine a sphere contained in a cube. The sphere will first touch the cube when its radius is equal to half the width of the cube. Until that point, its volume is just the formula for the volume of a sphere. Once the sphere's radius is <code>2 sqrt(3)</code> times the width of the cube, then it completely engulfs the cube and the intersection of the 2 objects is just the volume of a cube. In between, I've found it looks like this:  <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-ohmSC3fow8o/UYBiNNYqq3I/AAAAAAAABEU/KIoUZFuZusw/s1600/plot.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-ohmSC3fow8o/UYBiNNYqq3I/AAAAAAAABEU/KIoUZFuZusw/s1600/plot.png" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"></div><br /><a name='more'></a>The gray vertical lines represent when to use which equation. There are in fact 2 other regimes besides the two I discussed. I'm going to discuss these regimes as related to the ratio of the <code> rho </code> and <code> d </code> where the first is the radius of the sphere and the second is half the cube width. Let's see them visually.<br /><br />The first regime is the spherical, where <code> rho / d </code> &lt; 1. It looks like a sphere:   <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-3j_aBrEgoSY/UYBxWqod71I/AAAAAAAABEk/CjgqlGHPN7Y/s1600/sphere.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="180" src="http://1.bp.blogspot.com/-3j_aBrEgoSY/UYBxWqod71I/AAAAAAAABEk/CjgqlGHPN7Y/s320/sphere.png" width="320" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><br />The second regime has circular "lenses" cut-off from the sphere and occurs while <code> rho / d </code> &lt; <code>sqrt(2):</code><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-K9liHA_Y3SQ/UYBxbJvq9xI/AAAAAAAABE0/l7kCZvZejKs/s1600/lens.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="180" src="http://4.bp.blogspot.com/-K9liHA_Y3SQ/UYBxbJvq9xI/AAAAAAAABE0/l7kCZvZejKs/s320/lens.png" width="320" /></a></div><br />The third regime is characterized by filling the 8 corners of the cube:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-k39Hk-8ufc8/UYBxdHoeiSI/AAAAAAAABFM/Me0dW4Dm1QE/s1600/trans.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="180" src="http://1.bp.blogspot.com/-k39Hk-8ufc8/UYBxdHoeiSI/AAAAAAAABFM/Me0dW4Dm1QE/s320/trans.png" width="320" /></a></div><br />Finally, the last regime is just a cube. This occurs at <code> rho / d </code> &gt; <code> sqrt(3):</code><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-hLeRfA4YH1k/UYBxb2Ab0iI/AAAAAAAABE8/c3eoli8WNyw/s1600/cube.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="180" src="http://3.bp.blogspot.com/-hLeRfA4YH1k/UYBxb2Ab0iI/AAAAAAAABE8/c3eoli8WNyw/s320/cube.png" width="320" /></a></div><code><br /></code>The equation for the sphere regime is:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-EG4VZJB0wpk/UYBzqLHeMII/AAAAAAAABHs/RjEKkMvSXxI/s1600/12.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-EG4VZJB0wpk/UYBzqLHeMII/AAAAAAAABHs/RjEKkMvSXxI/s1600/12.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div>The equation for the "lens" regime may be found by calculating the volume of the removed lenses and then subtracting that from the volume of the sphere. First, look at the cross section of the lens:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-eqi5QbacHd0/UYBxYvJPeRI/AAAAAAAABEs/Igm-gS1tyjw/s1600/rect3033.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="114" src="http://2.bp.blogspot.com/-eqi5QbacHd0/UYBxYvJPeRI/AAAAAAAABEs/Igm-gS1tyjw/s320/rect3033.png" width="320" /></a></div><br /><br />We can use those rotation transformation we learned in calculus. That is described by the equation:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-XQuTbOj4f2Q/UYBx-iaXsuI/AAAAAAAABFw/JGLzZXmL2Z4/s1600/13.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-XQuTbOj4f2Q/UYBx-iaXsuI/AAAAAAAABFw/JGLzZXmL2Z4/s1600/13.png" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-ZJC_-GEi2rA/UYBx-kQzxcI/AAAAAAAABGU/u8ne_6X16bA/s1600/14.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-ZJC_-GEi2rA/UYBx-kQzxcI/AAAAAAAABGU/u8ne_6X16bA/s1600/14.png" /></a></div><br />The last regime is much more difficult to deal with. The sphere is first broken into 16ths and then each piece of that is divided into 5 different regions. The 16th piece may be viewed as an animation <a href="http://i.imgur.com/2ToIPEv.gif">here</a> to visualize it. I'll break down each region with an animation showing how it changes as a function of the ratio of the radius to the cube width and the resulting volume of the area.<br />&nbsp;The first region is defined by:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-jtNWdYBJloQ/UYBx--CNOEI/AAAAAAAABF0/7eqDqoEAAE4/s1600/2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-jtNWdYBJloQ/UYBx--CNOEI/AAAAAAAABF0/7eqDqoEAAE4/s1600/2.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-ACTrsffHthY/UYBx-xmKmoI/AAAAAAAABF4/OWg2EA75TTg/s1600/3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-ACTrsffHthY/UYBx-xmKmoI/AAAAAAAABF4/OWg2EA75TTg/s1600/3.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-ZrEPMO9AkGI/UYBx9uCh-5I/AAAAAAAABFU/3G7HMuoeD38/s1600/1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-ZrEPMO9AkGI/UYBx9uCh-5I/AAAAAAAABFU/3G7HMuoeD38/s1600/1.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: center;"><br /></div><br />Here is a gif of the region:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-jkDWZNDsnPM/UYBymwa60II/AAAAAAAABHE/t7cM5GzxGDY/s1600/region1.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-jkDWZNDsnPM/UYBymwa60II/AAAAAAAABHE/t7cM5GzxGDY/s1600/region1.gif" /></a></div><br />The second region is defined by:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-6glfxAD7b1k/UYBx_ff3yqI/AAAAAAAABF8/gaGHya1c7pU/s1600/4.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-6glfxAD7b1k/UYBx_ff3yqI/AAAAAAAABF8/gaGHya1c7pU/s1600/4.png" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-9XLVG1WiOk8/UYBx_VqaS2I/AAAAAAAABGA/JA1h8BIMNXw/s1600/5.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-9XLVG1WiOk8/UYBx_VqaS2I/AAAAAAAABGA/JA1h8BIMNXw/s1600/5.png" /></a></div><br />Here is a gif of the region:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-oPsZwwxFK-M/UYByxJliYMI/AAAAAAAABHM/DvYWwOR3mE4/s1600/region2.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-oPsZwwxFK-M/UYByxJliYMI/AAAAAAAABHM/DvYWwOR3mE4/s1600/region2.gif" /></a></div><br />The third region is defined by:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-jXMkng0cCbo/UYBx_opAnrI/AAAAAAAABGE/DBl1cDaQUyM/s1600/6.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-jXMkng0cCbo/UYBx_opAnrI/AAAAAAAABGE/DBl1cDaQUyM/s1600/6.png" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-LIhVhRP95aE/UYBx__uaHJI/AAAAAAAABGI/IPFzr74LXvo/s1600/7.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-LIhVhRP95aE/UYBx__uaHJI/AAAAAAAABGI/IPFzr74LXvo/s1600/7.png" /></a></div><br />Here is a gif of the region:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-FXMHEik3ZPo/UYBy_Oi6KEI/AAAAAAAABHU/rYlvazKOH3w/s1600/region3.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-FXMHEik3ZPo/UYBy_Oi6KEI/AAAAAAAABHU/rYlvazKOH3w/s1600/region3.gif" /></a></div><br />The fourth region is defined by:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-JmhS4HvgHPE/UYByAL51-OI/AAAAAAAABGM/WVcax7lofB0/s1600/8.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-JmhS4HvgHPE/UYByAL51-OI/AAAAAAAABGM/WVcax7lofB0/s1600/8.png" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-0UvM_61JxAA/UYByALx5III/AAAAAAAABGQ/cj2ZXEzhq34/s1600/9.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-0UvM_61JxAA/UYByALx5III/AAAAAAAABGQ/cj2ZXEzhq34/s1600/9.png" /></a></div><br />Here is a gif of the region:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-wcp5zzYPxls/UYBzGL6hyVI/AAAAAAAABHc/mv9qCmSJGsM/s1600/region4.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-wcp5zzYPxls/UYBzGL6hyVI/AAAAAAAABHc/mv9qCmSJGsM/s1600/region4.gif" /></a></div><br />The fifth region is defined by:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-UKD1oPCgp_w/UYBx9pNzGAI/AAAAAAAABFY/u2w0zhoen98/s1600/10.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-UKD1oPCgp_w/UYBx9pNzGAI/AAAAAAAABFY/u2w0zhoen98/s1600/10.png" /></a><a href="http://2.bp.blogspot.com/-zIeKeuLn_Kw/UYBx93RzNFI/AAAAAAAABFg/IqYIu3DY7xU/s1600/11.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-zIeKeuLn_Kw/UYBx93RzNFI/AAAAAAAABFg/IqYIu3DY7xU/s1600/11.png" /></a></div><br />Here is a gif of the region:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-JnbHjCXdGz0/UYBzXjKiwLI/AAAAAAAABHk/9kdBjpaER2Y/s1600/region6.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-JnbHjCXdGz0/UYBzXjKiwLI/AAAAAAAABHk/9kdBjpaER2Y/s1600/region6.gif" /></a></div><br />Finally, all the regimes/regions may be combined into a python script which calculates the cube-sphere intersection volume. I should mention that I'm not that good at calculus and I think the two unevaluated integrals have analytic forms which I just can't find yet. That's one of the problems of doing integration by hand; you have to be better than me. I'm considering investing in a Mathematica license after doing these integrals. Here's the python code:  <br /><script src="https://gist.github.com/whitead/a1dd345a1e9f96805513.js"></script>
+</div>
+      </div>
+    </div>
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

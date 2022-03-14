@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VMD movie script</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-movie-scripts/">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>VMD movie script</h1>
+      
+      <h4> Two examples of making movies in VMD with scripts </h4>
+      
+      <p class="text-muted">Mar 8, 2020</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<p>Here are two example scripts for making movies in VMD. The first
+is shown below and the other controls the camera to follow an interesting
+part of the simulation.</p>
+
+<video width="320" height="240" autoplay="" loop="">
+  <source src="/Blog/assets/vmd-movie-scripts/ff-small.mp4" type="video/mp4" />
+</video>
+
+<!-- more -->
+
+<h2 id="rotate-and-change-representation">Rotate and Change Representation</h2>
+
+<p>This script makes a movie of the molecule rotating and stops
+halfway to change the representation. Most of the script is set-up.
+The loop to make the movie starts on line 75.</p>
+
+<style>
+    .gistcontainer {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.gistcontainer:target .show {display:none;}
+.gistcontainer:target {max-height:none;}
+</style>
+
+<div class="gistcontainer" id="gist1">
+  <a href="#gist1" class="show"><button>Expand Script</button></a>
+  <script src="https://gist.github.com/whitead/512773c4185ab3db48e854c21651165d.js"></script>
+</div>
+
+<video width="800" height="600" loop="" controls="">
+  <source src="/Blog/assets/vmd-movie-scripts/ff.mp4" type="video/mp4" />
+</video>
+
+<h2 id="complex-camera-movement">Complex Camera Movement</h2>
+
+<p>This script follows a list of key-points with the camera given by an external file (called <code class="highlighter-rouge">hindices.txt</code>).
+In the example, the camera is following the positive charge site of a hydronium ion from an ab initio molecular
+dynamics simulation. The simulation is from White et al.<a class="citation" href="#White2017">(White et al., 2017)</a>.</p>
+
+<style>
+    .gistcontainer {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.gistcontainer:target .show {display:none;}
+.gistcontainer:target {max-height:none;}
+</style>
+
+<div class="gistcontainer" id="gist2">
+  <a href="#gist2" class="show"><button>Expand Script</button></a>
+<script src="https://gist.github.com/whitead/81b8cdea8b2ca03f9ca833bfa3124744.js"></script>
+</div>
+
+<p><br /></p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7de68dos3qY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="converting-frames-into-a-movie">Converting frames into a movie</h2>
+
+<p>Here’s how you actually convert the images coming from VMD and these scripts into a movie using the <code class="highlighter-rouge">ffmpeg</code> program. Make sure you
+set your render size to match the movie size (there is a line in the scripts for this).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg <span class="nt">-framerate</span> 60 <span class="nt">-f</span> image2 <span class="nt">-i</span> animate.%04d.dat.tga <span class="nt">-c</span>:v h264 <span class="nt">-crf</span> 5 <span class="nt">-c</span>:v libx264 <span class="nt">-movflags</span> +faststart <span class="nt">-vf</span> <span class="nv">scale</span><span class="o">=</span>800:600,format<span class="o">=</span>yuv420p out.mp4
+</code></pre></div></div>
+
+<h3 id="references">References</h3>
+
+<ol class="bibliography"><li><div class="bib"><span id="White2017">White, A. D., Knight, C., Hocky, G. M., &amp; Voth, G. A. (2017). Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. <i>Journal of Chemical Physics</i>, <i>146</i>(4). https://doi.org/10.1063/1.4974837</span></div>
+</li></ol>
+
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="disqus col-md-8 col-md-offset-2">
+	    <div id="disqus_thread"></div>
+	    <script type="text/javascript">
+              var disqus_shortname = 'crowsandcats'; 
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+	    </script>
+	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+      </div>
+    </div>    
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

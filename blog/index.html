@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>A Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="home">
+
+  <div class="jumbotron">
+    <div class="page-header"> 
+      <h1> A Blog
+	<small> by The White Laboratory at UR </small>
+      </h1>
+    </div>
+    <p> Interesting thoughts and tutorials from the White Lab at the University of Rochester.. Topics include mathematical modeling,
+    programing, computational chemistry and statistics. This is a
+    continuation of random posts from my time in grad school and
+    post-doc. Back then, this was called Crows and Cats Blog. Some of
+    those older are best viewed at my old
+    url: <a href="http://crowsandcats.blogspot.com">
+    crowsandcats.blogspot.com</a>.</p>
+    <div class="row">
+      <div class="col-xs-3">
+	<a class="btn btn-default btn-lg" href="/Blog/post_list"> See Posts </a>
+      </div>
+      <div class="col-xs-offset-1 col-xs-4">
+	<a class="btn btn-default btn-lg" href="/Blog/tutorial_list"> See Tutorials </a>
+      </div>
+      <div class="col-xs-3">
+	<a class="btn btn-default btn-lg pull-right" href="/Blog/feed.xml"> RSS Feed </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      
+          <div class="post-content-truncate col-md-4">
+	    <h2> <a href="/Blog/graphics/2020/03/08/vmd-render-preferences/"> VMD render preferences</a> </h2>
+	    
+	    <p class="text-muted"></p>
+	    
+                <p>Here are some notes on my preferences for rendering with VMD’s
+tachyon. For example, this comparison of some proteins was made with the Space Filling method below:</p>
+
+<p><a href="/Blog/assets/img/vmd-render-preferences/sars2cov.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/vmd-render-preferences/sars2cov_preview.jpg" alt="" /></a></p>
+
+
+            
+	    <div>
+	      <a href="/Blog/graphics/2020/03/08/vmd-render-preferences/" class="btn btn-default"> 
+		Read Post <span class="glyphicon glyphicon-chevron-right"></span>
+	      </a>
+	    </div>
+          </div>
+       
+          <div class="post-content-truncate col-md-4">
+	    <h2> <a href="/Blog/graphics/2020/03/08/vmd-movie-scripts/"> VMD movie script</a> </h2>
+	    
+	    <p class="text-muted"></p>
+	    
+                <p>Here are two example scripts for making movies in VMD. The first
+is shown below and the other controls the camera to follow an interesting
+part of the simulation.</p>
+
+<video width="320" height="240" autoplay="" loop="">
+  <source src="/Blog/assets/vmd-movie-scripts/ff-small.mp4" type="video/mp4" />
+</video>
+
+
+            
+	    <div>
+	      <a href="/Blog/graphics/2020/03/08/vmd-movie-scripts/" class="btn btn-default"> 
+		Read Post <span class="glyphicon glyphicon-chevron-right"></span>
+	      </a>
+	    </div>
+          </div>
+       
+          <div class="post-content-truncate col-md-4">
+	    <h2> <a href="/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/"> EDS Lammps Coordination Number</a> </h2>
+	    
+	    <p class="text-muted"></p>
+	    
+                <p>This tutorial will show you how to reproduce the method in the recent
+White et al. water AIMD paper <a class="citation" href="#White2017">(White et al., 2017)</a>. The
+goal of the method is to minimally bias a water simulation to match a
+reference RDF. We will first convert a reference RDF into a set of
+reference scalar coordination number moments. Then, an NVT simulation
+is run to find a minimal bias which causes the coordination numbers to
+match their reference values. It won’t be covered here, but the bias
+can then be used to run NVE simulations or in conjunction with other
+free-energy methods. This tutorial will use classical simulations in
+Lammps instead of AIMD in CP2K so that results can be obtained in a
+reasonable amount of time.</p>
+
+
+            
+	    <div>
+	      <a href="/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/" class="btn btn-default"> 
+		Read Post <span class="glyphicon glyphicon-chevron-right"></span>
+	      </a>
+	    </div>
+          </div>
+       
+  </div>
+
+  <div class="row">
+      
+          <div class="post-content-truncate col-md-4">
+          </div>
+       
+          <div class="post-content-truncate col-md-4">
+          </div>
+       
+          <div class="post-content-truncate col-md-4">
+          </div>
+       
+   </div>
+</div>
+
+<script type="text/javascript">
+$('.post-img').css('width', '200px');
+$('.post-image-link').css('width', '200px');
+$('.post-image-link').css('margin-left', 'inherit');
+</script>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

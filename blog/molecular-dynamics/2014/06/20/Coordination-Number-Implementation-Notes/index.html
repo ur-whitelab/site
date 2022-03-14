@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Coordination Number Implementation Notes</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>Coordination Number Implementation Notes</h1>
+      
+      <h4> Some notes for myself on implementing coordination number as a collective variable in molecular dynamics calculations </h4>
+      
+      <p class="text-muted">Jun 20, 2014</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<p>I wrote these notes partially to try out the new plotting, math, and
+citation support in my blog. These notes are for using coordination
+number as a collective variable for biasing a molecule dynamics
+simulation.</p>
+
+<p>Using the pair-pair correlation function, coordination number in a
+statistical ensemble is:</p>
+
+<div>
+\begin{equation}
+\left&lt;N(r_0)\right&gt; = \rho \int_0^R\,dr\left[ 1 - u(r - r_0) \right] 4\pi r^2 g(r)
+\end{equation}
+</div>
+<p>where <script type="math/tex">\rho</script> is the number density and <script type="math/tex">u(r)</script> is the heaviside function</p>
+
+<!-- more -->
+
+<p>In a molecular dynamics simulation, it’s calculated as</p>
+
+<div>
+\[
+\left&lt;N(r_0)\right&gt; = \frac{1}{N_pT} \sum_{t=0}^T \sum_{i &lt; j} 1 - u(r_{ij} - r_0)
+\]
+</div>
+<p>where <script type="math/tex">N_p</script> is the number of particle pairs and <script type="math/tex">T</script> is the number of frames used in the calculation.</p>
+
+<p>To create a soft-derivative, the following mollified heaviside is used</p>
+
+<div>
+\[
+1 - u(r - r_0) \approx h(s,n,m) =  \left\{ \begin{array}{lr}
+\frac{1 - s^n}{1 - s^m} &amp; s &gt; 1\\
+1 &amp; s &lt; 1\\
+\end{array}\right.
+\]
+</div>
+
+<p>where</p>
+
+<div>
+\[
+s = \frac{r - r_0}{w}
+\]
+</div>
+
+<h2 id="moments-of-coordination-number">Moments of Coordination Number</h2>
+
+<p>The idea of studying moments of coordination number was probably
+thought of before, but I used it in one of my recent papers and didn’t
+see it previously in the literature. We can use higher coordination
+number moments with this equation using the pair-pair correlation
+function</p>
+
+<div> 
+\[
+\left&lt;r^iN(r_0)\right&gt; = \rho \int_0^R\,dr \left[ 1 - u(r - r_0)
+\right] 4\pi r^{2+i} g(r) 
+\] 
+</div>
+
+<p>In simulation it’s calculated as</p>
+<div>
+\[
+\left&lt;r^iN(r_0)\right&gt; = \frac{1}{N_pT} \sum_{t=0}^T \sum_{i &lt; j} r^i(1 - u(r_{ij} - r_0))
+\]
+</div>
+
+<p>With the mollification, there is simply an extra <script type="math/tex">r^i</script> term added.</p>
+
+<h2 id="choosing-parameters">Choosing Parameters</h2>
+
+<p>There are a few considerations for choosing parameters. Assuming
+you’re biasing a simulation with coordination number, it’s important
+to balance good properties of the derivative with accuracy in the
+function. Read the next paragraph for details, but essentially start
+with <script type="math/tex">m=12,\,n=6</script>, <script type="math/tex">w</script> as half the distance from the start of the
+rise of the first peak in <script type="math/tex">g(r)</script> to the first minimum and <script type="math/tex">r_0</script> as
+the start of the rise of the first peak. Next, increase <script type="math/tex">w</script> as much
+as possible while maintaining accuracy and then increase <script type="math/tex">m - n</script> as
+much as possible while still keeping good overlap between <script type="math/tex">h'(s)</script>
+and <script type="math/tex">g(r)</script>.</p>
+
+<p>The overlap between the derivative, <script type="math/tex">h'(s)</script> and <script type="math/tex">g(r)</script> determines
+how low the forces will be. More overlap, means low forces distributed
+across many particles. Less overlap means very high forces on a small
+number of particles. Controlling <script type="math/tex">h'(s)</script> is done by increasing
+<script type="math/tex">w</script>, which scales the entire line, or by decreasing <script type="math/tex">m - n</script>, which
+elongates the tails. The second consideration is accuracy. Sharpening
+the tails is the single most important consideration because long
+tails can drastically increase <script type="math/tex">h(s)</script>. This is from the <script type="math/tex">r^2</script> term
+seen in Equation 1. Thus, making <script type="math/tex">m - n</script> large increases accuracy.</p>
+
+<p>A plot of <script type="math/tex">h(s)</script> along with its derivatives for <script type="math/tex">w=1,\,r_0=1</script> is
+shown below:</p>
+
+<hr />
+
+<div id="root">
+</div>
+
+<div class="row">
+  <div class="col-md-3 alert alert-warning" style="display:none;"> 
+    parameters must be integers and n &lt; m
+  </div>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon">n</span>
+      <input type="integer" class="form-control" id="n-number" placeholder="6" />
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon">m</span>
+      <input type="integer" class="form-control" id="m-number" placeholder="12" />
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="input-group">
+      <span class="input-group-addon">i</span>
+      <input type="integer" class="form-control" id="moment-number" placeholder="moment" />
+    </div>
+  </div>
+  <div class="col-md-2">
+    <span id="update-button" class="btn btn-default"> Update</span>
+  </div>
+</div>
+
+<hr />
+
+<h2 id="implementation-notes">Implementation Notes</h2>
+
+<p>I first saw this mollification from the
+<a href="http://plumed-code.org">PLUMED</a> free energy calculation package <a class="citation" href="#PLUMED">(Bonomi et al., 2009)</a>, but I don’t know where it originally came from.</p>
+
+<p>There is a removable discontinuity of this function:</p>
+<div>
+\[
+h(s=1, n, m) = \frac{n}{m}
+\]
+</div>
+<p>with a derivative of</p>
+<div>
+\[
+h(s=1, n, m) = \frac{n(n - m)}{2m}
+\]
+</div>
+
+<p>If <script type="math/tex">h(r)</script> is truncated at <script type="math/tex">R</script> and <script type="math/tex">(R - r_0) / w > 1</script>, the error is approximately</p>
+<div>
+\[
+h(r) - h(R) \lt \epsilon \approx \frac{s^n}{s^m}
+\]
+</div>
+<p>which means <script type="math/tex">R</script> may be chosen for a given tolerance <script type="math/tex">\epsilon</script> as</p>
+<div>
+\[
+R = w\epsilon^{1 / (n - m)} + r_0
+\]
+</div>
+<p>or</p>
+<div>
+\[
+S = \epsilon^{1 / (n - m)}
+\]
+</div>
+
+<p>The derivative may be calculated as</p>
+<div>
+\[
+\frac{\partial}{\partial x_i} h(s) = \frac{\partial h(s)}{\partial s_i}  \frac{\partial s_i}{\partial x_i} =   \frac{ns^n(1 - s^m) - ms^m(1 - s^n)}{s(1 - s^m)^2} \frac{\partial s}{\partial x_i}
+\]
+\[
+\frac{\partial s}{\partial x_i} = \frac{x_i}{wr}
+\]
+</div>
+<p>where <script type="math/tex">x_i</script> is the <script type="math/tex">i</script>th moment of the pairwise distance vector <script type="math/tex">r</script></p>
+
+<p>Maximizing re-use of pieces of the calculation, the following form can be used:</p>
+
+<div>
+\[
+s = (r - r_0) / w, \, a = s^n, \, b = s^m
+\]
+\[
+h(s) = (1 - a) / (1 - b)
+\]
+\[
+\frac{\partial h(s) }{\partial x_i} = \frac{na(1 - b) - mb(1 - a)}{wrs(1 - b)^2} x_i
+\]
+</div>
+
+<p>The derivative with moments is slightly different:</p>
+<div>
+\[
+\frac{\partial}{\partial x_i} r^ih(s) = \left[ir^{i-1} h(s) + r^i\frac{\partial h(s)}{w\partial s}\right] \frac{x_i}{r}
+\]
+</div>
+
+<p>Colvars, another free energy calculation package, enforces only even
+numerator and denominator exponents (<script type="math/tex">m,n</script>) <a class="citation" href="#COLVARS">(Fiorin et al., 2013)</a>. This
+allows them to avoid taking square roots in the calculations. That is
+a nice trick, but it would also require only even moments for the
+coordination numbers with moments. I’ve found that in practice to
+be too restrictive.</p>
+
+<h2 id="cited-references">Cited References</h2>
+
+<ol class="bibliography"><li><div class="bib"><span id="PLUMED">Bonomi, M., Branduardi, D., Bussi, G., Camilloni, C., Provasi, D., Raiteri, P., Donadio, D., Marinelli, F., Pietrucci, F., Broglia, R. A., &amp; Parrinello, M. (2009). PLUMED: A portable plugin for free-energy calculations with molecular dynamics. <i>Computer Physics Communications</i>, <i>180</i>(10), 1961–1972. https://doi.org/10.1016/j.cpc.2009.05.011</span></div>
+</li>
+<li><div class="bib"><span id="COLVARS">Fiorin, G., Klein, M. L., &amp; Hénin, J. (2013). Using collective variables to drive molecular dynamics simulations. <i>Molecular Physics</i>, <i>111</i>(22-23), 3345–3362. https://doi.org/10.1080/00268976.2013.813594</span></div>
+</li></ol>
+
+<style>
+
+#root {
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#plot-controls {
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.margin {
+  fill:none;
+}
+
+.canvas {
+  fill:none;
+}
+
+.particle {
+  fill: #FFF;
+  stroke: #222;
+  stroke-width: 2px;
+}
+
+.line {
+  fill:none;
+  stroke: #3355FF;
+  stroke-width: 2px;
+}
+
+.line-area {
+  fill: #3355FF;
+  opacity: 0.2;
+}
+
+
+.axis {
+  shape-rendering: crispEdges;
+  stroke-width: 1px;
+}
+
+.x.axis .minor, .y.axis .minor {
+  stroke-opacity: .5;
+}
+
+
+.y.axis line, .y.axis path, .x.axis line, .x.axis path {
+  fill: none;
+  stroke: #222;
+}
+
+.y.label, .x.label {
+    font-weight: normal;
+    font-size: 100%;
+}
+
+.legend {
+    padding: 5px;
+    font: 15px sans-serif;
+    background: yellow;
+    box-shadow: 2px 2px 1px #888;
+ }
+</style>
+
+<script type="text/javascript">
+
+var margin = 100, labelMargin = 50;
+    
+var width = Math.min(500, $('.post-content').width()) - margin - labelMargin
+var height = Math.min(400, $('.post-content').height()) - margin -labelMargin;
+
+d3.select('#root').style('width', width + margin + labelMargin + 'px')
+    .style('height', height + margin + labelMargin + 'px');
+
+var svg = d3.select('#root').append('svg')
+    .attr("width", width + margin + labelMargin)
+    .attr("height", height + margin + labelMargin);
+
+
+svg.append("rect")
+    .attr("width", width + margin)
+    .attr("height", height + margin)
+      .classed("margin", true);
+
+plot_group = svg.append("g")
+    .attr("transform", 
+          "translate(" + (margin / 2 + labelMargin) + 
+          "," + (margin / 2) + ")");
+  
+plot_group.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .classed("canvas", true);
+
+var xScale, yScale, xAxis, yAxis;
+
+function setup_axis(xExtent, yExtent) {
+    xScale = d3.scale.linear().domain(xExtent).range([0,width]);
+    yScale = d3.scale.linear().domain(yExtent).range([height,25]);
+
+    xAxis = d3.svg.axis()
+	.scale(xScale)
+        .tickValues([1,2,3,4,5])
+	.tickFormat(d3.format("d"));
+    yAxis = d3.svg.axis()
+	.scale(yScale).orient("left")
+        .ticks(5);
+
+    //remove existing axis
+    plot_group.select('.x.axis').remove()
+    plot_group.select('.x.label').remove()
+    plot_group.select('.y.axis').remove()
+    plot_group.select('.y.label').remove()
+
+  // Add the x-axis.
+    plot_group.append("g")
+	.attr("class", "x axis")
+	.attr("transform", "translate(0," + yScale(0) + ")")
+	.call(xAxis);
+    
+    plot_group.append("text")
+	.attr("class", "x label")
+	.attr("text-anchor", "middle")
+	.attr("x", width / 2)
+	.attr("y", yScale(0) + margin / 2)
+	.text("r");
+    
+// Add the y-axis.
+    plot_group.append("g")
+	.attr("class", "y axis")
+	.call(yAxis);
+    
+    plot_group.append("text")
+	.attr("class", "y label")
+	.attr("text-anchor", "middle")
+	.attr("transform", "translate(" + (-margin / 2) + ", " + height / 2 + ") rotate(-90)")
+	.text("h(r)");
+}
+
+//slowly plot effect
+function pathTween(data, line) {
+    var interpolate = d3.scale.quantile()
+        .domain([0,1])
+	.range(d3.range(1, data.length + 1));
+    return function(t) {
+	return line(data.slice(0, interpolate(t)));
+    };
+}
+
+//plot the data
+function plot(data) {
+    var line = d3.svg.line().interpolate('basis')
+        .x(function(d) {
+	    return xScale(d.x);
+	})
+        .y(function(d) {
+	    return yScale(d.y);
+	});
+    return plot_group.append("path")
+	.attr("d", line(data[0])).classed("line", true)
+	.transition()
+	.duration(1000)
+	.attrTween("d",function(){return pathTween(data, line);});
+}
+
+//create an array of x,y accessrs from x and a function
+function make_data(x, fxn) {
+    return x.map(function(x) {return {x:x, y:fxn(x)};});
+}
+
+function hs(x, x0, w, n, m, moment) {
+    var s = (x - x0) / w;
+    var x_mom = Math.pow(x,moment);
+    if(s <= 0)
+	return x_mom;
+    if(s > 0.99 && s < 1.01) 
+	return x_mom * n / m;
+    return x_mom * (1 - Math.pow(s,n)) / (1 - Math.pow(s,m));
+}
+
+function dhs(x, x0, w, n, m, moment) {
+
+    var s = (x - x0) / w;
+    var x_mom = Math.pow(x,moment);
+    var x_dmom = 0;
+    if(moment > 0)
+	x_dmom = moment * Math.pow(x,moment - 1);
+    
+    if(s <= 0)
+	return x_dmom;
+
+    if(s > 0.99 && s < 1.01) 
+	return x_dmom * n / m +	 x_mom * n*(n - m) / (2 * m);
+	
+    
+    var a = Math.pow(s,n);
+    var b = Math.pow(s,m);
+    var sder =  -(n * a * ( 1 - b ) - m * b * (1 - a)) / (s * (1 - b) * ( 1 - b));
+    return sder * x_mom + (1 - a) / (1 - b) * x_dmom;
+}
+
+var colors = { 0: ["h(r)", "#2222DD"],
+	       1: ["h'(r)", "#DD2233"] };
+
+var x = d3.range(0,5.025,0.025);
+var hsdata = make_data(x, function(x) {return hs(x, 1, 1, 6, 12, 0)});
+var dhsdata = make_data(x, function(x) {return dhs(x, 1, 1, 6, 12, 0)});
+
+var yExtent = d3.extent(d3.merge([hsdata, dhsdata]), function(d) { return d.y; });
+setup_axis([0,5], yExtent);
+
+plot(hsdata).style("stroke", colors[0][1]);
+plot(dhsdata).style("stroke", colors[1][1]);
+
+// add legend   
+var legend = plot_group.append("g")
+    .attr("class", "legend")
+    .attr("x", width - 100 - 25)
+    .attr("y", 0 + 25)
+    .attr("height", 100)
+    .attr("width", 100)
+    
+legend.selectAll('rect')
+    .data([0,1])
+    .enter()
+    .append("rect")
+    .attr("x", width - 60 - 25)
+    .attr("y", function(d, i){ return i *  50 + 25;})
+    .attr("width", 15)
+    .attr("height", 3)
+    .style("fill", function(d) { 
+        var color = colors[d][1];
+        return color;
+    })
+      
+legend.selectAll('text')
+    .data([0,1])
+    .enter()
+    .append("text")
+    .attr("x", width - 40 - 25)
+    .attr("y", function(d, i){ return i *  50 + 32;})
+    .text(function(d) {
+        var text = colors[d][0];
+        return text;
+    });
+ 
+    $('#update-button').click(function() {
+	var n = 6;
+	if($('#n-number').val() != "")
+	    n = parseInt($('#n-number').val());
+	var m = 12;
+	if($('#m-number').val() != "")
+	    m = parseInt($('#m-number').val());
+
+	var mom = 0;
+	if($('#moment-number').val() != "")
+	    mom = parseInt($('#moment-number').val());
+
+
+	if(isNaN(mom) || isNaN(n) || isNaN(m) || n > m) {
+	    $('.alert').fadeIn();
+	    return;
+	}
+	
+	$('.alert').fadeOut();
+
+	plot_group.selectAll(".line").remove();
+
+	var hsdata = make_data(x, function(x) {
+	    return hs(x, 1, 1, n, m, mom)});
+	var dhsdata = make_data(x, function(x) {
+	    return dhs(x, 1, 1, n, m, mom)});
+
+	var yExtent = d3.extent(d3.merge([hsdata, dhsdata]), 
+				function(d) { return d.y; });
+	setup_axis([0,5], yExtent);
+
+	plot(hsdata).style("stroke", colors[0][1]);
+	plot(dhsdata).style("stroke", colors[1][1]);
+
+    });
+</script>
+
+
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="disqus col-md-8 col-md-offset-2">
+	    <div id="disqus_thread"></div>
+	    <script type="text/javascript">
+              var disqus_shortname = 'crowsandcats'; 
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+	    </script>
+	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+      </div>
+    </div>    
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VMD render preferences</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
+    <link rel="canonical" href="http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-render-preferences/">
+
+    <!-- Jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    
+  <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
+  
+  
+    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
+    
+
+    <!-- MathJax https version -->
+    
+
+    
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Blog/post_list">Posts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </div>
+  
+</header>
+
+
+    <div class="container">
+      <div class="container">
+
+  <div class="row">
+    <div class="post-header col-md-8 col-md-offset-2">
+      <h1>VMD render preferences</h1>
+      
+      <h4> Typical VMD render preferences </h4>
+      
+      <p class="text-muted">Mar 8, 2020</p>
+    </div>
+  </div>
+  
+  <article class="post-content">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<p>Here are some notes on my preferences for rendering with VMD’s
+tachyon. For example, this comparison of some proteins was made with the Space Filling method below:</p>
+
+<p><a href="/Blog/assets/img/vmd-render-preferences/sars2cov.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/vmd-render-preferences/sars2cov_preview.jpg" alt="" /></a></p>
+
+<!-- more -->
+
+<h2 id="space-filling-good-for-proteins">Space Filling (good for proteins)</h2>
+
+<ol>
+  <li>Choose VDW Drawing Method with AOChalky as the material (Graphics-&gt;Representation…).</li>
+  <li>Turn ofo axes (Display-&gt;Axes-&gt;off)</li>
+  <li>Enable shadows and ambient occlusion (Display-&gt;Display Settings…)</li>
+  <li>Make carbon gray (Graphics-&gt;Colors). Choose name “C” and change it to gray.</li>
+  <li>(Optional) Change background to white (in colors, Display-&gt;Background)</li>
+  <li>Render (File-&gt;Render…) and choose Tachyon as the rendering engine. See <a href="/Blog/2013/04/changing-image-size-in-tachyon-in-vmd.html">how to change image size</a></li>
+  <li>(Optional) The default colors in VMD are over-saturated. You can open with Gimp and choose Colors-&gt;Saturation… Turn it down to about 0.8</li>
+</ol>
+
+<p><a href="/Blog/assets/img/vmd-render-preferences/protein.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/vmd-render-preferences/protein_preview.jpg" alt="" /></a></p>
+
+<h2 id="cartoon-style-good-for-organic-molecules">Cartoon Style (good for organic molecules)</h2>
+
+<ol>
+  <li>Choose CPK Drawing Method with AOEdgy as the material (Graphics-&gt;Representation…).</li>
+  <li>Increase bond radius to 0.5</li>
+  <li>Turn of axes (Display-&gt;Axes-&gt;off)</li>
+  <li>Enable shadows and ambient occlusion (Display-&gt;Display Settings…)</li>
+  <li>Make carbon gray (Graphics-&gt;Colors). Choose name “C” and change it to gray.</li>
+  <li>Modify material (Graphics-&gt;Materials). Change Specular to 0, Shininess to 0.2, Outline to 3.0, OutlineWidth to 0.75</li>
+  <li>(Optional) Change background to white (in colors, Display-&gt;Background)</li>
+  <li>Render (File-&gt;Render…) and choose Tachyon as the rendering engine. See <a href="/Blog/2013/04/changing-image-size-in-tachyon-in-vmd.html">how to change image size</a></li>
+  <li>(Optional) The default colors in VMD are over-saturated. You can open with Gimp and choose Colors-&gt;Saturation… Turn it down to about 0.8</li>
+</ol>
+
+<p><a href="/Blog/assets/img/vmd-render-preferences/salt.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/vmd-render-preferences/salt_preview.jpg" alt="" /></a></p>
+
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="disqus col-md-8 col-md-offset-2">
+	    <div id="disqus_thread"></div>
+	    <script type="text/javascript">
+              var disqus_shortname = 'crowsandcats'; 
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+	    </script>
+	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+      </div>
+    </div>    
+    
+  </article>
+
+</div>
+
+    </div>
+
+    <div id="footer" class="footer">
+
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-md-4">
+          &copy 2022 Andrew White
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet -->
+<script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35512318-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+</script>
+
+
+    </body>
+</html>
