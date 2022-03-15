@@ -7,21 +7,22 @@
     <title>Changing Image Size in Tachyon in VMD</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/2013/04/changing-image-size-in-tachyon-in-vmd.html">
+    <link rel="canonical" href="https://thewhitelab.org/blog/2013/04/changing-image-size-in-tachyon-in-vmd.html">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
@@ -29,7 +30,6 @@
     
 
 </head>
-
 
     <body>
 
@@ -44,21 +44,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -70,11 +71,11 @@
       <p class="text-muted">Apr 5, 2013 • Andrew White</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<div class="css-full-post-content js-full-post-content">
+        <div class="css-full-post-content js-full-post-content">
 I always forget how to change the image size for rending molecular images in <a href="http://www.ks.uiuc.edu/Research/vmd/">VMD</a> using the (external) Tachyon rendering engine, so I thought I'd write down the steps here:<br /><br />In the TCL console, get the aspect ratio correct for the image. So, for example to make a nice <code>1920x1080</code> image, we'll make the view at half of that:<br /><br /><pre class="brush: plain; toolbar: false;"> <br />display resize 960 540<br /></pre><br />Now, add simply add <code>-res 1920 1080</code> to the end of the render command in the file render controls window. Here's an example of one of my render commands:<br /><pre class="brush: plain; toolbar: false;"> <br />"$HOME/VMD/tachyon_LINUXAMD64" -aasamples 12 %s -format TARGA -o %s.tga  -res 1920 1080<br /></pre><br />Here's the result of one my renders:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-ycwb5x20HAI/UV9Mz1-74yI/AAAAAAAAA_E/B6NlHXcKC7I/s1600/quat_little.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="163" src="http://2.bp.blogspot.com/-ycwb5x20HAI/UV9Mz1-74yI/AAAAAAAAA_E/B6NlHXcKC7I/s400/quat_little.png" width="400" /></a></div>
 </div>
 <div class="css-full-comments-content js-full-comments-content">
@@ -117,7 +118,6 @@ I always forget how to change the image size for rending molecular images in <a 
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -125,37 +125,20 @@ I always forget how to change the image size for rending molecular images in <a 
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>

@@ -3,15 +3,15 @@
   <channel>
     <title>A Blog</title>
     <description>Interesting thoughts and tutorials from the White Lab at the University of Rochester.</description>
-    <link>http://thewhitelab.org/Blog/</link>
-    <atom:link href="http://thewhitelab.org/Blog/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://thewhitelab.org/blog/</link>
+    <atom:link href="https://thewhitelab.org/blog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>VMD render preferences</title>
         <description>&lt;p&gt;Here are some notes on my preferences for rendering with VMD’s
 tachyon. For example, this comparison of some proteins was made with the Space Filling method below:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/vmd-render-preferences/sars2cov.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/vmd-render-preferences/sars2cov_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/vmd-render-preferences/sars2cov.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/vmd-render-preferences/sars2cov_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -23,11 +23,11 @@ tachyon. For example, this comparison of some proteins was made with the Space F
   &lt;li&gt;Enable shadows and ambient occlusion (Display-&amp;gt;Display Settings…)&lt;/li&gt;
   &lt;li&gt;Make carbon gray (Graphics-&amp;gt;Colors). Choose name “C” and change it to gray.&lt;/li&gt;
   &lt;li&gt;(Optional) Change background to white (in colors, Display-&amp;gt;Background)&lt;/li&gt;
-  &lt;li&gt;Render (File-&amp;gt;Render…) and choose Tachyon as the rendering engine. See &lt;a href=&quot;/Blog/2013/04/changing-image-size-in-tachyon-in-vmd.html&quot;&gt;how to change image size&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Render (File-&amp;gt;Render…) and choose Tachyon as the rendering engine. See &lt;a href=&quot;/blog/2013/04/changing-image-size-in-tachyon-in-vmd.html&quot;&gt;how to change image size&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;(Optional) The default colors in VMD are over-saturated. You can open with Gimp and choose Colors-&amp;gt;Saturation… Turn it down to about 0.8&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/vmd-render-preferences/protein.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/vmd-render-preferences/protein_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/vmd-render-preferences/protein.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/vmd-render-preferences/protein_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;cartoon-style-good-for-organic-molecules&quot;&gt;Cartoon Style (good for organic molecules)&lt;/h2&gt;
 
@@ -39,15 +39,15 @@ tachyon. For example, this comparison of some proteins was made with the Space F
   &lt;li&gt;Make carbon gray (Graphics-&amp;gt;Colors). Choose name “C” and change it to gray.&lt;/li&gt;
   &lt;li&gt;Modify material (Graphics-&amp;gt;Materials). Change Specular to 0, Shininess to 0.2, Outline to 3.0, OutlineWidth to 0.75&lt;/li&gt;
   &lt;li&gt;(Optional) Change background to white (in colors, Display-&amp;gt;Background)&lt;/li&gt;
-  &lt;li&gt;Render (File-&amp;gt;Render…) and choose Tachyon as the rendering engine. See &lt;a href=&quot;/Blog/2013/04/changing-image-size-in-tachyon-in-vmd.html&quot;&gt;how to change image size&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Render (File-&amp;gt;Render…) and choose Tachyon as the rendering engine. See &lt;a href=&quot;/blog/2013/04/changing-image-size-in-tachyon-in-vmd.html&quot;&gt;how to change image size&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;(Optional) The default colors in VMD are over-saturated. You can open with Gimp and choose Colors-&amp;gt;Saturation… Turn it down to about 0.8&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/vmd-render-preferences/salt.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/vmd-render-preferences/salt_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/vmd-render-preferences/salt.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/vmd-render-preferences/salt_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Mar 2020 00:00:00 -0600</pubDate>
-        <link>http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-render-preferences/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-render-preferences/</guid>
+        <link>https://thewhitelab.org/blog/graphics/2020/03/08/vmd-render-preferences/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/graphics/2020/03/08/vmd-render-preferences/</guid>
       </item>
     
       <item>
@@ -57,7 +57,7 @@ is shown below and the other controls the camera to follow an interesting
 part of the simulation.&lt;/p&gt;
 
 &lt;video width=&quot;320&quot; height=&quot;240&quot; autoplay=&quot;&quot; loop=&quot;&quot;&gt;
-  &lt;source src=&quot;/Blog/assets/vmd-movie-scripts/ff-small.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;source src=&quot;/blog/assets/vmd-movie-scripts/ff-small.mp4&quot; type=&quot;video/mp4&quot; /&gt;
 &lt;/video&gt;
 
 &lt;!-- more --&gt;
@@ -84,7 +84,7 @@ The loop to make the movie starts on line 75.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;video width=&quot;800&quot; height=&quot;600&quot; loop=&quot;&quot; controls=&quot;&quot;&gt;
-  &lt;source src=&quot;/Blog/assets/vmd-movie-scripts/ff.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;source src=&quot;/blog/assets/vmd-movie-scripts/ff.mp4&quot; type=&quot;video/mp4&quot; /&gt;
 &lt;/video&gt;
 
 &lt;h2 id=&quot;complex-camera-movement&quot;&gt;Complex Camera Movement&lt;/h2&gt;
@@ -126,8 +126,8 @@ set your render size to match the movie size (there is a line in the scripts for
 &lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 08 Mar 2020 00:00:00 -0600</pubDate>
-        <link>http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-movie-scripts/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/graphics/2020/03/08/vmd-movie-scripts/</guid>
+        <link>https://thewhitelab.org/blog/graphics/2020/03/08/vmd-movie-scripts/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/graphics/2020/03/08/vmd-movie-scripts/</guid>
       </item>
     
       <item>
@@ -204,7 +204,7 @@ distribution function (RDF) and temperature for the simulation. Radial
 distribution functions (RDFs) are (transformed) probability
 distributions. Here’s the RDF:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;As you can see, the unbiased simulation has a significantly higher
 first-peak and general overstructuring relative to the experimental
@@ -223,7 +223,7 @@ Plumed2,&lt;a class=&quot;citation&quot; href=&quot;#PLUMED&quot;&gt;(Bonomi et 
 with integration in many common simulation engines.&lt;/p&gt;
 
 &lt;p&gt;The chosen scalars are coordination number and moments of it. See
-&lt;a href=&quot;/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/&quot;&gt;this post&lt;/a&gt; for a
+&lt;a href=&quot;/blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/&quot;&gt;this post&lt;/a&gt; for a
 description of the parameters involved and how to choose them. After
 the coordination number parameters are chosen (&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt; and
 &lt;script type=&quot;math/tex&quot;&gt;r_0&lt;/script&gt;), the reference RDF can be used to generate the reference
@@ -260,7 +260,7 @@ docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&qu
 with different values for moment to get the higher coordination number
 moments as well. The approximate coordination numbers are the ones we
 will use for biasing. For a description on the difference between the
-exact and approximate, see &lt;a href=&quot;/Blog/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/&quot;&gt;this post&lt;/a&gt;. The final
+exact and approximate, see &lt;a href=&quot;/blog/blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/&quot;&gt;this post&lt;/a&gt;. The final
 values are&lt;/p&gt;
 
 &lt;table class=&quot;table table-striped table-responsive&quot;&gt;
@@ -359,14 +359,14 @@ number matched our set-point. Again, run the analysis script:&lt;/p&gt;
 coordination number over the simulation. As you can see, the biased
 line converges to the set-point. The plot is shown below:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Each of the subplots is one of the coordination number moments. They
 are scaled to their set-points, so that the y-axes are similar. We can
 now see the effect of biasing more moments. The RDF after biasing with
 improvement is shown below&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;changing-the-number-of-moments&quot;&gt;Changing the number of moments&lt;/h3&gt;
 
@@ -380,7 +380,7 @@ and analyze the results&lt;/p&gt;
 docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased biased-1 biased-2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The additional moment provides, arguably, a little improvement but not
 as much as going from no bias to one moment. This is because the
@@ -393,7 +393,7 @@ extend the simulation time).&lt;/p&gt;
 calculate the EDS updates. This plot is shown below for 1,2 and 4
 moments.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/lammps-coordination-number-tutorial/biases_comparison.png&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/lammps-coordination-number-tutorial/biases_comparison_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;cleaning-up&quot;&gt;Cleaning up&lt;/h3&gt;
 
@@ -412,8 +412,8 @@ tutorial, run &lt;code class=&quot;highlighter-rouge&quot;&gt;git clean -fX&lt;/
 &lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Wed, 10 May 2017 00:00:00 -0500</pubDate>
-        <link>http://thewhitelab.org/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/</guid>
+        <link>https://thewhitelab.org/blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/</guid>
       </item>
     
       <item>
@@ -434,7 +434,7 @@ building block in future biological applications &lt;a class=&quot;citation&quot
 
 &lt;p&gt;Here’s what FF looks like:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Peptide-self-assembly-of-FF/FF.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Peptide-self-assembly-of-FF/FF_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/Peptide-self-assembly-of-FF/FF.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/Peptide-self-assembly-of-FF/FF_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Görbitz was the first to characterize the self-assembling motif &lt;a class=&quot;citation&quot; href=&quot;#Goerbitz2001FirstFF&quot;&gt;(Görbitz, 2001)&lt;/a&gt;. Interestingly, it is related to the
 beta-amyloid self-assembling proteins that are implicated in
@@ -550,8 +550,8 @@ looking forward to it.&lt;/p&gt;
 &lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Jul 2014 12:24:23 -0500</pubDate>
-        <link>http://thewhitelab.org/Blog/peptide-assembly/2014/07/01/Peptide-self-assembly-of-FF/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/peptide-assembly/2014/07/01/Peptide-self-assembly-of-FF/</guid>
+        <link>https://thewhitelab.org/blog/peptide-assembly/2014/07/01/Peptide-self-assembly-of-FF/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/peptide-assembly/2014/07/01/Peptide-self-assembly-of-FF/</guid>
       </item>
     
       <item>
@@ -626,8 +626,8 @@ g_i(s_i) = C_i \left[\erf\left(\frac{s_i - L_i}{\sqrt{2}\sigma_i}\right) + \erf\
 &lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Fri, 27 Jun 2014 04:00:00 -0500</pubDate>
-        <link>http://thewhitelab.org/Blog/molecular-dynamics/2014/06/27/McGovern-De-Pablo-Boundary-Corrected-Hills/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/molecular-dynamics/2014/06/27/McGovern-De-Pablo-Boundary-Corrected-Hills/</guid>
+        <link>https://thewhitelab.org/blog/molecular-dynamics/2014/06/27/McGovern-De-Pablo-Boundary-Corrected-Hills/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/molecular-dynamics/2014/06/27/McGovern-De-Pablo-Boundary-Corrected-Hills/</guid>
       </item>
     
       <item>
@@ -643,7 +643,7 @@ nanoparticle-based cathode materials. They also added a secondary
 needle-like particle, which I didn’t put in my graphic. Here’s the
 picture:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/cathode.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/cathode_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/cathode.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/cathode_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -654,7 +654,7 @@ it that emits particles in the normal direction. The second piece is
 the nanoparticles, which are just spheres duplicated using the array
 modifier. My geometry looks like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/geo.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/geo_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/geo.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/geo_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Note that the lithium particles need to be in a separate layer than
 the nanoparticles. The particles have an emission texture and are the
@@ -662,14 +662,14 @@ only lighting for the scene. The nanoparticle texture is just a ‘Magic
 Texture’ with some diffuse red. The cycles renderer is used for the
 node editing process. That’s where the cool stuff happens.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-1.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-1_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-1.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-1_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The lithium layer is on the far-left. It’s both blurred and
 translated, giving it that ghosting look that makes it move. It’s then
 is overlayed on the nanoparticle layer. Finally, I apply three
 sequential defocusings, to give it that tiny-object effect&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-2.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-2_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-2.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/Nanoparticle-Cathode-Graphic/nodes-2_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Maybe I’ll go back and add some needle-like particles someday.&lt;/p&gt;
 
@@ -679,8 +679,8 @@ sequential defocusings, to give it that tiny-object effect&lt;/p&gt;
 &lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 24 Jun 2014 12:24:23 -0500</pubDate>
-        <link>http://thewhitelab.org/Blog/graphics/2014/06/24/Nanoparticle-Cathode-Graphic/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/graphics/2014/06/24/Nanoparticle-Cathode-Graphic/</guid>
+        <link>https://thewhitelab.org/blog/graphics/2014/06/24/Nanoparticle-Cathode-Graphic/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/graphics/2014/06/24/Nanoparticle-Cathode-Graphic/</guid>
       </item>
     
       <item>
@@ -1187,8 +1187,8 @@ legend.selectAll('text')
 
 </description>
         <pubDate>Fri, 20 Jun 2014 12:24:23 -0500</pubDate>
-        <link>http://thewhitelab.org/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/</guid>
+        <link>https://thewhitelab.org/blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/</guid>
       </item>
     
       <item>
@@ -1205,7 +1205,7 @@ a few features from the blog:&lt;/p&gt;
 
 &lt;p&gt;Simply add &lt;code class=&quot;highlighter-rouge&quot;&gt;{% post_image spr.jpg %}&lt;/code&gt; to add an image&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/Blog/assets/img/My-New-Blog/spr.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/Blog/assets/img/My-New-Blog/spr_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/assets/img/My-New-Blog/spr.jpg&quot; class=&quot;thumbnail post-image-link&quot;&gt;&lt;img class=&quot;post-image img-responsive&quot; src=&quot;/blog/assets/img/My-New-Blog/spr_preview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -1270,8 +1270,8 @@ d3.select(&quot;.chart&quot;)
 
 </description>
         <pubDate>Tue, 10 Jun 2014 12:24:23 -0500</pubDate>
-        <link>http://thewhitelab.org/Blog/meta/2014/06/10/My-New-Blog/</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/meta/2014/06/10/My-New-Blog/</guid>
+        <link>https://thewhitelab.org/blog/meta/2014/06/10/My-New-Blog/</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/meta/2014/06/10/My-New-Blog/</guid>
       </item>
     
       <item>
@@ -1298,8 +1298,8 @@ d3.select(&quot;.chart&quot;)
 &lt;/div&gt;
 &lt;/div&gt;</description>
         <pubDate>Mon, 03 Mar 2014 14:11:00 -0600</pubDate>
-        <link>http://thewhitelab.org/Blog/2014/03/replaying-lammps-trajectory.html</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/2014/03/replaying-lammps-trajectory.html</guid>
+        <link>https://thewhitelab.org/blog/2014/03/replaying-lammps-trajectory.html</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/2014/03/replaying-lammps-trajectory.html</guid>
       </item>
     
       <item>
@@ -1309,8 +1309,8 @@ In my day job, molecular modeling, I simulate the position and velocity of every
 &lt;/div&gt;
 </description>
         <pubDate>Thu, 06 Feb 2014 12:56:00 -0600</pubDate>
-        <link>http://thewhitelab.org/Blog/2014/02/predicting-future-of-simulations.html</link>
-        <guid isPermaLink="true">http://thewhitelab.org/Blog/2014/02/predicting-future-of-simulations.html</guid>
+        <link>https://thewhitelab.org/blog/2014/02/predicting-future-of-simulations.html</link>
+        <guid isPermaLink="true">https://thewhitelab.org/blog/2014/02/predicting-future-of-simulations.html</guid>
       </item>
     
   </channel>

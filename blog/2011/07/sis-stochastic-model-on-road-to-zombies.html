@@ -7,21 +7,22 @@
     <title>SIS Stochastic Model: On the Road to Zombies</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/2011/07/sis-stochastic-model-on-road-to-zombies.html">
+    <link rel="canonical" href="https://thewhitelab.org/blog/2011/07/sis-stochastic-model-on-road-to-zombies.html">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
@@ -29,7 +30,6 @@
     
 
 </head>
-
 
     <body>
 
@@ -44,21 +44,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -70,11 +71,11 @@
       <p class="text-muted">Jul 18, 2011 • Andrew White</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<div class="css-full-post-content js-full-post-content">
+        <div class="css-full-post-content js-full-post-content">
 <div class="separator" style="display: none; text-align: center;"><a href="http://2.bp.blogspot.com/-8ER-48Saqa0/TiNpxgL4REI/AAAAAAAAADc/IGXvY8iMKXs/s1600/matrix.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-8ER-48Saqa0/TiNpxgL4REI/AAAAAAAAADc/IGXvY8iMKXs/s1600/matrix.png" /></a></div>  Epidemiology has many interesting models for describing disease outbreaks. A large class of these models, the only ones with which I'm familiar in fact, are known as <a href="http://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">compartment models</a>. One of the most amusing extensions of these models is incorporating a zombie compartment, or population. A researcher named Robert J. Smith? has developed some deterministic models for describing these zombie models. Not totally sure why he publishes with a question mark; I assume to differentiate his citation counts from all the other Robert Smiths. Anyway, his publications can be found <a href="http://mysite.science.uottawa.ca/rsmith43/publications.html">here</a>. It's interesting stuff, but I think I can do it with a stochastic version. In Part 1 of an unknown number, I'll introduce the SIS model and some matrix techniques for working with it. In Part 2, to be written, I'll move to Markov probability distributions instead of matrices and introduce zombies.<br /><div><a name='more'></a></div><span class="Apple-style-span" style="font-size: large;"></span><br /><div><span class="Apple-style-span" style="font-size: large;"><span class="Apple-style-span" style="font-size: large;"><br /></span></span></div><span class="Apple-style-span" style="font-size: large;">Stochastic vs. Deterministic</span><br /><div>In a deterministic model, like the one I used in my<a href="http://crowsandcats.blogspot.com/2011/07/predator-prey-models-and-global-warming.html"> first post</a>, it is possible to subdivide populations into infinitesimal amounts. For example, in some of Mr. Smith?'s models, he ran into problems where no strategy could wipe out the zombies because even fractional amounts of a zombie can cause a zombie-Apocalypse. That didn't seem to prevent his research paper from being highlighted in hundreds of news articles, including <a href="http://www.wired.com/">Wired</a>. If, however, we formulate this into a stochastic model, there are two advantages. First, it is discrete, so that we may only have 1 or 0 or 10 zombies. Second, the model is in a probability framework, so we may estimate the probability that the zombies win, as opposed to deterministic models where the zombies win or lose every time.<br /><br /><span class="Apple-style-span" style="font-size: large;">SIS Model</span><br />The susceptible-infected-susceptible (SIS) model is a simple compartmental model to practice with and develop the techniques necessary to analyze more complicated models. The basic definition is that there are two populations, the infected and susceptible and the probability of being infected is constantly <i>p</i> and the probability of being cured is constantly <i>q</i>. Formally:<br /><br /><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-3-vai7xfwag/TiNn81fAuOI/AAAAAAAAADM/B8NE8lZLbRo/s1600/1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-3-vai7xfwag/TiNn81fAuOI/AAAAAAAAADM/B8NE8lZLbRo/s1600/1.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-qmYj8boMgLU/TiNogSoh4YI/AAAAAAAAADU/n6SBG2DhXCQ/s1600/2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-qmYj8boMgLU/TiNogSoh4YI/AAAAAAAAADU/n6SBG2DhXCQ/s1600/2.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><br />Notice that<i> p</i> and <i>q</i> do not necessarily sum to 1. If they do, the model simplifies a lot, or as I call it, becomes incredibly boring. You stochastic modelling superstars will recognize that case as the doubly stochastic.<br /><br /></div><div><span class="Apple-style-span" style="font-size: large;">SIS Matrix Model</span><br />Let's begin with a single individual with two states, state&nbsp;<i>S</i>&nbsp;and&nbsp;<i>I</i>. This can be encoded into a vector like so:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-P3e8eltTN8U/TiNo0EstFeI/AAAAAAAAADY/81EiaA68zic/s1600/1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-P3e8eltTN8U/TiNo0EstFeI/AAAAAAAAADY/81EiaA68zic/s1600/1.png" /></a></div><br /></div><div>That vector will be called the <b>state vector</b> because it&nbsp;represents&nbsp;the state of our model. In this case, it says the individual is infected. We can then represent the probabilities of going from state S to I, state S to S, etc. into a <b>transition probability matrix</b>:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-8ER-48Saqa0/TiNpxgL4REI/AAAAAAAAADc/IGXvY8iMKXs/s1600/matrix.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-8ER-48Saqa0/TiNpxgL4REI/AAAAAAAAADc/IGXvY8iMKXs/s1600/matrix.png" /></a></div><br />This formalism has some cool advantages. For example, if we know where we are, i.e. have a vector encoding our state, we can calculate the probabilities of being infected or susceptible using matrix multiplication:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-yaCiXXdQ1KQ/TiNqjvI1OJI/AAAAAAAAADg/rFIK5T3ybV8/s1600/matrixMult.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-yaCiXXdQ1KQ/TiNqjvI1OJI/AAAAAAAAADg/rFIK5T3ybV8/s1600/matrixMult.png" /></a></div><br />Note how the matrix multiplication is exactly what we expect, that the probability of being susceptible after being infected is <i>q</i> and remaining infected is 1 - <i>q</i>. Further, we can repeat that to find the probability of being in both states after a <i>n</i> steps:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-8QnLFmNogCo/TiNrKFcbjvI/AAAAAAAAADk/5V-97KVJ8Mg/s1600/matrixMultStep.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-8QnLFmNogCo/TiNrKFcbjvI/AAAAAAAAADk/5V-97KVJ8Mg/s1600/matrixMultStep.png" /></a></div><br />For a concrete example, let's find the probability that our individual is infected in two steps, given that he starts as infected and that the probability of being infected is 10% and the probability of being cured (infected&nbsp;to susceptible) is 30%:<br /><div class="separator" style="clear: both; text-align: center;"></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-Yiohw7TmhyQ/TiNsregpdCI/AAAAAAAAADo/heM3Q5ulxqE/s1600/matrixMultExample.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-Yiohw7TmhyQ/TiNsregpdCI/AAAAAAAAADo/heM3Q5ulxqE/s1600/matrixMultExample.png" /></a></div><br />So, the probability of infection is 52%. As I should note, in this simple case, no matter where we begin, after a "very long" time, the probability of being in each state is constant. This is called the <b>stationary distribution</b>. These probabilities can be found by solving the left-handed characteristic equation on the transition probability matrix. Students of stochastic modelling are always trying to find the stationary distribution. In any case, the matrix framework has some excellent advantages, like the matrix multiplication for finding probabilities into the future and the well-defined method for finding stationary distribution (provided&nbsp;it exists!).<br /><br /></div><div><span class="Apple-style-span" style="font-size: large;">SIS Big Matrix</span></div><div>Let's see how well the matrix formalism holds up to larger systems, where there is more than one individual. Let's start with two individuals. Our state vector now needs to encode two individuals. No problem, we just add a column:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-k9pf2EQv6NM/TiNtaJLDyFI/AAAAAAAAADs/Na0Jsy8aIvc/s1600/twoStateVector.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-k9pf2EQv6NM/TiNtaJLDyFI/AAAAAAAAADs/Na0Jsy8aIvc/s1600/twoStateVector.png" /></a></div><br />Person 1 (top row) is infected and person 2 (second row) is susceptible. Simple! Now, let's see what the probability of infection is for each person is after two steps:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-NRj9vYJisf8/TiNuI6I3tXI/AAAAAAAAADw/MOwlPPLlfwA/s1600/twoStateVectorMult.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-NRj9vYJisf8/TiNuI6I3tXI/AAAAAAAAADw/MOwlPPLlfwA/s1600/twoStateVectorMult.png" /></a></div><br /><br />Matrices rule! Now, what happens when we want to encode 100 individuals? Feasible, but we'll need to use a computer to deal with a 100 column matrix. What about the United States? Well, now we are running into trouble... Next post I'll show how to deal with this problem by assuming each individual is indistinguishable and how to put zombies in your math.<br /><br /></div>
 </div>
       </div>
@@ -83,7 +84,6 @@
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -91,37 +91,20 @@
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>

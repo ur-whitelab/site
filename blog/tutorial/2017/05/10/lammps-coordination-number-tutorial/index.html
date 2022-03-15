@@ -7,33 +7,32 @@
     <title>EDS Lammps Coordination Number</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/">
+    <link rel="canonical" href="https://thewhitelab.org/blog/tutorial/2017/05/10/lammps-coordination-number-tutorial/">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
-    <script type="text/javascript"
-	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
     
 
     
 
 </head>
-
 
     <body>
 
@@ -48,21 +47,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -76,11 +76,11 @@
       <p class="text-muted">May 10, 2017</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<p>This tutorial will show you how to reproduce the method in the recent
+        <p>This tutorial will show you how to reproduce the method in the recent
 White et al. water AIMD paper <a class="citation" href="#White2017">(White et al., 2017)</a>. The
 goal of the method is to minimally bias a water simulation to match a
 reference RDF. We will first convert a reference RDF into a set of
@@ -152,7 +152,7 @@ distribution function (RDF) and temperature for the simulation. Radial
 distribution functions (RDFs) are (transformed) probability
 distributions. Here’s the RDF:</p>
 
-<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_preview.jpg" alt="" /></a></p>
+<p><a href="/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_preview.jpg" alt="" /></a></p>
 
 <p>As you can see, the unbiased simulation has a significantly higher
 first-peak and general overstructuring relative to the experimental
@@ -171,7 +171,7 @@ Plumed2,<a class="citation" href="#PLUMED">(Bonomi et al., 2009)</a> which is a 
 with integration in many common simulation engines.</p>
 
 <p>The chosen scalars are coordination number and moments of it. See
-<a href="/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/">this post</a> for a
+<a href="/blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/">this post</a> for a
 description of the parameters involved and how to choose them. After
 the coordination number parameters are chosen (<script type="math/tex">n</script>, <script type="math/tex">m</script>, <script type="math/tex">w</script> and
 <script type="math/tex">r_0</script>), the reference RDF can be used to generate the reference
@@ -208,7 +208,7 @@ docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class=
 with different values for moment to get the higher coordination number
 moments as well. The approximate coordination numbers are the ones we
 will use for biasing. For a description on the difference between the
-exact and approximate, see <a href="/Blog/Blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/">this post</a>. The final
+exact and approximate, see <a href="/blog/blog/molecular-dynamics/2014/06/20/Coordination-Number-Implementation-Notes/">this post</a>. The final
 values are</p>
 
 <table class="table table-striped table-responsive">
@@ -307,14 +307,14 @@ number matched our set-point. Again, run the analysis script:</p>
 coordination number over the simulation. As you can see, the biased
 line converges to the set-point. The plot is shown below:</p>
 
-<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_preview.jpg" alt="" /></a></p>
+<p><a href="/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_preview.jpg" alt="" /></a></p>
 
 <p>Each of the subplots is one of the coordination number moments. They
 are scaled to their set-points, so that the y-axes are similar. We can
 now see the effect of biasing more moments. The RDF after biasing with
 improvement is shown below</p>
 
-<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1_preview.jpg" alt="" /></a></p>
+<p><a href="/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/blog/assets/img/lammps-coordination-number-tutorial/rdf_comparison_1_preview.jpg" alt="" /></a></p>
 
 <h3 id="changing-the-number-of-moments">Changing the number of moments</h3>
 
@@ -328,7 +328,7 @@ and analyze the results</p>
 docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/home/whitelab/scratch whitelab/tutorial-lammps-cn python3 analyze_run.py unbiased biased-1 biased-2
 </code></pre></div></div>
 
-<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2_preview.jpg" alt="" /></a></p>
+<p><a href="/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/blog/assets/img/lammps-coordination-number-tutorial/cn_comparison_2_preview.jpg" alt="" /></a></p>
 
 <p>The additional moment provides, arguably, a little improvement but not
 as much as going from no bias to one moment. This is because the
@@ -341,7 +341,7 @@ extend the simulation time).</p>
 calculate the EDS updates. This plot is shown below for 1,2 and 4
 moments.</p>
 
-<p><a href="/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/Blog/assets/img/lammps-coordination-number-tutorial/biases_comparison_preview.jpg" alt="" /></a></p>
+<p><a href="/blog/assets/img/lammps-coordination-number-tutorial/biases_comparison.png" class="thumbnail post-image-link"><img class="post-image img-responsive" src="/blog/assets/img/lammps-coordination-number-tutorial/biases_comparison_preview.jpg" alt="" /></a></p>
 
 <h3 id="cleaning-up">Cleaning up</h3>
 
@@ -364,24 +364,24 @@ tutorial, run <code class="highlighter-rouge">git clean -fX</code>.</p>
     
     <div class="row">
       <div class="disqus col-md-8 col-md-offset-2">
-	    <div id="disqus_thread"></div>
-	    <script type="text/javascript">
-              var disqus_shortname = 'crowsandcats'; 
-              (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-	    </script>
-	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'crowsandcats';
+          (function () {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
       </div>
-    </div>    
+    </div>
     
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -389,37 +389,20 @@ tutorial, run <code class="highlighter-rouge">git clean -fX</code>.</p>
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>

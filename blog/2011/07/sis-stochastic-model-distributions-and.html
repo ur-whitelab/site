@@ -7,21 +7,22 @@
     <title>SIS Stochastic Model: Distributions and Proportional Probability</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/2011/07/sis-stochastic-model-distributions-and.html">
+    <link rel="canonical" href="https://thewhitelab.org/blog/2011/07/sis-stochastic-model-distributions-and.html">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
@@ -29,7 +30,6 @@
     
 
 </head>
-
 
     <body>
 
@@ -44,21 +44,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -70,11 +71,11 @@
       <p class="text-muted">Jul 24, 2011 • Andrew White</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<div class="css-full-post-content js-full-post-content">
+        <div class="css-full-post-content js-full-post-content">
 <div class="separator" style="clear: both; text-align: left;">In this post, I'll describe how to go from the SIS model to a zombie model. The results are a stochastic simulation, shown below. There are few items on the model TODO list: add spatial variables and zombie deaths/kills.</div><div class="separator" style="clear: both; text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-huzKF8CrB0k/TiyHdwCCPKI/AAAAAAAAAEs/Jq96V5bt5uE/s1600/simulations.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-huzKF8CrB0k/TiyHdwCCPKI/AAAAAAAAAEs/Jq96V5bt5uE/s1600/simulations.png" /></a></div><div class="separator" style="clear: both; text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: left;"></div><a name='more'></a><br /><br /><div class="separator" style="clear: both; text-align: left;">I <a href="http://crowsandcats.blogspot.com/2011/07/sis-stochastic-model-on-road-to-zombies.html">left off</a> with the question of how to model larger populations. Matrices representing every individual will create some gnarly calculations at 100s of individuals. Really, that isn't unfeasible&nbsp;with a computer. I mean, in fact I could fire up my supercomputer with 1,920 CPU cores and handle at least a million. But, I think we can do better. Realistically, in order to do larger simulations with millions we'll have to move into continuous stochastic models (i.e., Brownian motion)</div><br />Previously, I tried to write as instructively as possible. Since no one ever reads what I write, I'm going to go much faster. Instead of our state vector encoding infected or susceptible, we'll have a distribution representing the number of infected. That means we only care about one number, the number of infected, though we can switch to a distribution of number healthy. The  transition probabilities are:<br /><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-wtidxPAMHDY/TixSXDM_e2I/AAAAAAAAAD8/f9NV9SsQ6-Q/s1600/sisequation.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-wtidxPAMHDY/TixSXDM_e2I/AAAAAAAAAD8/f9NV9SsQ6-Q/s1600/sisequation.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div>That equation gives the probability of going from state <i>j</i>&nbsp;to state <i>i. </i>It seems a little complicated, but it really is straight forward. I won't explain too much though, since I spent so long staring at it while deriving it. The <i>c</i>&nbsp;is the number to cure. The number to cure for the transition of <i>j</i>&nbsp;to <i>i </i>can be a few different values. For example, if we're moving from 1 infected to 2 infected, we could cure 1, infect 2 or cure 0, infect 1. The summation in the equation above sums the probability of these mutually exclusive events. It is basically a binomial in summation representation, where the probability of success is changing according to the inner terms. The inner terms are just the probabilities of curing <i>c</i>&nbsp;and infecting&nbsp;<i>i - j + c. </i>Those&nbsp;probabilities&nbsp;are multiplied because they are two event&nbsp;occurring&nbsp;together. The probabilities are binomial, because we are counting "successes" (infections or recovery) in a sequence of events.<br /><i><br /></i><br />Now let's see what this equation produces. Just like last time, I'll be dealing with transition probability matrices. However, I won't be&nbsp;representing&nbsp;the matrices with numbers because they'll be too big. Instead I'll be plotting them. If we have a small population of only 4 individuals, we get this matrix:<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-VsBKhe5aqso/TixUPJr_G7I/AAAAAAAAAEE/YHVLwSkrbRw/s1600/small.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-VsBKhe5aqso/TixUPJr_G7I/AAAAAAAAAEE/YHVLwSkrbRw/s1600/small.png" /></a></div>You'll notice the highest transition probabilities exist in those places with large binomial coefficients. There's a lot of interesting features in this matrix, look closely. However, I'm going to move on. Let's look at a population of 100. That is shown below:<br /><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-wlN-IRvz_5E/TixUzz-xPkI/AAAAAAAAAEM/mp2xiruVIPU/s1600/large.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-wlN-IRvz_5E/TixUzz-xPkI/AAAAAAAAAEM/mp2xiruVIPU/s1600/large.png" /></a></div><div class="separator" style="clear: both; text-align: center;"></div>Now we're starting to see something interesting. Notice the banding pattern, where there appears to be a constant variance to the band and there only appears to be a small number of available transitions at each step. Also, the intercepts are <i>np</i> and <i>n</i>(1<i> - q</i>). My intuition is that this pattern will converge to either Brownian motion once we increase the population to infinitely sub-dividable. Let's see what happens if we change <i>p</i>&nbsp;and <i>q.&nbsp;</i><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-CVC0i11OezU/Tix4O_kcP4I/AAAAAAAAAEQ/tPtQVHYrTaA/s1600/matrix.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://2.bp.blogspot.com/-CVC0i11OezU/Tix4O_kcP4I/AAAAAAAAAEQ/tPtQVHYrTaA/s320/matrix.png" width="320" /></a></div>This graphic shows the transition probability matrix as a function of <i>q</i> and<i> p</i>. The top left is with probabilities of 0 for both.&nbsp;That means there will be no transitions, hence the solid black.&nbsp;The row is the value of <i>p</i>. For example, the bottom left has no probability of recovery and probability 1 of being infected. Hence, once you make it to all infected, you never leave. That's the tiny red dot in the upper right corner of that matrix. The diagonal of all the matrices are all doubly stochastic matrices, because <i>p</i>&nbsp;and <i>q</i>&nbsp;add up to 1. This means there is a single vertical band, in the picture at least. Doubly stochastic also means the system converges to a very simple distribution. Anyway, that image is a nice way to understand how the transition matrix changes. Notice, too, that the variance of the band seems to be related to the product of <i>p </i>and <i>q. </i>I made many graphics to describe this system, but I think that's enough for now.<br /><br /><span class="Apple-style-span" style="font-size: large;">Proportional SIS</span><br /><br />Now, let's start making the model more realistic. The transition&nbsp;probabilities&nbsp;for each individual are currently constant; let's try making that more realistic. Let's assume that recovery for now is a constant&nbsp;probability. At least, we don't have any variables to better predict recovery. The probability of infection can be improved. We may assume that it is proportional to the number of infected. The model equation is now:<br /><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-CoNcFsabJbY/Tix7P53QHsI/AAAAAAAAAEY/S2CgC_8PnWY/s1600/spiseqn.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-CoNcFsabJbY/Tix7P53QHsI/AAAAAAAAAEY/S2CgC_8PnWY/s1600/spiseqn.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: left;"><br /></div>Basically, we just assumed the probability of infection is linearly proportional to the number of infected. The <i>b, </i>or background probability, is necessary to make the system <b>recurrent. </b>If there was no background probability, then if the system had 0 infected, it would never change. If that were the case, the system would be <b>transient</b>&nbsp;because the system would eventually hit 0 no matter where it started and then be stuck there.<br /><br />Let's take a look and see how the transition probability matrices look as a function of alpha and <i>q</i>. <i>q</i> is changing across the columns below, alpha in the rows.<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-I8pHSnClrO0/Tix9N41G8zI/AAAAAAAAAEc/J0PSCoqJ80Y/s1600/matrix.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-I8pHSnClrO0/Tix9N41G8zI/AAAAAAAAAEc/J0PSCoqJ80Y/s1600/matrix.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div>Finally, let's see what happens when we run a simulation according to these models. That is shown below.<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-lLou52EC2Xs/TiyBrsjGVGI/AAAAAAAAAEg/Gtb2xLUlHuM/s1600/simulations.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://2.bp.blogspot.com/-lLou52EC2Xs/TiyBrsjGVGI/AAAAAAAAAEg/Gtb2xLUlHuM/s320/simulations.png" width="320" /></a></div>It is interesting to notice how different the stochastic models look compared to <a href="http://crowsandcats.blogspot.com/2011/07/predator-prey-models-and-global-warming.html">deterministic models</a>. The models head towards an equilibrium value, but they do so with some noise. I think that wraps up the SIS model for now.<br /><br /><span class="Apple-style-span" style="font-size: large;">SZ Model</span><br /><br />Zombies are already in our model. The rate of infection is proportional to the number of infected, just as would be expected for a finite population with zombies. The only change is that we need to remove the&nbsp;probability&nbsp;of recovery. Luckily, that simplifies the math a ton, leading to this simple equation:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-NAq4bwFBDuM/TiyG3WrNS0I/AAAAAAAAAEk/g14cHQpa9Jk/s1600/zeqn.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-NAq4bwFBDuM/TiyG3WrNS0I/AAAAAAAAAEk/g14cHQpa9Jk/s1600/zeqn.png" /></a></div>The model is an easy binomial. The transition probability matrices, as a function of alpha, look like this:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-0RhAingpV6s/TiyHAhgtveI/AAAAAAAAAEo/xIUNpLmbiG4/s1600/matrix.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-0RhAingpV6s/TiyHAhgtveI/AAAAAAAAAEo/xIUNpLmbiG4/s1600/matrix.png" /></a></div><br />Now, finally, we can see a simulation of this model and observe the differences in the time until the zombies take over.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-huzKF8CrB0k/TiyHdwCCPKI/AAAAAAAAAEs/Jq96V5bt5uE/s1600/simulations.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-huzKF8CrB0k/TiyHdwCCPKI/AAAAAAAAAEs/Jq96V5bt5uE/s1600/simulations.png" /></a></div>This time the model is <b>transient</b>, it always reaches complete infection. Next time, we'll have to see how to add zombie deaths!
 </div>
       </div>
@@ -83,7 +84,6 @@
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -91,37 +91,20 @@
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>

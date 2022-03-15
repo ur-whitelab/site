@@ -7,21 +7,22 @@
     <title>The Accuracy of Ghose-Crippen ALogP for Peptides</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/2013/04/the-accuracy-of-ghose-crippen-alogp-for.html">
+    <link rel="canonical" href="https://thewhitelab.org/blog/2013/04/the-accuracy-of-ghose-crippen-alogp-for.html">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
@@ -29,7 +30,6 @@
     
 
 </head>
-
 
     <body>
 
@@ -44,21 +44,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -70,11 +71,11 @@
       <p class="text-muted">Apr 19, 2013 • Andrew White</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<div class="css-full-post-content js-full-post-content">
+        <div class="css-full-post-content js-full-post-content">
 I was using the <a href="http://onlinelibrary.wiley.com/doi/10.1002/jcc.540070419/abstract">Ghose-Crippen ALogP predictor</a> implemented in <a href="http://sourceforge.net/projects/cdk/">CDK</a> as a QSAR for looking at peptide solubilities. Unfortunately, this partition coefficient predictor is fit on small organic molecules and does a pretty bad job at predicting peptide partition coefficients. Here's what it looks like on single amino acids compared with<a href="http://pubs.rsc.org/en/Content/ArticleLanding/1992/P2/p29920000079"> experimental data</a>.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-LbKFzPgHAJs/UXHDX25FNmI/AAAAAAAABCA/yut069DoLBY/s1600/comparison.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="300" src="http://4.bp.blogspot.com/-LbKFzPgHAJs/UXHDX25FNmI/AAAAAAAABCA/yut069DoLBY/s400/comparison.png" width="400" /></a></div><br /><a name='more'></a><br />That's not too bad, all things considered. But, it gets much worse as the peptides get larger. Here's a histogram of the partition coefficients of a collection of 5,000 length 10 peptides.<br /><div class="separator" style="clear: both; text-align: center;"><br /></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-0kUp5CBy9wM/UXHD2nh80cI/AAAAAAAABCI/1Zjm9MXo9Uc/s1600/hist.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-0kUp5CBy9wM/UXHD2nh80cI/AAAAAAAABCI/1Zjm9MXo9Uc/s1600/hist.png" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div>As you can see, the partition coefficients are way too low. It turns out the partition coefficient predictions are correlated with the peptide length, but as someone who works with peptides, I know that their solubility is not a really a function of their length. Part of the problem for this is that the surface of these peptides is a linear function of weight because I'm not attempting to find the correct 3D geometry of the peptides.<br /><br />How do I deal with this problem? Well, it has to do with my post on<a href="http://crowsandcats.blogspot.com/2013/04/approximate-restricted-integer.html"> approximate integer partitions</a>. I'm not sure if I'll have time to write it up; it'll definitely be in my next publication though! The basic idea is not to look at the absolute partition coefficient, but to compare them with similarly sized peptides. I can do that, because I'm using the predicted partition coefficient as a QSAR and am not actually trying to predict it.
 </div>
       </div>
@@ -83,7 +84,6 @@ I was using the <a href="http://onlinelibrary.wiley.com/doi/10.1002/jcc.54007041
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -91,37 +91,20 @@ I was using the <a href="http://onlinelibrary.wiley.com/doi/10.1002/jcc.54007041
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>

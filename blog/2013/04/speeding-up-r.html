@@ -7,21 +7,22 @@
     <title>Speeding up R</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/2013/04/speeding-up-r.html">
+    <link rel="canonical" href="https://thewhitelab.org/blog/2013/04/speeding-up-r.html">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
@@ -29,7 +30,6 @@
     
 
 </head>
-
 
     <body>
 
@@ -44,21 +44,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -70,11 +71,11 @@
       <p class="text-muted">Apr 11, 2013 • Andrew White</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<div class="css-full-post-content js-full-post-content">
+        <div class="css-full-post-content js-full-post-content">
 I've been programming in R for a while now. Whenever I've had performance problems, it almost always is due to <code>data.frame</code> usage. To check what's slowing down your R code, just use the <code>Rprof</code> command like so:<br/><br/><script src="https://gist.github.com/whitead/963c4408fd1b77611f58.js"></script><a name='more'></a><br/> I wrote this code to be particularly slow due to its <code>data.frame</code> usage. You may view the results of the profiling by running <code>R CMD Rprof summ.prof</code>:  <pre><br /><br />Each sample represents 0.02 seconds.<br />Total run time: 2.98 seconds.<br /><br />Total seconds: time spent in function and callees.<br />Self seconds: time spent in function alone.<br /><br />   %       total       %        self<br /> total    seconds     self    seconds    name<br />  81.2      2.42       1.3      0.04     &quot;[&lt;-&quot;<br />  79.9      2.38      65.8      1.96     &quot;[&lt;-.data.frame&quot;<br />  18.1      0.54      10.1      0.30     &quot;[.data.frame&quot;<br />  18.1      0.54       0.0      0.00     &quot;[&quot;<br />  12.1      0.36       1.3      0.04     &quot;%in%&quot;<br />  11.4      0.34       9.4      0.28     &quot;match&quot;<br />   4.7      0.14       4.0      0.12     &quot;anyDuplicated&quot;<br />   2.0      0.06       2.0      0.06     &quot;names&quot;<br />   2.0      0.06       2.0      0.06     &quot;sys.call&quot;<br />   1.3      0.04       1.3      0.04     &quot;==&quot;<br />   0.7      0.02       0.7      0.02     &quot;.row_names_info&quot;<br />   0.7      0.02       0.7      0.02     &quot;NROW&quot;<br />   0.7      0.02       0.7      0.02     &quot;anyDuplicated.default&quot;<br />   0.7      0.02       0.7      0.02     &quot;cos&quot;<br /><br /><br />   %        self       %      total<br />  self    seconds    total   seconds    name<br />  65.8      1.96      79.9      2.38     &quot;[&lt;-.data.frame&quot;<br />  10.1      0.30      18.1      0.54     &quot;[.data.frame&quot;<br />   9.4      0.28      11.4      0.34     &quot;match&quot;<br />   4.0      0.12       4.7      0.14     &quot;anyDuplicated&quot;<br />   2.0      0.06       2.0      0.06     &quot;names&quot;<br />   2.0      0.06       2.0      0.06     &quot;sys.call&quot;<br />   1.3      0.04      81.2      2.42     &quot;[&lt;-&quot;<br />   1.3      0.04      12.1      0.36     &quot;%in%&quot;<br />   1.3      0.04       1.3      0.04     &quot;==&quot;<br />   0.7      0.02       0.7      0.02     &quot;.row_names_info&quot;<br />   0.7      0.02       0.7      0.02     &quot;NROW&quot;<br />   0.7      0.02       0.7      0.02     &quot;anyDuplicated.default&quot;<br />   0.7      0.02       0.7      0.02     &quot;cos&quot;<br /></pre> As you can see, it's very slow. After profiling your own code, if you find that the top calls are <code>[.data.frame</code> or <code> [&lt;-.data.frame</code>, then you have a <code>data.frame</code> problem. Here's how I solve this, in order of things I try:<br/> <br /><ol><li> avoid loops, use vectorized code (no <code>for</code> loops, no <code>apply</code>, no <code>sapply</code>). In the example, use <code>d[,1]&lt;-</code>, for assigning an entire column</li><li> Use numeric indices when possible. In our example, that means using <code>d[i, 1]</code> instead of <code>d[i, "x"]</code></li><li> Get rid of the <code>data.frame</code> for heavy calculations by using the <code>data.matrix</code> command. In the example above, just use <code> d.matrix &lt;- data.matrix(d) </code></li></ol><br /><br/> Rewriting the silly example above, <br/><br/><script src="https://gist.github.com/whitead/8be72442211db64f5ff5.js"></script><br/> This time, it runs too quickly for any events to be recorded with the profiling. The execution time is 0.192 seconds, whereas the first version is 3.48 seconds. A pretty good speed-up.
 </div>
       </div>
@@ -83,7 +84,6 @@ I've been programming in R for a while now. Whenever I've had performance proble
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -91,37 +91,20 @@ I've been programming in R for a while now. Whenever I've had performance proble
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>

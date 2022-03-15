@@ -7,21 +7,22 @@
     <title>Predator-Prey Models and Global Warming</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/2011/07/predator-prey-models-and-global-warming.html">
+    <link rel="canonical" href="https://thewhitelab.org/blog/2011/07/predator-prey-models-and-global-warming.html">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
@@ -29,7 +30,6 @@
     
 
 </head>
-
 
     <body>
 
@@ -44,21 +44,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -70,11 +71,11 @@
       <p class="text-muted">Jul 8, 2011 • Andrew White</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<div class="css-full-post-content js-full-post-content">
+        <div class="css-full-post-content js-full-post-content">
 <div style="display:none; text-align: center;"><a href="http://3.bp.blogspot.com/-iTH3InOt1N0/ThbIA0MZViI/AAAAAAAAACc/R12IuLM3dag/s200/catCrows.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="48" src="http://3.bp.blogspot.com/-iTH3InOt1N0/ThbIA0MZViI/AAAAAAAAACc/R12IuLM3dag/s200/catCrows.jpg" width="400" /></a></div><div style="text-align: center;"><br /></div> <div>For my first look at mathematical models, I thought I would see what happens when we put Metabolic Theory of Ecology, which predicts changes of organism metabolic related trait rates with temperature, together with&nbsp;<a href="http://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equation">classic predator-prey models</a>! Sounds exciting, right?! I think so, mostly because predator prey models are interesting differential equation models by themselves and combing them with temperature dependence sounds cool. So, the question I'll be trying to answer is: what happens as temperature increases in predator-prey systems and can the systems go from stable to unstable populations? Another question I've stumbled across while working on this blogpost: why does blogger not support equations and why do my equations look terrible?<br /><br />Short answer: With some temperature increases about the same as global warming, we see increasing instabilities in the predator-prey models. See the cool figure below and read the math for more information.</div><div><br /><a name='more'></a><br /></div>The<a href="http://en.wikipedia.org/wiki/Metabolic_theory_of_ecology"> Metabolic Theory of Ecology</a> is one of the most surprising results of Ecology. In its strongest form, the one likely incorrect, it says that the activation energy for every metabolic process for every species on Earth is identically 0.66eV. That is quite surprising, to me at least, that the metabolic processes for an ant have the same activation energy as say, a human. Of course, this is empirical and not based on any actual theory of the chemistry or biology of metabolism. To learn more about it, check out this exhaustive data collection and analysis paper <a href="http://dx.doi.org/10.1073/pnas.1015178108">recently published in PNAS</a>.<br /><div><br /></div><div>The actual predictions that one can use from this model are the change in metabolic related traits as a function of temperature. Sooo, this metabolic theory of ecology can be applied to various animal models, like the predator-prey models. Let's make some Maths!</div><div><br /></div><div>First, to introduce the Lotka-Volterra Equations, which is the name for predator-prey model I'll be using.&nbsp;Assume you have two populations: A(t), cats, &nbsp;and R(t), crows, with<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-_like42ujpg/ThbFIx098uI/AAAAAAAAACE/IMNdKSHSbBQ/s1600/eq1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="43" src="http://1.bp.blogspot.com/-_like42ujpg/ThbFIx098uI/AAAAAAAAACE/IMNdKSHSbBQ/s320/eq1.png" width="320" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: left;"></div><div class="separator" style="clear: both; text-align: left;">Let's assume that the crows are the prey and the cats are the&nbsp;predators. For the crows, they will have exponential growth minus the&nbsp;death from cats, which is proportional to the number of cats and crows&nbsp;(rate of &nbsp;"collisions'').</div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-73jvN2TRlzk/ThbGDkjvdZI/AAAAAAAAACI/BCeAsZJh1e0/s1600/eq2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="74" src="http://1.bp.blogspot.com/-73jvN2TRlzk/ThbGDkjvdZI/AAAAAAAAACI/BCeAsZJh1e0/s320/eq2.png" width="320" /></a></div><div class="separator" style="clear: both; text-align: left;"></div><div class="separator" style="clear: both; text-align: left;">where S(T) stands for sexy time and is the growth rate. It is&nbsp;proportional to temperature according the MTE, because sexy time rate&nbsp;is a metabolic related trait! &nbsp;K(T) is the successful kill rate of&nbsp;crows by cats from an interaction. Now, for cats:</div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-b0IBJkm7fhg/ThbGMXq9G_I/AAAAAAAAACM/RRIgh33xGek/s1600/eq3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="62" src="http://4.bp.blogspot.com/-b0IBJkm7fhg/ThbGMXq9G_I/AAAAAAAAACM/RRIgh33xGek/s320/eq3.png" width="320" /></a></div><div class="separator" style="clear: both; text-align: left;"></div><div class="separator" style="clear: both; text-align: left;">The same interaction term is here, but with the opposite sign. Cats&nbsp;reproduce after an entire crow. D(T) is the digestion rate or death&nbsp;rate, or something. The rate at which cats disappear which is offset&nbsp;by eating crows. The MTE predicts the following form for the metabolic terms:</div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-IL3wcpcoRXg/ThbGWauFxpI/AAAAAAAAACQ/BlwoSbEpxkU/s1600/eq4.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="62" src="http://2.bp.blogspot.com/-IL3wcpcoRXg/ThbGWauFxpI/AAAAAAAAACQ/BlwoSbEpxkU/s200/eq4.png" width="200" /></a></div><div class="separator" style="clear: both; text-align: left;"></div><div class="separator" style="clear: both; text-align: left;">where, as mentioned above, E<sub>A</sub>=0.66 eV. Now, where will those&nbsp;prefactors come from? D<sub>0</sub> looks like some intrinsic cat property. However, if we know the D(T=T_i) at a certain value, we can find the D<sub>0</sub> thanks to the universal activation energy. Also, we can find the D at a certain temperature given the equilibrium&nbsp;populations. Math is cool! Specifically, we can set the derivatives to&nbsp;0 and find the equilibrium point.</div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-PQgbip0upBE/ThbHGa_RnRI/AAAAAAAAACU/G3jjyWFGCS8/s1600/eq5.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="237" src="http://1.bp.blogspot.com/-PQgbip0upBE/ThbHGa_RnRI/AAAAAAAAACU/G3jjyWFGCS8/s320/eq5.png" width="275" /></a></div><div class="separator" style="clear: both; text-align: center;"><br /></div><div class="separator" style="clear: both; text-align: left;"></div><div class="separator" style="clear: both; text-align: left;">Note, for you notation Nazis (if there is such a thing), I've dropped&nbsp;the function notation because I'm referring to a specific time and&nbsp;temperature. Now then, let's get some numbers. I looked outside this&nbsp;morning and it was 20℃. I counted 100 crows and 5 cats.</div><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-S1V70WvMCpM/ThbHemX3wOI/AAAAAAAAACY/l1yG8SEqnkM/s1600/eq6.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="153" src="http://2.bp.blogspot.com/-S1V70WvMCpM/ThbHemX3wOI/AAAAAAAAACY/l1yG8SEqnkM/s200/eq6.png" width="180" /></a></div><div class="separator" style="clear: both; text-align: left;"></div><div class="separator" style="clear: both; text-align: left;">Ummm...well we're still unknown heavy. Ok, I'm going to start making&nbsp;assumptions now. Let's assume that K, the killing rate in familiar&nbsp;units of inverse square animals per time, is independent of&nbsp;temperature. I'll justify this by saying that aerobic processes are&nbsp;only considered to be temperature dependent in MTE. When cats and&nbsp;crows collide, it's all anaerobic action. So, that makes K a&nbsp;constant. If we think hard about K, we see it is the frequency at&nbsp;which one cat eats one crow (and then the cat has a baby). It clearly&nbsp;depends on the population density (area), but we'll just say in our&nbsp;world that a given cat and crow see each other up close once per week&nbsp;and the cat kills it once per 3 tries. That gives 1/21&nbsp;(cat-crow-days)-1. That sets all the other constants.</div><table cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/-iTH3InOt1N0/ThbIA0MZViI/AAAAAAAAACc/R12IuLM3dag/s1600/catCrows.jpg" imageanchor="1" style="clear: right; margin-bottom: 1em; margin-left: auto; margin-right: auto;"><img border="0" height="190" src="http://3.bp.blogspot.com/-iTH3InOt1N0/ThbIA0MZViI/AAAAAAAAACc/R12IuLM3dag/s200/catCrows.jpg" width="200" /></a></td></tr><tr><td class="tr-caption" style="text-align: center;">Figure 1: Killing constant units of &nbsp;inverse cat-crows</td></tr></tbody></table><br /><br /><div style="text-align: center;"><a href="http://2.bp.blogspot.com/-i19YfcTJ98s/ThbIbNLNjWI/AAAAAAAAACg/TeUyFMeNV4M/s1600/eq7.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="48" src="http://2.bp.blogspot.com/-i19YfcTJ98s/ThbIbNLNjWI/AAAAAAAAACg/TeUyFMeNV4M/s400/eq7.png" width="400" /></a></div><div style="text-align: center;"><br /></div><div style="text-align: left;">Solving the MTE Equation:<br /><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-k9DIlzx-6r4/ThbIsxg21NI/AAAAAAAAACk/Jom_ruIJeUE/s1600/eq8.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="108" src="http://2.bp.blogspot.com/-k9DIlzx-6r4/ThbIsxg21NI/AAAAAAAAACk/Jom_ruIJeUE/s400/eq8.png" width="400" /></a></div><div class="separator" style="clear: both; text-align: left;"><br /></div><div style="text-align: left;"><br /></div><br /><br />Now we have everything to solve the linear system of ODEs and make&nbsp;them a function of temperature!<br /><br />*Boring math I won't cover*<br /><br />Phew! The solutions are plotted below. The populations as a function&nbsp;of time is plotted below. The color, from blue to red, is the&nbsp;temperature from 20 ℃ to 30 ℃.<br /><br /><br /><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-ho3tmOw0KwQ/ThbJWYH9zGI/AAAAAAAAACs/z4NyOD3NTNQ/s1600/graphic.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-ho3tmOw0KwQ/ThbJWYH9zGI/AAAAAAAAACs/z4NyOD3NTNQ/s1600/graphic.png" /></a></div><br />There are a few interesting things to note here. The most visible&nbsp;change is the large increase in amplitude of the oscillations. This is&nbsp;a boon for the crows, apparently, because of their higher sexy time&nbsp;rate in the hot weather. Makes sense. For the cats, however, their&nbsp;death rate is increased and makes them much more susceptible to&nbsp;decreases in the crow population. This leads to strange behavior in&nbsp;the higher temperature at the cat minimums: 0.033 cats in some places!&nbsp;So, if 3 hundredths of a cat is unable to breed we'll have a problem&nbsp;at higher temperatures.<br /><br />My conclusions: this MTE/Lotka-Volterra model predicts increases in&nbsp;the variation of species numbers which can lead to sudden&nbsp;extinctions. The model itself can't predict extinctions because it&nbsp;allows infinitesimal cats, but we can infer that a population of 33&nbsp;millicats is extinction.</div>
 </div>
       </div>
@@ -83,7 +84,6 @@
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -91,37 +91,20 @@
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>

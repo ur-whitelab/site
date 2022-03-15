@@ -7,21 +7,22 @@
     <title>Amino Acid Interactions</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interesting thoughts and tutorials from the White Lab at the University of Rochester.">
-    <link rel="canonical" href="http://thewhitelab.org/Blog/2012/03/amino-acid-interactions.html">
+    <link rel="canonical" href="https://thewhitelab.org/blog/2012/03/amino-acid-interactions.html">
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic' rel='stylesheet'
+        type='text/css'>
 
     <!-- Bootstrap -->
     
   <!-- AUTOMATICALLY GENERATED. DO NOT EDIT. -->
   
   
-    <link rel="stylesheet" type="text/css" href="/Blog/bootstrap/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="/blog /bootstrap/css/bootstrap.min.css" />
+
 
     <!-- MathJax https version -->
     
@@ -29,7 +30,6 @@
     
 
 </head>
-
 
     <body>
 
@@ -44,21 +44,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Blog/#">Blog Home</a>
+        <a class="navbar-brand" href="/blog/#">Blog Home</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/Blog/post_list">Posts</a></li>
+          <li><a href="/blog /post_list">Posts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://thewhitelab.org">thewhitelab.org</a></li>
+          <li><a href="https://thewhitelab.org">thewhitelab.org</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
   </div>
-  
-</header>
 
+</header>
 
     <div class="container">
       <div class="container">
@@ -70,11 +71,11 @@
       <p class="text-muted">Mar 4, 2012 • Andrew White</p>
     </div>
   </div>
-  
+
   <article class="post-content">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-	<div class="css-full-post-content js-full-post-content">
+        <div class="css-full-post-content js-full-post-content">
 I couldn't find a nice table of amino acid interaction energies, so I created one from crystallography data of thousands of protein. Here are the results and an explanation of how I did it. There is also a black and white version in the article which could be nice for printing. I don't know, I printed a pdf but blogger won't host pdfs for me. <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-p76Tu_0vAf8/T1PPxQvsPhI/AAAAAAAAAH8/1DE-Qoh7Fws/s1600/aa_interaction_table.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="250" src="http://3.bp.blogspot.com/-p76Tu_0vAf8/T1PPxQvsPhI/AAAAAAAAAH8/1DE-Qoh7Fws/s400/aa_interaction_table.png" width="400" /></a></div><a name='more'></a>I've been working with protein modelling in my research lately and I love how computer science-y the field is. There is an "alphabet" of amino acids and they can be categorized by type (e.g, hydrophilic, aromatic). There are hierarchical structures to proteins: primary, secondary, tertiary which are dictated by interactions from the alphabet of amino acids. It's all so well ordered and things fit neatly together. Of course, there are messy bits to practical studies of proteins like glycosilation, signaling peptides, coordinating metals and other little things that can complicate protein simulations and experiments. Overall, though, the concepts are much more structured than other areas I study. <br />One thing which I've not really seen is a cheat sheet of amino acid-amino acid interactions. There are general rules, like positively charged amino acids bind to negatively charged amino acids. However, there isn't a nice chart of which interactions are strongest or which are disfavored etc. So I've decided to create one according to the following simple recipe: <br /><ol><li> Create a database of 3-dimensional protein structures.</li><li> Tabulate the number of times each amino acid type is in contact with another amino acid type.</li><li> Turn the counts into interaction energies.</li></ol>This is a relatively simple task, I mean relative to other research I do but not necessarily easy. Let's look at step 1. Protein structures may be found at the <a href="http://www.rcsb.org/">protein data bank</a>. It is simple to download a collection of structures from there. A few little things should be done though, like ensuring the structures aren't too similar and they aren't missing pieces. Overall though, obtaining the structure is not so hard. <br />For step 2, tabulating the contacts requires some definition of a contact. This is somewhat arbitrary, but I'll use Van der Waals distances which are come from a theory of molecular interactions. Each pair of atom types, for example nitrogen near oxygen, has some critical distance below which the pair will be considered "in contact." That covers atoms, however we're discussing amino acids which are molecules made up of many atoms. Thus, I'll consider two amino acids to be in contact if any two of their atoms are in contact with one another. This allows me to tabulate contacts. There are a few small details which must be considered, like ignoring hydrogens, which are small enough to be neglected, and to ignore contact between neighboring residues. The justification for ignoring neighboring residues is that it is relatively easy for neighboring residues to be in contact because the definition of contact is somewhat weak (any two atoms in contact), and thus I'll err on the side of being conservative for the number of contacts. This shouldn't introduce any systematic bias. What will introduce systematic bias though is the Van der Waals radii. Having the carbon radius, for example, as too small could under estimate the hydrohpobic force which brings carbon rich amino acids together. <br />At this point, I have a matrix containing the number of contacts between all 20 amino acids, creating a symmetric 400 element matrix. In order to convert this into interaction energies, I'll need to assume some sort of probability model. I believe it is fairly intuitive that there will be two type of parameters in this model: the probability of observing residue <i>A</i> and the probability that residue <i>A</i> is in contact with residue <i>B</i>. More formally, our data consists of a series of 2 observation length Markov chains and we'd like to estimate the initial distribution and the transition probabilities. These are simple enough: <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-emarDtJhGP8/T1PMhWIvWjI/AAAAAAAAAHM/i5flK0eHb_I/s1600/4.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="52" src="http://2.bp.blogspot.com/-emarDtJhGP8/T1PMhWIvWjI/AAAAAAAAAHM/i5flK0eHb_I/s400/4.png" width="379" /></a></div>where <i>N</i> is the number of observations, either of the number of residues of type <i>A</i> or of contacts between <i>A</i> and <i>B</i>. 'Free' here indicates residues which are not in contact. <br />Now to covert these statistics into interaction energies I'll use the <a href="http://en.wikipedia.org/wiki/Boltzmann_distribution">Boltzmann distribution</a>, which connects energies and probabilities. I think there's some other term for this business in statistical modelling, like Gibbs random fields or something, but anyway we can use the following equations to get energies, beginning with <i>Χ</i>, the interaction energy. <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-pnbRSaXhtJM/T1PNIXr5YbI/AAAAAAAAAHY/WJb0fI1p5Gs/s1600/1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="19" src="http://4.bp.blogspot.com/-pnbRSaXhtJM/T1PNIXr5YbI/AAAAAAAAAHY/WJb0fI1p5Gs/s400/1.png" width="214" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-w3qh4yXHUPM/T1PNIa3jk-I/AAAAAAAAAHk/F2Rg2Zw6g3s/s1600/2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="31" src="http://2.bp.blogspot.com/-w3qh4yXHUPM/T1PNIa3jk-I/AAAAAAAAAHk/F2Rg2Zw6g3s/s400/2.png" width="400" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-DQ7IWCVnTSs/T1PNIrBvWYI/AAAAAAAAAHs/Kk_ztPKstwo/s1600/3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="38" src="http://3.bp.blogspot.com/-DQ7IWCVnTSs/T1PNIrBvWYI/AAAAAAAAAHs/Kk_ztPKstwo/s400/3.png" width="400" /></a></div><i>U</i> is the energy of a pair contact and <i>k</i> is the energy scale, generally taken to be Boltzmann's constant. This definition of interaction energy can be thought of as the contact energy relative to a reference state where the two amino acids involved in the contact are infinitely far away. <br />Now it is possible to put everything together. I'll leave the temperature unspecified and thus my units will be in <i>kT</i>. For those of you confused about all these equations, all I did was estimate the probabilities from the data and took the negative natural logirthm of the probabilities. Simple. Now, I'll plot the results and we'll see how closely the interaction energies match our intuition. <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-p76Tu_0vAf8/T1PPxQvsPhI/AAAAAAAAAH8/1DE-Qoh7Fws/s1600/aa_interaction_table.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="250" src="http://3.bp.blogspot.com/-p76Tu_0vAf8/T1PPxQvsPhI/AAAAAAAAAH8/1DE-Qoh7Fws/s400/aa_interaction_table.png" width="400" /></a></div>The "Ar", "Po", "Ch", and "Hy" abbrievations stand for aromatic, polar, charged, and hydrophobic, respectively. Red indicates a strongly favored interaction and blue is a strongly disfavored interaction. I've also created a black and white version, below, which will go nicely on the wall next to my other cheat sheets of amino acid information. The cysteine-cysteine pair is excluded because their interaction is covalent. The rest of the interactions do match what we would expect. Positvely charged residues contact negatively charged residues. Hydrophobic residues dislike polar residues. Aromatics bind strongly. The chart came out quite nice in fact! <br />There is one issue which may require improvement, however. The charged residues seem to interact with one another much more strongly than the hydrophobic residues interact with themselves. This is indeed possible, but I don't know if anyone has experimental evidence that a salt bridge (negatively charged amino acid in contact with a positively charged amino acid) is nearly twice as strong as a hydrophobic contact. In fact, there has been <a href="http://www.nature.com/nsmb/journal/v2/n2/abs/nsb0295-122.html">research showing the opposite</a>. This discrepancy, I believe, is from the systematic bias I was worried about in the Van der Waals radii. The good news is that if I ever do find experimental evidence giving a few quantitative interaction energies, I can go back to fit the Van der Waals radii and thus create a more accurate table. <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-8mZZh_tMgGs/T1PbDHdkhJI/AAAAAAAAAII/O2Jme3XFD7Y/s1600/aa_interaction_table_bw.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="250" src="http://2.bp.blogspot.com/-8mZZh_tMgGs/T1PbDHdkhJI/AAAAAAAAAII/O2Jme3XFD7Y/s400/aa_interaction_table_bw.png" width="400" /></a></div>
 </div>
 <div class="css-full-comments-content js-full-comments-content">
@@ -117,7 +118,6 @@ I couldn't find a nice table of amino acid interaction energies, so I created on
   </article>
 
 </div>
-
     </div>
 
     <div id="footer" class="footer">
@@ -125,37 +125,20 @@ I couldn't find a nice table of amino acid interaction energies, so I created on
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-4">
-          &copy 2022 Andrew White
+        &copy 2022 Andrew White
       </div>
-      
+
       <div class="col-md-4">
       </div>
-      
+
       <div class="col-md-4">
-	<p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
+        <p class="text">Interesting thoughts and tutorials from the White Lab at the University of Rochester.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
-
-<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-     mathiasbynens.be/notes/async-analytics-snippet -->
-<script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35512318-1']);
-    _gaq.push(['_trackPageview']);
-    
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    
-</script>
-
 
     </body>
 </html>
