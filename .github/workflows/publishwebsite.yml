@@ -37,7 +37,7 @@ jobs:
     - name: Blog
       run: |
         cd dist/
-        wget -O blog.zip https://www.dropbox.com/s/4b8k1njb2monzia/_site.zip?dl=0 && unzip blog && mv _site blog
+        wget -O blog.zip https://www.dropbox.com/s/oe0uv1rpzr65e2m/_site.zip?dl=0 && unzip blog && mv _site blog
         rm *.zip && cd ..        
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
