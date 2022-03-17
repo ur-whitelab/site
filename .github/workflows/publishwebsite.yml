@@ -26,7 +26,7 @@ jobs:
     - name: Talks
       run: |
         mkdir -p dist/talks && cd dist/talks
-        wget -O research.zip https://www.dropbox.com/s/n87j6zlcq3pqpzo/aai.zip?dl=0 && unzip research && mv dist research        
+        wget -O research.zip https://www.dropbox.com/s/timotke35xic9uk/strathclyde.zip?dl=0 && unzip research && mv dist research
         rm *.zip
         cd ../../
     - name: Apps
@@ -39,7 +39,7 @@ jobs:
       run: |
         cd dist/
         wget -O blog.zip https://www.dropbox.com/s/rmf2qg4byt5v4i9/_site.zip?dl=0 && unzip blog && mv _site blog
-        rm *.zip && cd ..        
+        rm *.zip && cd ..
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
