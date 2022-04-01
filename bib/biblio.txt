@@ -48,7 +48,7 @@
 
 25. Amirkulova, D. B. & White, A. D. Recent advances in maximum entropy biasing techniques for molecular dynamics. Molecular Simulation 45, 1285–1294 (2019).
 
-26. Bonomi, M. Promoting transparency and reproducibility in enhanced molecular simulations. Nature methods 16, 670–673 (2019).
+26. Bonomi, M., Bussi, G., Camilloni, C., Tribello, G. A., Banáš, P., Barducci, A., Bernetti, M., Bolhuis, P. G., Bottaro, S., Branduardi, D., et al. Promoting transparency and reproducibility in enhanced molecular simulations. Nature methods 16, 670–673 (2019).
 
 27. Chakraborty, M., Xu, J. & White, A. D. Is preservation of symmetry necessary for coarse-graining? Physical Chemistry Chemical Physics 22, 14998–15005 (2020).
 

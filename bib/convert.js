@@ -1,14 +1,33 @@
 const fs = require('fs')
 const yaml = require('js-yaml')
 
-let regex = /^[0-9]+./gm
+let li_regex = /^[0-9]+./gm
+let date_regex = /\(([0-9]*)\)/
 // get file name from argument
-// read the file and replace regex matches with <li>
+// read the file and replace li_regex matches with <li>
 let fileName = process.argv[2]
 let fileContent = fs.readFileSync(fileName, 'utf8')
 
-let newContent = fileContent.replace(regex, '<li>')
+let newContent = fileContent.replace(li_regex, '<li>')
 let wrapped = newContent.split('\n').map((s) => s.length > 1 ? s : '')
+
+function compare_entry(a, b) {
+    // log the entry
+
+    if (a.length > 0 && b.length > 0) {
+        ayear = a.match(date_regex)[1]
+        byear = b.match(date_regex)[1]
+        return parseInt(byear) - parseInt(ayear)
+    } else if (a.length > 0) {
+        return 1
+    } else if (b.length > 0) {
+        return -1
+    }
+    return 0
+}
+
+// sort lines of file by date
+wrapped = wrapped.sort(compare_entry)
 
 // now read info about papers
 let fileContents = fs.readFileSync('./bib/data.yml', 'utf8')
@@ -32,4 +51,4 @@ for (const k in data) {
 }
 
 
-console.log(wrapped.reverse().join('\n'))
+console.log(wrapped.join('\n'))
