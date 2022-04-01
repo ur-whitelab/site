@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Inconsolata', monospace;
-    color: #333;
-    background-color: #f8f7f6;
+    color: #FFF;
+    background-color: #333;;
     font-size: 2em;
   }
 
@@ -13,6 +13,10 @@ body {
 
 h3 {
     font-size: 2.5rem;
+}
+
+a {
+    color: #6c76ff;
 }
 
 .bigger {
@@ -43,3 +47,4 @@ hr {
 .paper-info {
     margin-left:5rem;
 }
+
