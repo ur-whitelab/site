@@ -2,7 +2,7 @@ alcfd:
   key:
     - ansari
     - gandhi
-    - 2021
+    - symbolic
   tweet: https://twitter.com/andrewwhite01/status/1424913806447292421
   link: https://arxiv.org/abs/2108.03293
   pdf: https://arxiv.org/pdf/2108.03293
@@ -12,7 +12,7 @@ maxent:
   key:
     - ansari
     - barrett
-    - 2021
+    - entropy
   tweet: https://twitter.com/andrewwhite01/status/1430357286556405761
   link: https://arxiv.org/abs/2104.09668
   pdf: https://arxiv.org/pdf/2104.09668
@@ -21,7 +21,7 @@ maxent:
 counter:
   key:
     - counterfactual
-    - 2021
+    - 2022
   tweet: https://twitter.com/andrewwhite01/status/1427268134654914560
   link: https://doi.org/10.1039/D1SC05259D
   pdf: https://pubs.rsc.org/en/content/articlepdf/2022/sc/d1sc05259d
@@ -99,6 +99,7 @@ symm:
     - 2018
   link: https://doi.org/10.1039/D0CP02309D
   pdf: https://chemrxiv.org/engage/chemrxiv/article-details/60c74618567dfe45edec457d
+  code: https://github.com/ur-whitelab/mapping-graph
 
 review:
   key:
@@ -129,7 +130,7 @@ nlp-persp:
 fedchem:
   key:
     - luo
-    - federated    
+    - federated
   tweet: https://twitter.com/andrewwhite01/status/1438470336182358017
   link: https://arxiv.org/abs/2109.07258
   pdf: https://arxiv.org/pdf/2109.07258
@@ -172,4 +173,27 @@ plumed-nest:
   link: https://www.nature.com/articles/s41592-019-0506-8
   pdf: https://www.nature.com/articles/s41592-019-0506-8.pdf
   code: https://www.plumed-nest.org/
+
+gyg:
+  key:
+    - GYG
+    - Amirkulova
+
+  link: https://www.worldscientific.com/doi/abs/10.1142/S0219633618400072
+  pdf: https://arxiv.org/pdf/1804.05100
+
+cic:
+  key:
+    - Voth
+    - Mayes
+  link: https://pubs.acs.org/doi/10.1021/jacs.7b11463
+  pdf: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5812667/pdf/ja7b11463.pdf
+
+pbayes:
+  key:
+    - barrett
+    - bayesian
+  link: https://onlinelibrary.wiley.com/doi/abs/10.1002/pep2.24079
+  pdf: https://arxiv.org/pdf/1804.06327
+  code: https://github.com/ur-whitelab/peptide-qspr
 
