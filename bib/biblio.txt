@@ -28,11 +28,11 @@
 
 15. White, A. D. & Voth, G. A. Efficient and minimal method to bias molecular simulations with experimental data. Journal of chemical theory and computation 10, 3023–3030 (2014).
 
-16. White, A. D., Dama, J. F. & Voth, G. A. Designing free energy surfaces that match experimental data with metadynamics. Journal of chemical theory and computation 11, 2451–2460 (2015).
+16. White, A. D., Dama, J. F. & Voth, G. A. Designing free energy surfaces that match experimental data with metadynamics. Journal of Chemical Theory and Computation 11, 2451–2460 (2015).
 
 17. Dannenhoffer-Lafage, T., White, A. D. & Voth, G. A. A direct method for incorporating experimental data into multiscale coarse-grained models. Journal of chemical theory and computation 12, 2144–2153 (2016).
 
-18. White, A. D., Knight, C., Hocky, G. M. & Voth, G. A. Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. The Journal of chemical physics 146, 041102 (2017).
+18. White, A. D., Knight, C., Hocky, G. M. & Voth, G. A. Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. The Journal of Chemical Physics 146, 041102 (2017).
 
 19. Freeman, G. M., Drennen, T. E. & White, A. D. Can parked cars and carbon taxes create a profit? The economics of vehicle-to-grid energy storage for peak reduction. Energy Policy 106, 183–190 (2017).
 
@@ -40,7 +40,7 @@
 
 21. Amirkulova, D. B. & White, A. D. Combining enhanced sampling with experiment-directed simulation of the GYG peptide. Journal of Theoretical and Computational Chemistry 17, 1840007 (2018).
 
-22. Chakraborty, M., Xu, C. & White, A. D. Encoding and selecting coarse-grain mapping operators with hierarchical graphs. The Journal of chemical physics 149, 134106 (2018).
+22. Chakraborty, M., Xu, C. & White, A. D. Encoding and selecting coarse-grain mapping operators with hierarchical graphs. The Journal of Chemical Physics 149, 134106 (2018).
 
 23. Barrett, R., Jiang, S. & White, A. D. Classifying antimicrobial and multifunctional peptides with bayesian network models. Peptide Science 110, e24079 (2018).
 
@@ -72,14 +72,14 @@
 
 37. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. ACS Sustainable Chemistry & Engineering 9, 14975–14985 (2021).
 
-38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. (2021).
+38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. Chemical Science (2022).
 
 39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. arXiv preprint arXiv:2108.03293 (2021).
 
-40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. arXiv preprint arXiv:2108.13360 (2021).
+40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital Discovery (2022).
 
 41. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. arXiv preprint arXiv:2109.07258 (2021).
 
 42. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. arXiv preprint arXiv:2110.03846 (2021).
 
-43. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science Advances 8, eabj0305 (2022).
+43. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science advances 8, eabj0305 (2022).
