@@ -197,3 +197,22 @@ pbayes:
   pdf: https://arxiv.org/pdf/1804.06327
   code: https://github.com/ur-whitelab/peptide-qspr
 
+symd:
+  key:
+    - Symmetric
+    - Cox
+    - 2022
+  tweet: https://twitter.com/andrewwhite01/status/1511138339998650378
+  link: https://arxiv.org/abs/2204.01114
+  pdf: https://arxiv.org/pdf/2204.01114
+  code: https://github.com/whitead/symd
+
+selfies:
+  key:
+    - SELFIES
+    - 2022
+    - Krenn
+  tweet: https://twitter.com/MarioKrenn6240/status/1510781069423001608
+  link: https://arxiv.org/abs/2204.00056
+  pdf: https://arxiv.org/pdf/2204.00056
+  code: https://github.com/aspuru-guzik-group/selfies/

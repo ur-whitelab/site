@@ -2,15 +2,15 @@
 
 body {
     font-family: 'Inconsolata', monospace;
-    color: #FFF;
-    background-color: #333;
+    color: #2a2a2a;
+    background-color: #f5f4e9;
     font-size: 1.2em;
 }
 
 @media only screen and (min-width: 900px) {
-      body {
+    body {
         font-size: 2rem;
-      }
+    }
 }
 
 .top {
@@ -22,7 +22,7 @@ h3 {
 }
 
 a {
-    color: #ff8989;
+    color: #da89ff;
 }
 
 .bigger {
@@ -51,6 +51,5 @@ hr {
 }
 
 .paper-info {
-    margin-left:5rem;
+    margin-left: 5rem;
 }
-

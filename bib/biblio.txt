@@ -66,7 +66,7 @@
 
 34. Barrett, R. & White, A. D. Investigating active learning and meta-learning for iterative peptide design. Journal of chemical information and modeling 61, 95–105 (2020).
 
-35. Barrett, R., Ansari, M., Ghoshal, G. & White, A. D. Simulation-based inference with approximately correct parameters via maximum entropy. arXiv preprint arXiv:2104.09668 (2021).
+35. Barrett, R., Ansari, M., Ghoshal, G. & White, A. Simulation-based inference with approximately correct parameters via maximum entropy. Machine Learning: Science and Technology (2022).
 
 36. Yang, Z., Chakraborty, M. & White, A. D. Predicting chemical shifts with graph neural networks. Chemical Science (2021).
 
@@ -83,3 +83,7 @@
 42. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. arXiv preprint arXiv:2110.03846 (2021).
 
 43. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science advances 8, eabj0305 (2022).
+
+44. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. arXiv preprint arXiv:2204.00056 (2022).
+
+45. Cox, S. & White, A. D. Symmetric molecular dynamics. arXiv preprint arXiv:2204.01114 (2022).
