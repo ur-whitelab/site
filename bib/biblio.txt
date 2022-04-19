@@ -87,3 +87,5 @@
 44. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. arXiv preprint arXiv:2204.00056 (2022).
 
 45. Cox, S. & White, A. D. Symmetric molecular dynamics. arXiv preprint arXiv:2204.01114 (2022).
+
+46. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
