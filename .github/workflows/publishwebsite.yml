@@ -26,9 +26,9 @@ jobs:
     - name: Talks
       run: |
         mkdir -p dist/talks && cd dist/talks
-        wget -O research.zip https://www.dropbox.com/s/timotke35xic9uk/strathclyde.zip?dl=0 && unzip research && mv dist research
+        wget -O research.zip https://www.dropbox.com/s/timotke35xic9uk/strathclyde.zip?dl=0 && unzip research && mv dist research        
+        wget -O eds.zip https://www.dropbox.com/s/45mdjglpwejxu7y/Presentation.zip?dl=0 && unzip eds && mv Presentation eds
         rm *.zip
-        wget -O eds.zip https://www.dropbox.com/s/833zvk731u6agki/Presentation.zip?dl=0 && unzip eds && mv Presentation eds
         cd ../../
     - name: Apps
       run: |
