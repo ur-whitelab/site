@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Dartmouth</title>
+	<title>Masterclass</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-	<div class="reveal" style="cursor: none;">
+	<div class="reveal">
 
 		<div class="slides">
 
@@ -41,7 +41,7 @@
 				</p>
 			</div>
 			<section class="center" data-background="#ffdd00">
-				<h3 class="attn">Experiment Directed Simulation for Peptide Molecular Dynamics</h3>
+				<h3 class="attn">Experiment Directed Simulation</h3>
 
 				<br>
 
@@ -86,9 +86,10 @@
 					< f(\vec{r})\right> = \int d\vec{r}\, P(\vec{r})f(\vec{r}) $$
 				</section>
 				<section class="center" data-background="#ffdd00">
-					<p> How can we use experimental data to improve simulations?</p>
+					<p> What if we do not have agreement?</p>
 
-					<img src="img/detailed_cycle_maxent.png" width="400px">
+					$$ \left
+					< f(\vec{r})\right> \neq \int d\vec{r}\, P(\vec{r})f(\vec{r}) $$
 				</section>
 			</section>
 			<section>
@@ -283,21 +284,39 @@
 					</video>
 
 				</section>
-
+				<section>
+					<h2>EDS in PLUMED</h2>
+					<img src="img/eds_example.svg" width="100%" />
+				</section>
 				<section>
 					<h1>Finding $\alpha$</h1>
-
 					$$
-					\frac{\partial \left< f(\vec{r}) - \hat{f} \right>^2}{\partial \alpha} = 2\beta\left< f(\vec{r}) -
-							\hat{f} \right> \left(\left< f^2(\vec{r})\right> - \left< f(\vec{r})\right>^2\right)
-									$$
-									<br>
-									<p>We used a FTRL variant, but any optimization method works.</p>
-									<p>
-										<small> White AD & Voth GA.
-											<i> J Chem Theory Comput </i>
-											<strong> 2014</strong> 10:3023</small>
-									</p>
+					\alpha_{t+1} = \alpha_t - \eta \frac{\partial \left< f(\vec{r}) - \hat{f} \right>
+						^2}{\partial \alpha}
+						$$
+
+						<p class="fragment">
+							$$
+							\frac{\partial \left< f(\vec{r}) - \hat{f} \right>^2}{\partial \alpha} = 2\beta\left<
+									f(\vec{r}) - \hat{f} \right> \left(\left< f^2(\vec{r})\right> - \left<
+											f(\vec{r})\right>^2\right)
+											$$
+						</p>
+						<br>
+						<p>
+							<small> White AD & Voth GA.
+								<i> J Chem Theory Comput </i>
+								<strong> 2014</strong> 10:3023</small>
+						</p>
+				</section>
+				<section>
+					<h2>N-D Stochastic Gradient Descent</h2>
+					$$
+					\vec{\alpha}_{t+1} = \vec{\alpha}_t - \vec{\sigma}\eta \nabla_{\alpha} \left< \vec{f}(\vec{r}) -
+						\vec{\hat{f}}\right>^2
+						$$
+						<p>where $\vec{\sigma}$ is a random vector of 1s/0s that selects a random subset of all
+							collective variables. </p>
 				</section>
 			</section>
 
@@ -468,6 +487,48 @@
 						<i> Molecular Simulation </i>
 						<strong> 2019</strong> 45 (14-15): 1285-1294
 					</p>
+				</section>
+			</section>
+			<section>
+				<section class="center" data-background-color="#ffdd00">
+					<h1>PLUMED Examples</h1>
+				</section>
+				<section class="center">
+					<p class="small">A bond biased to
+						given mean and variance values. The PRINT line shows how to access the value
+						of the coupling constants.</p>
+					<img src="img/eds-example-1.svg">
+				</section>
+				<section class="center">
+					<p class="small">Instead of using EDS, we can just fix at a constant linear bias.</p>
+					<img src="img/eds-example-2.svg">
+				</section>
+				<section class="center">
+					<p class="small">We can output to a restart file</p>
+					<img src="img/eds-example-3.svg">
+				</section>
+				<section class="center">
+					<p class="small">Here's what a restart file looks like</p>
+					<img src="img/eds-restart.svg">
+				</section>
+				<section class="center">
+					<p class="small">Read in a previous restart file. Adding RESTART flag makes output append </p>
+					<img src="img/eds-example-4.svg">
+				</section>
+				<section class="center">
+					<p class="small">Read in a previous restart file and freeze the bias at the final level from the
+						previous simulation </p>
+					<img src="img/eds-example-5.svg">
+				</section>
+				<section class="center">
+					<p class="small">Read in a previous restart file and freeze the bias at the mean from the previous
+						simulation </p>
+					<img src="img/eds-example-6.svg">
+				</section>
+				<section class="center">
+					<p class="small">Read in a previous restart file and continue the bias, but use the mean from the
+						previous run as the starting point </p>
+					<img src="img/eds-example-7.svg">
 				</section>
 			</section>
 		</div>

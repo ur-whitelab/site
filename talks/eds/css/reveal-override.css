@@ -1,14 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
 
 
+:root {
+    --r-heading-font: 'IBM Plex Mono', monospace;
+    --r-main-font: 'IBM Plex Mono', monospace;
+    --r-heading-text-transform: none;
+}
 
-html {background-color: inherit;}
+html {
+    background-color: inherit;
+}
+
+
 
 .gridContainer {
     display: grid;
     grid-template-columns: auto auto auto;
 }
 
-.reveal .img-center  {
+.reveal .img-center {
     height: 200px;
     display: block;
     margin-left: auto;
@@ -24,7 +34,7 @@ html {background-color: inherit;}
 }
 
 
-.reveal .foot-notes-grid > ul {
+.reveal .foot-notes-grid>ul {
     margin-left: auto;
     margin-right: auto;
 }
@@ -45,33 +55,33 @@ html {background-color: inherit;}
 
 /*Used for footer*/
 .pull-right {
-  float: right !important;
+    float: right !important;
 }
 
 
 .pull-left {
-  float: left !important;
+    float: left !important;
 }
 
 
 /*Used for white-space */
 .fill-500 {
-    height:500px;
+    height: 500px;
 }
 
 .fill-200 {
-    height:200px;
+    height: 200px;
 }
 
 .fill-100 {
-    height:100px;
+    height: 100px;
 }
 
 
 
 /*Used for colors */
 .reveal .red {
-  color: #EE2222;
+    color: #EE2222;
 }
 
 
@@ -79,11 +89,11 @@ html {background-color: inherit;}
     vertical-align: middle;
 }
 
-.reveal .bright{
+.reveal .bright {
     color: #DDD;
 }
 
-.reveal .dull{
+.reveal .dull {
     color: #999;
 }
 
@@ -99,12 +109,13 @@ html {background-color: inherit;}
 
 .reveal .action-call-h {
     font-size: 1.5em;
-/*    color: #009DCD;*/
+    /*    color: #009DCD;*/
 }
 
 /*Used  footer and footnotes */
 
-.reveal .naked-table table td, .reveal .naked-table th {
+.reveal .naked-table table td,
+.reveal .naked-table th {
     border-bottom: 0px;
 }
 
@@ -114,29 +125,29 @@ html {background-color: inherit;}
     margin-right: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
-   font-size: 0.5em;
-   height: 40px;
+    font-size: 0.5em;
+    height: 40px;
 
 }
 
-.slides .footnotes-fixed{
+.slides .footnotes-fixed {
 
-    position:fixed;
+    position: fixed;
     left: 10px;
-    bottom:80px;
+    bottom: 80px;
     right: 10px;
-  text-align: left;
-  font-size: 0.5em;
+    text-align: left;
+    font-size: 0.5em;
 }
 
-.slides .footnotes{
+.slides .footnotes {
 
-    position:relative;
+    position: relative;
     text-align: left;
     left: 10px;
     right: 10px;
     font-size: 0.5em;
-  }
+}
 
 
 .slides .footer-text {
@@ -153,24 +164,27 @@ html {background-color: inherit;}
     margin-right: 10px;
 }
 
-.slides .footer{
-  position:fixed;
-  left: 10px;
-  bottom:-20px;
-  right: 10px;
+.slides .footer {
+    position: fixed;
+    left: 10px;
+    bottom: -20px;
+    right: 10px;
 
 }
 
 /*Align tables*/
-.reveal table th, .reveal table  td {
+.reveal table th,
+.reveal table td {
     text-align: center;
 }
 
-.reveal table th:nth-last-child(1), .reveal table  td:nth-last-child(1) {
+.reveal table th:nth-last-child(1),
+.reveal table td:nth-last-child(1) {
     text-align: right;
 }
 
-.reveal table th:first-child(1), .reveal table  td:first-child(1) {
+.reveal table th:first-child(1),
+.reveal table td:first-child(1) {
     text-align: left;
 }
 
@@ -189,14 +203,14 @@ html {background-color: inherit;}
 }
 
 .multi-frag {
-    position:absolute;
+    position: absolute;
     left: 50%;
     width: 100%;
 }
 
-.multi-frag > div {
-    position:relative;
-    left:-50%;
+.multi-frag>div {
+    position: relative;
+    left: -50%;
 }
 
 .row {
@@ -215,7 +229,7 @@ html {background-color: inherit;}
 }
 
 .column-7 {
-    flex:70%;
+    flex: 70%;
 }
 
 .column-3 {
@@ -225,20 +239,23 @@ html {background-color: inherit;}
 
 /*roll-in was removed due to Chrome bug. Will risk it*/
 .reveal .slides section .fragment.roll-in {
-  -webkit-transform: rotateX(90deg);
-          transform: rotateX(90deg); }
-  .reveal .slides section .fragment.roll-in.visible {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+}
+
+.reveal .slides section .fragment.roll-in.visible {
     -webkit-transform: rotateX(0);
-            transform: rotateX(0); }
+    transform: rotateX(0);
+}
 
 
-  /*For blurring background*/
+/*For blurring background*/
 .text-background {
-    background-color: rgba(255, 255,255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .text-background-dark {
-    background-color: rgba(255, 255,255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .reveal .small {
@@ -259,4 +276,4 @@ html {background-color: inherit;}
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-  }
+}
