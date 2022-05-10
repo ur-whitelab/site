@@ -216,3 +216,21 @@ selfies:
   link: https://arxiv.org/abs/2204.00056
   pdf: https://arxiv.org/pdf/2204.00056
   code: https://github.com/aspuru-guzik-group/selfies/
+
+lime:
+  key:
+    - gandhi
+    - 2022
+    - surrogate
+  tweet: https://twitter.com/andrewwhite01/status/1523604252006170630
+  link: https://doi.org/10.26434/chemrxiv-2022-v5p6m-v2
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/62753b1459f0d6f41a8642c4/original/explaining-structure-activity-relationships-using-locally-faithful-surrogate-models.pdf
+  code: https://github.com/ur-whitelab/exmol
+
+physics-data:
+  key:
+    - Ziatdinov
+    - 2022
+    - Sumpter
+  link: https://arxiv.org/abs/2204.05095
+  pdf: https://arxiv.org/pdf/2204.05095

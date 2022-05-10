@@ -66,17 +66,17 @@
 
 34. Barrett, R. & White, A. D. Investigating active learning and meta-learning for iterative peptide design. Journal of chemical information and modeling 61, 95–105 (2020).
 
-35. Barrett, R., Ansari, M., Ghoshal, G. & White, A. Simulation-based inference with approximately correct parameters via maximum entropy. Machine Learning: Science and Technology (2022).
+35. Barrett, R., Ansari, M., Ghoshal, G. & White, A. D. Simulation-based inference with approximately correct parameters via maximum entropy. Machine Learning: Science and Technology 3, 025006 (2022).
 
 36. Yang, Z., Chakraborty, M. & White, A. D. Predicting chemical shifts with graph neural networks. Chemical Science (2021).
 
 37. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. ACS Sustainable Chemistry & Engineering 9, 14975–14985 (2021).
 
-38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. Chemical Science (2022).
+38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. Chemical science 13, 3697–3705 (2022).
 
 39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. arXiv preprint arXiv:2108.03293 (2021).
 
-40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital Discovery (2022).
+40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital Discovery 1, 79–83 (2022).
 
 41. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. arXiv preprint arXiv:2109.07258 (2021).
 
@@ -89,3 +89,5 @@
 45. Cox, S. & White, A. D. Symmetric molecular dynamics. arXiv preprint arXiv:2204.01114 (2022).
 
 46. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
+
+47. Gandhi, H. A. & White, A. D. Explaining structure-activity relationships using locally faithful surrogate models. (2022).
