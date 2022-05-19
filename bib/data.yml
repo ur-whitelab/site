@@ -14,8 +14,8 @@ maxent:
     - barrett
     - entropy
   tweet: https://twitter.com/andrewwhite01/status/1430357286556405761
-  link: https://arxiv.org/abs/2104.09668
-  pdf: https://arxiv.org/pdf/2104.09668
+  link: https://iopscience.iop.org/article/10.1088/2632-2153/ac6286/meta
+  pdf: https://iopscience.iop.org/article/10.1088/2632-2153/ac6286/pdf
   code: https://github.com/ur-whitelab/maxent/
 
 counter:
