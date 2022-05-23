@@ -76,7 +76,7 @@
 
 39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. arXiv preprint arXiv:2108.03293 (2021).
 
-40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital Discovery 1, 79–83 (2022).
+40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital discovery 1, 79–83 (2022).
 
 41. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. arXiv preprint arXiv:2109.07258 (2021).
 
@@ -91,3 +91,5 @@
 46. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
 
 47. Gandhi, H. A. & White, A. D. Explaining structure-activity relationships using locally faithful surrogate models. (2022).
+
+48. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. bioRxiv (2022).

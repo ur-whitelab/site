@@ -8,6 +8,18 @@ alcfd:
   pdf: https://arxiv.org/pdf/2108.03293
   code: https://github.com/ur-whitelab/alcfd/
 
+serverless:
+  key:
+    - ansari
+    - 2022
+    - peptide
+    - serverless
+  tweet: https://twitter.com/andrewwhite01/status/1527667461608316928
+  link: https://www.biorxiv.org/content/10.1101/2022.05.18.492545v1.abstract
+  pdf: https://www.biorxiv.org/content/10.1101/2022.05.18.492545v1.full.pdf
+  code: https://github.com/ur-whitelab/peptide-dashboard
+
+
 maxent:
   key:
     - ansari
