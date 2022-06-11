@@ -78,9 +78,10 @@
 
 40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital discovery 1, 79–83 (2022).
 
-41. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. arXiv preprint arXiv:2109.07258 (2021).
 
-42. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. arXiv preprint arXiv:2110.03846 (2021).
+41. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. arXiv preprint arXiv:2110.03846 (2021).
+
+42. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. Patterns 3(6), 100521 (2022).
 
 43. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science advances 8, eabj0305 (2022).
 
