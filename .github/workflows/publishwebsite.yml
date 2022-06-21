@@ -28,7 +28,7 @@ jobs:
         mkdir -p dist/talks && cd dist/talks
         wget -O research.zip https://www.dropbox.com/s/timotke35xic9uk/strathclyde.zip?dl=0 && unzip research && mv dist research        
         wget -O eds.zip https://www.dropbox.com/s/chfce93cux4v9bh/Presentation.zip?dl=0 && unzip eds && mv Presentation eds
-        wget -O dist.zip https://www.dropbox.com/s/dgy8tnsny27o9to/dist.zip?dl=0 && unzip dist && mv dist isms
+        wget -O dist.zip https://www.dropbox.com/s/yjbzbugnzd0rh68/dist.zip?dl=0 && unzip dist && mv dist isms
         rm *.zip
         cd ../../
     - name: Apps
