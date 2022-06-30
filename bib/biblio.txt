@@ -48,7 +48,7 @@
 
 25. Amirkulova, D. B. & White, A. D. Recent advances in maximum entropy biasing techniques for molecular dynamics. Molecular Simulation 45, 1285–1294 (2019).
 
-26. Bonomi, M., Bussi, G., Camilloni, C., Tribello, G. A., Banáš, P., Barducci, A., Bernetti, M., Bolhuis, P. G., Bottaro, S., Branduardi, D., et al. Promoting transparency and reproducibility in enhanced molecular simulations. Nature methods 16, 670–673 (2019).
+26. Promoting transparency and reproducibility in enhanced molecular simulations. Nature methods 16, 670–673 (2019).
 
 27. Chakraborty, M., Xu, J. & White, A. D. Is preservation of symmetry necessary for coarse-graining? Physical Chemistry Chemical Physics 22, 14998–15005 (2020).
 
@@ -74,22 +74,22 @@
 
 38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. Chemical science 13, 3697–3705 (2022).
 
-39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations.  AIChE J. 68, e17695 (2022).
+39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. AIChE Journal e17695 (2022).
 
 40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital discovery 1, 79–83 (2022).
 
-41. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. Physical Review E (2022).
+41. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. Physicsl Review E (2022).
 
-42. Zhu, W., White, A. & Luo, J. Federated learning of molecular properties in a heterogeneous setting. Patterns 3, 100521 (2022).
+42. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science advances 8, eabj0305 (2022).
 
-43. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science advances 8, eabj0305 (2022).
+43. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. arXiv preprint arXiv:2204.00056 (2022).
 
-44. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. arXiv preprint arXiv:2204.00056 (2022).
+44. Cox, S. & White, A. D. Symmetric molecular dynamics. Journal of Chemical Theory and Computation (2022).
 
-45. Cox, S. & White, A. D. Symmetric molecular dynamics. arXiv preprint arXiv:2204.01114 (2022).
+45. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
 
-46. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
+46. Gandhi, H. A. & White, A. D. Explaining structure-activity relationships using locally faithful surrogate models. (2022).
 
-47. Gandhi, H. A. & White, A. D. Explaining structure-activity relationships using locally faithful surrogate models. (2022).
+47. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. bioRxiv (2022).
 
-48. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. bioRxiv (2022).
+48. Zhu, W., Luo, J. & White, A. D. Federated learning of molecular properties with graph neural networks in a heterogeneous setting. Patterns 100521 (2022).
