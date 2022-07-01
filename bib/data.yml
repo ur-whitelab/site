@@ -4,7 +4,7 @@ alcfd:
     - gandhi
     - symbolic
   tweet: https://twitter.com/andrewwhite01/status/1424913806447292421
-  link: https://arxiv.org/abs/2108.03293
+  link: https://doi.org/10.1002/aic.17695
   pdf: https://arxiv.org/pdf/2108.03293
   code: https://github.com/ur-whitelab/alcfd/
 
@@ -144,7 +144,7 @@ fedchem:
     - luo
     - federated
   tweet: https://twitter.com/andrewwhite01/status/1438470336182358017
-  link: https://arxiv.org/abs/2109.07258
+  link: https://doi.org/10.1016/j.patter.2022.100521
   pdf: https://arxiv.org/pdf/2109.07258
   code: https://github.com/ur-whitelab/fedchem
 
@@ -215,7 +215,7 @@ symd:
     - Cox
     - 2022
   tweet: https://twitter.com/andrewwhite01/status/1511138339998650378
-  link: https://arxiv.org/abs/2204.01114
+  link: https://doi.org/10.1021/acs.jctc.2c00401
   pdf: https://arxiv.org/pdf/2204.01114
   code: https://github.com/whitead/symd
 
