@@ -93,3 +93,5 @@
 47. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. bioRxiv (2022).
 
 48. Zhu, W., Luo, J. & White, A. D. Federated learning of molecular properties with graph neural networks in a heterogeneous setting. Patterns 100521 (2022).
+
+49. White, A.D., Hocky, G.M., Gandhi, H.A., Ansari, M., Cox, S., Wellawatte, G.P., Sasmal, S., Yang, Z., Liu, K., Singh, Y. and Ccoa, W.J.P. Do large language models know chemistry? ChemRxiv (2022).

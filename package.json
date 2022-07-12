@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-image": "^2.0.0-rc.0",
-    "parcel": "^2.0.0-rc.0"
+    "@parcel/transformer-image": "latest",
+    "parcel": "latest"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

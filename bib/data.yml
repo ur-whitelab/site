@@ -246,3 +246,14 @@ physics-data:
     - Sumpter
   link: https://arxiv.org/abs/2204.05095
   pdf: https://arxiv.org/pdf/2204.05095
+
+nlcc-data:
+  key:
+    - hocky
+    - white
+    - 2022
+    - know
+  tweet: https://twitter.com/andrewwhite01/status/1545062525162569730?s=20&t=vXYgFkzzU2PK8LM5tYP4Hw
+  link: https://chemrxiv.org/engage/chemrxiv/article-details/62c5c622244ce03b8e3c4f21
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/62c5c622244ce03b8e3c4f21/original/do-large-language-models-know-chemistry.pdf
+  code: https://github.com/ur-whitelab/nlcc-data
