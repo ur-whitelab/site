@@ -270,13 +270,13 @@ book:
   archival pdf: https://livecomsjournal.org/index.php/livecoms/article/view/v3i1e1499/1371
   code: https://github.com/whitead/dmol-book
 
-book:
+wazy:
   key:
     - yang
     - pre-trained
     - 2022
     - milas
-  tweet: https://twitter.com/andrewwhite01/status/1556358930288230400?s=20&t=cnBJolJNDSMYOCQZD36n3A
+  tweet: https://twitter.com/andrewwhite01/status/1556358930288230400
   link: https://www.biorxiv.org/content/10.1101/2022.08.05.502972v1
   pdf: https://www.biorxiv.org/content/10.1101/2022.08.05.502972v1.full.pdf
   code: https://github.com/ur-whitelab/wazy
