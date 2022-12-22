@@ -154,7 +154,7 @@ py0:
     - 2022
     - spatial
   tweet: https://twitter.com/andrewwhite01/status/1447361299407675396
-  link: https://arxiv.org/abs/2110.03846
+  link: https://journals.aps.org/pre/abstract/10.1103/PhysRevE.106.014306
   pdf: https://arxiv.org/pdf/2110.03846.pdf
   code: https://github.com/ur-whitelab/py0
 
@@ -225,18 +225,17 @@ selfies:
     - 2022
     - Krenn
   tweet: https://twitter.com/MarioKrenn6240/status/1510781069423001608
-  link: https://arxiv.org/abs/2204.00056
-  pdf: https://arxiv.org/pdf/2204.00056
+  link: https://www.sciencedirect.com/science/article/pii/S2666389922002069
+  pdf: https://www.sciencedirect.com/sdfe/reader/pii/S2666389922002069/pdf
   code: https://github.com/aspuru-guzik-group/selfies/
 
 lime:
   key:
     - gandhi
     - 2022
-    - surrogate
+    - explaining
   tweet: https://twitter.com/andrewwhite01/status/1523604252006170630
-  link: https://doi.org/10.26434/chemrxiv-2022-v5p6m-v2
-  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/62753b1459f0d6f41a8642c4/original/explaining-structure-activity-relationships-using-locally-faithful-surrogate-models.pdf
+  link: https://chemrxiv.org/engage/chemrxiv/article-details/633731d1f764e6e535093041
   code: https://github.com/ur-whitelab/exmol
 
 physics-data:
@@ -250,12 +249,12 @@ physics-data:
 nlcc-data:
   key:
     - hocky
-    - language
+    - assessment
     - 2022
     - know
-  tweet: https://twitter.com/andrewwhite01/status/1545062525162569730
-  link: https://chemrxiv.org/engage/chemrxiv/article-details/62c5c622244ce03b8e3c4f21
-  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/62c5c622244ce03b8e3c4f21/original/do-large-language-models-know-chemistry.pdf
+  tweet: https://twitter.com/andrewwhite01/status/1602321379142995973
+  link: https://chemrxiv.org/engage/chemrxiv/article-details/6393827c836cebbc757aedeb
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/6393827c836cebbc757aedeb/original/assessment-of-chemistry-knowledge-in-large-language-models-that-generate-code.pdf
   code: https://github.com/ur-whitelab/nlcc-data
 
 
@@ -280,3 +279,27 @@ wazy:
   link: https://www.biorxiv.org/content/10.1101/2022.08.05.502972v1
   pdf: https://www.biorxiv.org/content/10.1101/2022.08.05.502972v1.full.pdf
   code: https://github.com/ur-whitelab/wazy
+
+smell:
+  key:
+    - smell
+    - seshadri
+    - 2022
+    - milas
+  tweet: https://twitter.com/andrewwhite01/status/1600857844899024897
+  link: https://chemrxiv.org/engage/chemrxiv/article-details/6390ebaab103af2aeb0ed11f
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/6390ebaab103af2aeb0ed11f/original/why-does-that-molecule-smell.pdf
+  code: https://github.com/ur-whitelab/exmol/tree/main/paper3_Scents
+
+
+xaireview:
+  key:
+    - wellawatte
+    - gandhi
+    - 2022
+    - prediction
+  tweet: https://twitter.com/andrewwhite01/status/1601291757219897344
+  link: https://chemrxiv.org/engage/chemrxiv/article-details/639222a114d92d7cd6a65e90
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/639222a114d92d7cd6a65e90/original/a-perspective-on-explanations-of-molecular-prediction-models.pdf
+  code: https://github.com/ur-whitelab/exmol/
+
