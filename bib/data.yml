@@ -302,3 +302,13 @@ xaireview:
   pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/639222a114d92d7cd6a65e90/original/a-perspective-on-explanations-of-molecular-prediction-models.pdf
   code: https://github.com/ur-whitelab/exmol/
 
+
+nnff:
+  key:
+    - wellawatte
+    - hocky
+    - 2022
+    - extrapolate
+  tweet: https://twitter.com/andrewwhite01/status/1605937402509492225
+  link: https://chemrxiv.org/engage/chemrxiv/article-details/63a3bfac81e4ba77ec56166a
+  pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/63a3bfac81e4ba77ec56166a/original/neural-potentials-of-proteins-extrapolate-beyond-training-data.pdf
