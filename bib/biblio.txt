@@ -8,7 +8,7 @@
 
 5. White, A. D., Nowinski, A. K., Huang, W., Keefe, A. J., Sun, F. & Jiang, S. Decoding nonspecific interactions from nature. Chemical Science 3, 3488–3494 (2012).
 
-6. Shao, Q., He, Y., White, A. D. & Jiang, S. Different effects of zwitterion and ethylene glycol on proteins. The Journal of chemical physics 136, 06B607 (2012).
+6. Shao, Q., He, Y., White, A. D. & Jiang, S. Different effects of zwitterion and ethylene glycol on proteins. The Journal of chemical physics 136, (2012).
 
 7. White, A. D., Keefe, A. J., Nowinski, A. K., Shao, Q., Caldwell, K. & Jiang, S. Standardizing and simplifying analysis of peptide library data. Journal of chemical information and modeling 53, 493–499 (2013).
 
@@ -32,7 +32,7 @@
 
 17. Dannenhoffer-Lafage, T., White, A. D. & Voth, G. A. A direct method for incorporating experimental data into multiscale coarse-grained models. Journal of chemical theory and computation 12, 2144–2153 (2016).
 
-18. White, A. D., Knight, C., Hocky, G. M. & Voth, G. A. Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. The Journal of Chemical Physics 146, 041102 (2017).
+18. White, A. D., Knight, C., Hocky, G. M. & Voth, G. A. Communication: Improved ab initio molecular dynamics by minimally biasing with experimental data. The Journal of Chemical Physics 146, (2017).
 
 19. Freeman, G. M., Drennen, T. E. & White, A. D. Can parked cars and carbon taxes create a profit? The economics of vehicle-to-grid energy storage for peak reduction. Energy Policy 106, 183–190 (2017).
 
@@ -40,7 +40,7 @@
 
 21. Amirkulova, D. B. & White, A. D. Combining enhanced sampling with experiment-directed simulation of the GYG peptide. Journal of Theoretical and Computational Chemistry 17, 1840007 (2018).
 
-22. Chakraborty, M., Xu, C. & White, A. D. Encoding and selecting coarse-grain mapping operators with hierarchical graphs. The Journal of Chemical Physics 149, 134106 (2018).
+22. Chakraborty, M., Xu, C. & White, A. D. Encoding and selecting coarse-grain mapping operators with hierarchical graphs. The Journal of Chemical Physics 149, (2018).
 
 23. Barrett, R., Jiang, S. & White, A. D. Classifying antimicrobial and multifunctional peptides with bayesian network models. Peptide Science 110, e24079 (2018).
 
@@ -52,7 +52,7 @@
 
 27. Chakraborty, M., Xu, J. & White, A. D. Is preservation of symmetry necessary for coarse-graining? Physical Chemistry Chemical Physics 22, 14998–15005 (2020).
 
-28. Chakraborty, M., Ziatdinov, M., Dyck, O., Jesse, S., White, A. D. & Kalinin, S. V. Reconstruction of the interatomic forces from dynamic scanning transmission electron microscopy data. Journal of Applied Physics 127, 224301 (2020).
+28. Chakraborty, M., Ziatdinov, M., Dyck, O., Jesse, S., White, A. D. & Kalinin, S. V. Reconstruction of the interatomic forces from dynamic scanning transmission electron microscopy data. Journal of Applied Physics 127, (2020).
 
 29. Li, Z., Wellawatte, G. P., Chakraborty, M., Gandhi, H. A., Xu, C. & White, A. D. Graph neural network based coarse-grained mapping prediction. Chemical science 11, 9524–9531 (2020).
 
@@ -82,13 +82,13 @@
 
 42. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science Advances 8, eabj0305 (2022).
 
-43. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. Patterns 3, 100588 (2022).
+43. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. Patterns 3, (2022).
 
 44. Cox, S. & White, A. D. Symmetric molecular dynamics. Journal of Chemical Theory and Computation 18, 4077–4081 (2022).
 
 45. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
 
-46. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. bioRxiv 2022–05 (2022).
+46. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. Journal of Chemical Information and Modeling 63, 2546–2553 (2023).
 
 47. Zhu, W., Luo, J. & White, A. D. Federated learning of molecular properties with graph neural networks in a heterogeneous setting. Patterns 100521 (2022).
 
@@ -100,12 +100,24 @@
 
 51. Seshadri, A., Gandhi, H. A., Wellawatte, G. P. & White, A. D. Why does that molecule smell? (2022).
 
-52. Wellawatte, G. P., Gandhi, H. A., Seshadri, A. & White, A. D. A perspective on explanations of molecular prediction models. Journal of Chemical Theory and Computation (2022).
+52. Wellawatte, G. P., Gandhi, H. A., Seshadri, A. & White, A. D. A perspective on explanations of molecular prediction models. Journal of Chemical Theory and Computation 19, 2149–2160 (2023).
 
-53. White, A. D., Hocky, G. M., Gandhi, H. A., Ansari, M., Cox, S., Wellawatte, G. P., Sasmal, S., Yang, Z., Liu, K., Singh, Y., et al. Assessment of chemistry knowledge in large language models that generate code. Digital Discovery (2023).
+53. White, A. D., Hocky, G. M., Gandhi, H. A., Ansari, M., Cox, S., Wellawatte, G. P., Sasmal, S., Yang, Z., Liu, K., Singh, Y., et al. Assessment of chemistry knowledge in large language models that generate code. Digital Discovery 2, 368–376 (2023).
 
 54. Wellawatte, G. P., Hocky, G. M. & White, A. D. Neural potentials of proteins extrapolate beyond training data. (2023).
 
 55. Bran, A. M., Cox, S., White, A. D. & Schwaller, P. ChemCrow: Augmenting large-language models with chemistry tools. arXiv preprint arXiv:2304.05376 (2023).
 
 56. Ramos, M. C., Michtavy, S. S., Porosoff, M. D. & White, A. D. Bayesian optimization of catalysts with in-context learning. arXiv preprint arXiv:2304.05341 (2023).
+
+57. Medina, J. & White, A. D. Bloom filters for molecules. arXiv preprint arXiv:2304.05386 (2023).
+
+58. Lo, A., Pollice, R., Nigam, A., White, A. D., Krenn, M. & Aspuru-Guzik, A. Recent advances in the self-referencing embedding strings (SELFIES) library. arXiv preprint arXiv:2302.03620 (2023).
+
+59. Campbell, Q. L., Herington, J. & White, A. D. Censoring chemical data to mitigate dual use risk. arXiv preprint arXiv:2304.10510 (2023).
+
+60. Medina, J. & White, A. D. Active learning in symbolic regression performance with physical constraints. arXiv preprint arXiv:2305.10379 (2023).
+
+61. Ansari, M. & White, A. D. Learning peptide properties with positive examples only. bioRxiv 2023–06 (2023).
+
+62. White, A. D. The future of chemistry is language. Nature Reviews Chemistry 1–2 (2023).
