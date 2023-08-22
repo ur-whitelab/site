@@ -26,8 +26,8 @@ jobs:
     - name: Talks
       run: |
         mkdir -p dist/talks && cd dist/talks 
-        wget -O tmp.zip https://www.dropbox.com/scl/fi/px1jf4xkxbn2c8y6kqdsx/dist.zip?rlkey=dg7iwes48y7i11dncve4p3r2y&dl=1
-        ls -lht > out.txt
+        wget -O tmp.zip "https://www.dropbox.com/scl/fi/px1jf4xkxbn2c8y6kqdsx/dist.zip?rlkey=dg7iwes48y7i11dncve4p3r2y&dl=1"
+        ls -l
         unzip tmp
         mv dist ac
         rm *.zip
