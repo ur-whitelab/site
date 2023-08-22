@@ -27,8 +27,9 @@ jobs:
       run: |
         mkdir -p dist/talks && cd dist/talks 
         wget -O tmp.zip https://www.dropbox.com/scl/fi/px1jf4xkxbn2c8y6kqdsx/dist.zip?rlkey=dg7iwes48y7i11dncve4p3r2y&dl=1
-        ls -lht
-        unzip tmp && mv dist ac
+        ls -lht > out.txt
+        unzip tmp
+        mv dist ac
         rm *.zip
         cd ../../
     - name: Apps
