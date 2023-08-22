@@ -25,8 +25,7 @@ jobs:
       run: npm run build-prod
     - name: Talks
       run: |
-        mkdir -p dist/talks && cd dist/talks
-        wget -O research.zip https://www.dropbox.com/s/timotke35xic9uk/strathclyde.zip?dl=0 && unzip research && mv dist research 
+        mkdir -p dist/talks && cd dist/talks 
         wget -O dist.zip https://www.dropbox.com/scl/fi/px1jf4xkxbn2c8y6kqdsx/dist.zip?rlkey=dg7iwes48y7i11dncve4p3r2y&dl=1
         unzip dist && mv dist ac
         rm *.zip
