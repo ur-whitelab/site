@@ -26,7 +26,7 @@ jobs:
     - name: Talks
       run: |
         mkdir -p dist/talks && cd dist/talks 
-        wget -O tmp.zip "https://www.dropbox.com/scl/fi/nja5wdx5zdj0og07s7w0q/dist.zip?rlkey=a4vr3l9ad8bcxma64xkzzseg1&dl=1"
+        wget -O tmp.zip "https://www.dropbox.com/scl/fi/bxukma6h9odb6rkogse74/dist.zip?rlkey=jgo2f1pynp6n39em0o7hnm0ms&dl=1"
         ls -l
         unzip tmp
         mv dist amld
