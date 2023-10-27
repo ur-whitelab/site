@@ -33,12 +33,12 @@ jobs:
         mv dist rsc
         rm *.zip
         cd ../../
-    - name: Apps
-      run: |
-        mkdir -p dist/apps && cd dist/apps
-        wget -O exe.zip https://www.dropbox.com/s/c25yg42ouck6t7c/exe.zip?dl=0 && unzip exe && mv exe rxns
-        rm *.zip
-        cd ../../
+    # - name: Apps
+    #   run: |
+    #     mkdir -p dist/apps && cd dist/apps
+    #     wget -O exe.zip https://www.dropbox.com/s/c25yg42ouck6t7c/exe.zip?dl=0 && unzip exe && mv exe rxns
+    #     rm *.zip
+    #     cd ../../
     - name: Blog
       run: |
         cd dist/
