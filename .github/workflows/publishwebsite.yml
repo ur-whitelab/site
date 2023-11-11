@@ -26,7 +26,7 @@ jobs:
     - name: Talks
       run: |
         mkdir -p dist/talks && cd dist/talks 
-        wget -O tmp.zip "https://www.dropbox.com/scl/fi/8nt5m8lg9ya9p7ipo7u6u/dist.zip?rlkey=ss8inpw6b87b02ik7lswj8gkp&dl=1"
+        wget -O tmp.zip "https://www.dropbox.com/scl/fi/tiuvyw8bu0qpa5ydjwwsx/dist.zip?rlkey=esbhbzbf77ek81sb308e64w2n&dl=1"
         ls -l
         unzip tmp
         mv dist latest
