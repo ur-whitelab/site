@@ -1,20 +1,40 @@
 labbench:
   key:
     - laurent
-    - labbench
-    - 2021
+    - lab-bench
+    - 2024
   tweet: https://x.com/andrewwhite01/status/1813235301973921873
   link: https://doi.org/10.48550/arXiv.2407.10362
   pdf: https://arxiv.org/pdf/2407.10362
   code: https://huggingface.co/datasets/futurehouse/lab-bench
 
+wikicrow:
+  key:
+    - cox
+    - hammerling
+    - wikicrow
+    - knowledge
+    - 2024
+  tweet: https://x.com/SGRodriques/status/1733193844110557432
+  link: https://www.futurehouse.org/wikicrow
+  code: https://github.com/Future-House/WikiCrow
+
+llmhackathon2023:
+  key:
+    - llm
+    - hackathon
+    - 2023
+  tweet: https://x.com/kmjablonka/status/1668506349465116673
+  link: https://pubs.rsc.org/en/content/articlelanding/2023/dd/d3dd00113j
+  pdf: https://pubs.rsc.org/en/content/articlepdf/2023/dd/d3dd00113j
+
 llmreview:
   key:
     - ramos
     - collison
-    - llm
+    - autonomous
     - review
-    - 2023
+    - 2024
   tweet: https://x.com/andrewwhite01/status/1808505284291375380
   link: https://doi.org/10.48550/arXiv.2407.01603
   pdf: https://arxiv.org/pdf/2407.01603
@@ -25,6 +45,7 @@ deepensemble:
     - ramos
     - solubility
     - ensemble
+    - 2024
   tweet: https://x.com/andrewwhite01/status/1780944395656744962
   link: https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00217a
   pdf: https://pubs.rsc.org/en/content/articlepdf/2024/dd/d3dd00217a
@@ -61,7 +82,6 @@ serverless:
   pdf: https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.2c01317
   app: https://peptide.bio
   code: https://github.com/ur-whitelab/peptide-dashboard
-
 
 maxent:
   key:
@@ -353,7 +373,7 @@ nnff:
     - 2023
     - extrapolate
   tweet: https://twitter.com/andrewwhite01/status/1605937402509492225
-  link: https://chemrxiv.org/engage/chemrxiv/article-details/63a3bfac81e4ba77ec56166a
+  link: https://pubs.aip.org/aip/jcp/article/159/8/085103/2908350
   pdf: https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/63a3bfac81e4ba77ec56166a/original/neural-potentials-of-proteins-extrapolate-beyond-training-data.pdf
 
 alsr:
@@ -382,8 +402,8 @@ chemcrow:
     - cox
     - 2023
   tweet: https://twitter.com/andrewwhite01/status/1670794000398184451
-  link: https://arxiv.org/abs/2304.05376
-  pdf: https://arxiv.org/pdf/2304.05376
+  link: https://www.nature.com/articles/s42256-024-00832-8
+  pdf: https://www.nature.com/articles/s42256-024-00832-8.pdf
   code: https://github.com/ur-whitelab/chemcrow-public/
   outputs: https://github.com/ur-whitelab/chemcrow-runs
 
@@ -397,15 +417,14 @@ chemfuture:
   link: https://www.nature.com/articles/s41570-023-00502-0
   pdf: https://www.nature.com/articles/s41570-023-00502-0.pdf
 
-
 bloom:
   key:
     - bloom
     - 2023
     - medina
   tweet: https://twitter.com/andrewwhite01/status/1646171800940969984
-  link: https://arxiv.org/abs/2304.05386
-  pdf: https://arxiv.org/pdf/2304.05386.pdf
+  link: https://link.springer.com/article/10.1186/s13321-023-00765-1%20
+  pdf: https://link.springer.com/content/pdf/10.1186/s13321-023-00765-1.pdf
   code: https://github.com/whitead/molbloom
 
 icl:
@@ -429,10 +448,10 @@ selfies-code:
 
 pul:
   key:
-    - 2023
     - positive
     - ansari
+    - 2024
   tweet: https://twitter.com/andrewwhite01/status/1666104177360084995
-  link: https://www.biorxiv.org/content/10.1101/2023.06.01.543289v1.abstract
-  pdf: https://www.biorxiv.org/content/10.1101/2023.06.01.543289v1.full.pdf+html
+  link: https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00218g
+  pdf: https://pubs.rsc.org/en/content/articlepdf/2024/dd/d3dd00218g
   code: https://github.com/ur-whitelab/pu-peptides

@@ -48,76 +48,88 @@
 
 25. Amirkulova, D. B. & White, A. D. Recent advances in maximum entropy biasing techniques for molecular dynamics. Molecular Simulation 45, 1285–1294 (2019).
 
-26. Promoting transparency and reproducibility in enhanced molecular simulations. Nature methods 16, 670–673 (2019).
+26. Chakraborty, M., Xu, J. & White, A. D. Is preservation of symmetry necessary for coarse-graining? Physical Chemistry Chemical Physics 22, 14998–15005 (2020).
 
-27. Chakraborty, M., Xu, J. & White, A. D. Is preservation of symmetry necessary for coarse-graining? Physical Chemistry Chemical Physics 22, 14998–15005 (2020).
+27. Chakraborty, M., Ziatdinov, M., Dyck, O., Jesse, S., White, A. D. & Kalinin, S. V. Reconstruction of the interatomic forces from dynamic scanning transmission electron microscopy data. Journal of Applied Physics 127, (2020).
 
-28. Chakraborty, M., Ziatdinov, M., Dyck, O., Jesse, S., White, A. D. & Kalinin, S. V. Reconstruction of the interatomic forces from dynamic scanning transmission electron microscopy data. Journal of Applied Physics 127, (2020).
+28. Li, Z., Wellawatte, G. P., Chakraborty, M., Gandhi, H. A., Xu, C. & White, A. D. Graph neural network based coarse-grained mapping prediction. Chemical science 11, 9524–9531 (2020).
 
-29. Li, Z., Wellawatte, G. P., Chakraborty, M., Gandhi, H. A., Xu, C. & White, A. D. Graph neural network based coarse-grained mapping prediction. Chemical science 11, 9524–9531 (2020).
+29. Tang, J., Zhang, Y., Luehmann, A. & White, A. Augmented reality improved learning of lower-level students by empowering their participation in collaborative activities. (2020).
 
-30. Tang, J., Zhang, Y., Luehmann, A. & White, A. Augmented reality improved learning of lower-level students by empowering their participation in collaborative activities. (2020).
+30. Barrett, R., Chakraborty, M., Amirkulova, D., Gandhi, H., Wellawatte, G. & White, A. Hoomd-tf: Gpu-accelerated, online machine learning in the hoomd-blue molecular dynamics engine. Journal of Open Source Software 5, (2020).
 
-31. Barrett, R., Chakraborty, M., Amirkulova, D., Gandhi, H., Wellawatte, G. & White, A. Hoomd-tf: Gpu-accelerated, online machine learning in the hoomd-blue molecular dynamics engine. Journal of Open Source Software 5, (2020).
+31. Amirkulova, D. B., Chakraborty, M. & White, A. D. Experimentally consistent simulation of aβ21–30 peptides with a minimal NMR bias. The Journal of Physical Chemistry B 124, 8266–8277 (2020).
 
-32. Amirkulova, D. B., Chakraborty, M. & White, A. D. Experimentally consistent simulation of aβ21–30 peptides with a minimal NMR bias. The Journal of Physical Chemistry B 124, 8266–8277 (2020).
+32. Gandhi, H. A., Jakymiw, S., Barrett, R., Mahaseth, H. & White, A. D. Real-time interactive simulation and visualization of organic molecules. (2020).
 
-33. Gandhi, H. A., Jakymiw, S., Barrett, R., Mahaseth, H. & White, A. D. Real-time interactive simulation and visualization of organic molecules. (2020).
+33. Barrett, R. & White, A. D. Investigating active learning and meta-learning for iterative peptide design. Journal of chemical information and modeling 61, 95–105 (2020).
 
-34. Barrett, R. & White, A. D. Investigating active learning and meta-learning for iterative peptide design. Journal of chemical information and modeling 61, 95–105 (2020).
+34. Barrett, R., Ansari, M., Ghoshal, G. & White, A. D. Simulation-based inference with approximately correct parameters via maximum entropy. Machine Learning: Science and Technology 3, 025006 (2022).
 
-35. Barrett, R., Ansari, M., Ghoshal, G. & White, A. D. Simulation-based inference with approximately correct parameters via maximum entropy. Machine Learning: Science and Technology 3, 025006 (2022).
+35. Yang, Z., Chakraborty, M. & White, A. D. Predicting chemical shifts with graph neural networks. Chemical Science (2021).
 
-36. Yang, Z., Chakraborty, M. & White, A. D. Predicting chemical shifts with graph neural networks. Chemical Science (2021).
+36. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. ACS Sustainable Chemistry & Engineering 9, 14975–14985 (2021).
 
-37. Gandhi, H. A. & White, A. D. City-wide modeling of vehicle-to-grid economics to understand effects of battery performance. ACS Sustainable Chemistry & Engineering 9, 14975–14985 (2021).
+37. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. Chemical science 13, 3697–3705 (2022).
 
-38. Wellawatte, G. P., Seshadri, A. & White, A. D. Model agnostic generation of counterfactual explanations for molecules. Chemical science 13, 3697–3705 (2022).
+38. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. AIChE Journal 68, e17695 (2022).
 
-39. Ansari, M., Gandhi, H. A., Foster, D. G. & White, A. D. Iterative symbolic regression for learning transport equations. AIChE Journal 68, e17695 (2022).
+39. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital discovery 1, 79–83 (2022).
 
-40. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital discovery 1, 79–83 (2022).
+40. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. Physical Review E 106, 014306 (2022).
 
-41. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. Physical Review E 106, 014306 (2022).
+41. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science Advances 8, eabj0305 (2022).
 
-42. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science Advances 8, eabj0305 (2022).
+42. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. Patterns 3, (2022).
 
-43. Krenn, M., Ai, Q., Barthel, S., Carson, N., Frei, A., Frey, N. C., Friederich, P., Gaudin, T., Gayle, A. A., Jablonka, K. M., et al. SELFIES and the future of molecular string representations. Patterns 3, (2022).
+43. Cox, S. & White, A. D. Symmetric molecular dynamics. Journal of Chemical Theory and Computation 18, 4077–4081 (2022).
 
-44. Cox, S. & White, A. D. Symmetric molecular dynamics. Journal of Chemical Theory and Computation 18, 4077–4081 (2022).
+44. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
 
-45. Kalinin, S. V., Ziatdinov, M., Sumpter, B. G. & White, A. D. Physics is the new data. arXiv preprint arXiv:2204.05095 (2022).
+45. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. Journal of Chemical Information and Modeling 63, 2546–2553 (2023).
 
-46. Ansari, M. & White, A. D. Serverless prediction of peptide properties with recurrent neural networks. Journal of Chemical Information and Modeling 63, 2546–2553 (2023).
+46. Zhu, W., Luo, J. & White, A. D. Federated learning of molecular properties with graph neural networks in a heterogeneous setting. Patterns 100521 (2022).
 
-47. Zhu, W., Luo, J. & White, A. D. Federated learning of molecular properties with graph neural networks in a heterogeneous setting. Patterns 100521 (2022).
+47. White, A. D. Deep learning for molecules and materials. Living journal of computational molecular science 3, (2022).
 
-48. White, A. D. Deep learning for molecules and materials. Living Journal of Computational Molecular Science 3, 1499–1499 (2021).
+48. Yang, Z., Milas, K. A. & White, A. D. Now what sequence? Pre-trained ensembles for bayesian optimization of protein sequences. bioRxiv 2022–08 (2022).
 
-49. Yang, Z., Milas, K. A. & White, A. D. Now what sequence? Pre-trained ensembles for bayesian optimization of protein sequences. bioRxiv 2022–08 (2022).
+49. Gandhi, H. A. & White, A. D. Explaining molecular properties with natural language. (2022).
 
-50. Gandhi, H. A. & White, A. D. Explaining molecular properties with natural language. (2022).
+50. Seshadri, A., Gandhi, H. A., Wellawatte, G. P. & White, A. D. Why does that molecule smell? (2022).
 
-51. Seshadri, A., Gandhi, H. A., Wellawatte, G. P. & White, A. D. Why does that molecule smell? (2022).
+51. Wellawatte, G. P., Gandhi, H. A., Seshadri, A. & White, A. D. A perspective on explanations of molecular prediction models. Journal of Chemical Theory and Computation 19, 2149–2160 (2023).
 
-52. Wellawatte, G. P., Gandhi, H. A., Seshadri, A. & White, A. D. A perspective on explanations of molecular prediction models. Journal of Chemical Theory and Computation 19, 2149–2160 (2023).
+52. White, A. D., Hocky, G. M., Gandhi, H. A., Ansari, M., Cox, S., Wellawatte, G. P., Sasmal, S., Yang, Z., Liu, K., Singh, Y., et al. Assessment of chemistry knowledge in large language models that generate code. Digital Discovery 2, 368–376 (2023).
 
-53. White, A. D., Hocky, G. M., Gandhi, H. A., Ansari, M., Cox, S., Wellawatte, G. P., Sasmal, S., Yang, Z., Liu, K., Singh, Y., et al. Assessment of chemistry knowledge in large language models that generate code. Digital Discovery 2, 368–376 (2023).
+53. Wellawatte, G. P., Hocky, G. M. & White, A. D. Neural potentials of proteins extrapolate beyond training data. The Journal of Chemical Physics 159, (2023).
 
-54. Wellawatte, G. P., Hocky, G. M. & White, A. D. Neural potentials of proteins extrapolate beyond training data. (2023).
+54. Bran, A. M., Cox, S., Schilter, O., Baldassari, C., White, A. D. & Schwaller, P. ChemCrow: Augmenting large-language models with chemistry tools. arXiv preprint arXiv:2304.05376 (2023).
 
-55. Bran, A. M., Cox, S., White, A. D. & Schwaller, P. ChemCrow: Augmenting large-language models with chemistry tools. arXiv preprint arXiv:2304.05376 (2023).
+55. Ramos, M. C., Michtavy, S. S., Porosoff, M. D. & White, A. D. Bayesian optimization of catalysts with in-context learning. arXiv preprint arXiv:2304.05341 (2023).
 
-56. Ramos, M. C., Michtavy, S. S., Porosoff, M. D. & White, A. D. Bayesian optimization of catalysts with in-context learning. arXiv preprint arXiv:2304.05341 (2023).
+56. Medina, J. & White, A. D. Bloom filters for molecules. Journal of Cheminformatics 15, 95 (2023).
 
-57. Medina, J. & White, A. D. Bloom filters for molecules. arXiv preprint arXiv:2304.05386 (2023).
+57. Campbell, Q. L., Herington, J. & White, A. D. Censoring chemical data to mitigate dual use risk. arXiv preprint arXiv:2304.10510 (2023).
 
-58. Lo, A., Pollice, R., Nigam, A., White, A. D., Krenn, M. & Aspuru-Guzik, A. Recent advances in the self-referencing embedding strings (SELFIES) library. arXiv preprint arXiv:2302.03620 (2023).
+58. Medina, J. & White, A. D. Active learning in symbolic regression performance with physical constraints. arXiv preprint arXiv:2305.10379 (2023).
 
-59. Campbell, Q. L., Herington, J. & White, A. D. Censoring chemical data to mitigate dual use risk. arXiv preprint arXiv:2304.10510 (2023).
+59. Ansari, M. & White, A. D. Learning peptide properties with positive examples only. Digital Discovery 3, 977–986 (2024).
 
-60. Medina, J. & White, A. D. Active learning in symbolic regression performance with physical constraints. arXiv preprint arXiv:2305.10379 (2023).
+60. White, A. D. The future of chemistry is language. Nature Reviews Chemistry 7, 457–458 (2023).
 
-61. Ansari, M. & White, A. D. Learning peptide properties with positive examples only. bioRxiv 2023–06 (2023).
+61. Ramos, M. C. & White, A. D. Predicting small molecules solubility on endpoint devices using deep ensemble neural networks. Digital Discovery 3, 786–795 (2024).
 
-62. White, A. D. The future of chemistry is language. Nature Reviews Chemistry 1–2 (2023).
+62. Jablonka, K. M., Ai, Q., Al-Feghali, A., Badhwar, S., Bocarsly, J. D., Bran, A. M., Bringuier, S., Brinson, L. C., Choudhary, K., Circi, D., et al. 14 examples of how LLMs can transform materials science and chemistry: A reflection on a large language model hackathon. Digital Discovery 2, 1233–1250 (2023).
+
+63. Promoting transparency and reproducibility in enhanced molecular simulations. Nature methods 16, 670–673 (2019).
+
+64. Lo, A., Pollice, R., Nigam, A., White, A. D., Krenn, M. & Aspuru-Guzik, A. Recent advances in the self-referencing embedded strings (SELFIES) library. Digital Discovery 2, 897–908 (2023).
+
+65. Lála, J., O’Donoghue, O., Shtedritski, A., Cox, S., Rodriques, S. G. & White, A. D. Paperqa: Retrieval-augmented generative agent for scientific research. arXiv preprint arXiv:2312.07559 (2023).
+
+66. Cox, S., Hammerling, M., Lála, J., Laurent, J., Rodriques, S., Rubashkin, M. & White, A. WikiCrow: Automating synthesis of human scientific knowledge (2024).
+
+67. Ramos, M. C., Collison, C. J. & White, A. D. A review of large language models and autonomous agents in chemistry. arXiv preprint arXiv:2407.01603 (2024).
+
+68. Laurent, J. M., Janizek, J. D., Ruzo, M., Hinks, M. M., Hammerling, M. J., Narayanan, S., Ponnapati, M., White, A. D. & Rodriques, S. G. LAB-bench: Measuring capabilities of language models for biology research. arXiv preprint arXiv:2407.10362 (2024).
