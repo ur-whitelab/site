@@ -23,15 +23,6 @@ jobs:
       run: npm ci
     - name: Build
       run: npm run build-prod
-    - name: Talks
-      run: |
-        mkdir -p dist/talks && cd dist/talks 
-        wget -O tmp.zip "https://www.dropbox.com/scl/fi/tiuvyw8bu0qpa5ydjwwsx/dist.zip?rlkey=esbhbzbf77ek81sb308e64w2n&dl=1"
-        ls -l
-        unzip tmp
-        mv dist latest
-        rm *.zip
-        cd ../../
     - name: Apps
       run: |
         mkdir -p dist/apps && cd dist/apps
