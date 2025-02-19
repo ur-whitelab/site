@@ -12,9 +12,9 @@ bioactive:
 
 paperqa2:
   key:
-    - paperqa
-    - rag
-    - contradiction_detection
+    - superhuman
+    - Cox
+    - Skarlinski
     - 2024
   tweet: https://x.com/andrewwhite01/status/1880372434551111825
   link: https://arxiv.org/abs/2409.13740
@@ -23,9 +23,8 @@ paperqa2:
 
 aviary:
   key:
-    - agents
-    - language_agents
-    - agent_polices
+    - Aviary
+    - Narayanan
     - 2024
   tweet: https://x.com/andrewwhite01/status/1874180131402768759
   link: https://arxiv.org/abs/2412.21154
@@ -34,14 +33,13 @@ aviary:
 
 plumed-tutorials:
   key:
-    - community-learning
+    - Tribello
     - tutorials
-    - education
+    - learning
     - 2024
   tweet: 
   link: https://arxiv.org/abs/2412.03595
   pdf: https://arxiv.org/pdf/2412.03595
-  code: 
 
 labbench:
   key:
@@ -81,8 +79,8 @@ llmreview:
     - review
     - 2024
   tweet: https://x.com/andrewwhite01/status/1808505284291375380
-  link: https://doi.org/10.48550/arXiv.2407.01603
-  pdf: https://arxiv.org/pdf/2407.01603
+  link: https://pubs.rsc.org/en/content/articlelanding/2025/sc/d4sc03921a
+  pdf: https://pubs.rsc.org/en/content/articlepdf/2025/sc/d4sc03921a
   code: https://github.com/ur-whitelab/LLMs-in-science
 
 deepensemble:
