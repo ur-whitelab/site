@@ -30,7 +30,7 @@ function compare_entry(a, b) {
 wrapped = wrapped.sort(compare_entry)
 
 // now read info about papers
-let fileContents = fs.readFileSync('/Users/shane/repos/site/bib/data.yml', 'utf8')
+let fileContents = fs.readFileSync('./bib/data.yml', 'utf8')
 let data = yaml.load(fileContents)
 for (const k in data) {
     entry = data[k]
