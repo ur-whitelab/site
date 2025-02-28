@@ -1,3 +1,13 @@
+mdcrow:
+  key:
+    - mdcrow
+    - molecular
+    - workflows
+  tweet: https://x.com/andrewwhite01/status/1890536545091793274
+  link: https://arxiv.org/abs/2502.09565
+  pdf: https://arxiv.org/pdf/2502.09565
+  code: https://github.com/ur-whitelab/mdcrow
+
 bioactive:
   key:
     - le
@@ -7,8 +17,7 @@ bioactive:
     - 2024
   tweet: 
   link: https://www.sciencedirect.com/science/article/pii/S0142961224002345
-  pdf: https://pdf.sciencedirectassets.com/271870/1-s2.0-S0142961224X0006X/1-s2.0-S0142961224002205/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDYwBb2FaIFZHdBeA%2FytijJOhj4M0sWZ8wabdNnliZevQIgSSk2LqB94Yrm%2FWqvM55jH2b5BO%2FYqEHp0nOvPD7bfCAqvAUIyP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgwwNTkwMDM1NDY4NjUiDA7G10zB%2BhHovRuGGSqQBQBAl1CIhUyKxY9ENFL0EqEQGxUKJ52qG4wOMFZd%2FjqSBIRP3k5qo61R520Vkik3VZaTfdEqlaLOSWRgbgzAefm%2BcrmYXt2AXpghMRI5fg%2FEoFE%2B4oYxh50ncZ4BSUZ2%2FVxrWFKKbrbZ9%2F8d%2F%2FI6ipPqJUOXeImC9YZBi9Blcg5UyVJSFT0Tcq6evn5QG36fNpFYL1QHwksE7S34gFnDY8yoPTQ0y%2BfXaMjXrjgLFm1lXdk8Qpp1LIldXk9wb0gR2aO1CHhx3iZ6NnQ%2FQG3eL8xW4jG91B0F8VxVWUmX%2FpFsPa8KN2VP2aiIDIcv13fBvUEv59bsuVGWw9rGtuEEcL0rApXHeWosH0rvpLEJAQJi5OhOWigJ7vD2uqiQc67%2FzcGw3CCBAb3gHAT2CP5vE%2FXo67fIF6odkx0LJ8R8xWJa7tLQxtv0URr1wpws1iDvmVkkPrc34i7q%2FIchQzi8eyi7EHotI0LG%2BLfMB3r6WV9Z9%2F4aTx1Hz6flRBS2jJhowFtTC5rmTUfqGc4bCed5B4fFtLgRJq9Zkt0kRCtVQl5mt7C7ha41vGr2KTssXP%2F3Qbwp1S7NXrt82rJ9heDzN20QBWnK9g%2BabfJZf4Op8V%2FWrWQZfzRAcFFmm1E3pav3DPfQGfE4Y%2BabQldlvzxkWN0hYJk7fMOVaTSxeoUGmHmj%2FNN2HXVtlW21v9Mz08CNiXJUR%2BlxMJaRAPQLTZDmZsldg3%2FyWS2ERhjZkdGR3ImE3Nw1FXAs2JjnW9SzbWU79miT5vPnXjBRB9KT6LJKLW1PvChvMy5jDdfWEHgf3LbNZQPamU2KoF6odL4jhM8UzPscgTZ5JP8CW4epjNPwiuIEvQ%2BBlJ%2BUgLdc4b0HF9U%2BMO6r9bwGOrEBN8BOoXn0Iq0GYqKQHNJ32D6SYgkVGdMdMQBS9eIHhoojuNcXZADInkH02cQgQ5VUODD%2BxLvdxFLU4rEEIP7aR0IHAgSKGqB%2FDcMalKYdJy5hFj9AcRhxJn8TVHPbf1UVOBSlrUhS2QWRiuFqAmAB95WzVxWcwpRlzh1fIOGzVQkGcSJedSC9WaCY6aRZPt%2BC5JYCAWXXk6NkK8c2zqVlPvvPVocIRNmO7RHwaZDw47th&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250131T235641Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY4EZUTW5F%2F20250131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=782af41845d8d9ab8a638cbe3e936509aeea3db501a72bc23f518c5a6e458616&hash=a9e740d25def4974c01f7ce610d41bf200d17f9136c9d668431b01eccbac06bf&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0142961224002205&tid=spdf-a869b6b8-35b5-4022-81d5-0d0faa885a87&sid=580bb0ec3e6fa64a438a13e45a5908e32af0gxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f155e500404055c06560b&rr=90ada3c7ebd44251&cc=us
-  code:
+  pdf: https://pdf.sciencedirectassets.com/271870/1-s2.0-S0142961224X0006X/1-s2.0-S0142961224002205/main.pdf
 
 paperqa2:
   key:
@@ -51,17 +60,6 @@ labbench:
   pdf: https://arxiv.org/pdf/2407.10362
   code: https://huggingface.co/datasets/futurehouse/lab-bench
 
-wikicrow:
-  key:
-    - cox
-    - hammerling
-    - wikicrow
-    - knowledge
-    - 2024
-  tweet: https://x.com/SGRodriques/status/1733193844110557432
-  link: https://www.futurehouse.org/wikicrow
-  code: https://github.com/Future-House/WikiCrow
-
 llmhackathon2023:
   key:
     - llm
@@ -77,7 +75,7 @@ llmreview:
     - collison
     - autonomous
     - review
-    - 2024
+    - 2025
   tweet: https://x.com/andrewwhite01/status/1808505284291375380
   link: https://pubs.rsc.org/en/content/articlelanding/2025/sc/d4sc03921a
   pdf: https://pubs.rsc.org/en/content/articlepdf/2025/sc/d4sc03921a

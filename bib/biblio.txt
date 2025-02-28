@@ -90,7 +90,7 @@
 
 46. Zhu, W., Luo, J. & White, A. D. Federated learning of molecular properties with graph neural networks in a heterogeneous setting. Patterns 100521 (2022).
 
-47. White, A. D. Deep learning for molecules and materials. Living journal of computational molecular science 3, (2022).
+47. White, A. D. Deep learning for molecules and materials. Living journal of computational molecular science 3, 1499 (2022).
 
 48. Yang, Z., Milas, K. A. & White, A. D. Now what sequence? Pre-trained ensembles for bayesian optimization of protein sequences. bioRxiv 2022–08 (2022).
 
@@ -104,7 +104,7 @@
 
 53. Wellawatte, G. P., Hocky, G. M. & White, A. D. Neural potentials of proteins extrapolate beyond training data. The Journal of Chemical Physics 159, (2023).
 
-54. Bran, A. M., Cox, S., Schilter, O., Baldassari, C., White, A. D. & Schwaller, P. ChemCrow: Augmenting large-language models with chemistry tools. arXiv preprint arXiv:2304.05376 (2023).
+54. Bran, A. M., Cox, S., Schilter, O., Baldassari, C., White, A. D. & Schwaller, P. Chemcrow: Augmenting large-language models with chemistry tools. arXiv preprint arXiv:2304.05376 (2023).
 
 55. Ramos, M. C., Michtavy, S. S., Porosoff, M. D. & White, A. D. Bayesian optimization of catalysts with in-context learning. arXiv preprint arXiv:2304.05341 (2023).
 
@@ -120,7 +120,7 @@
 
 61. Ramos, M. C. & White, A. D. Predicting small molecules solubility on endpoint devices using deep ensemble neural networks. Digital Discovery 3, 786–795 (2024).
 
-62. Jablonka, K. M., Ai, Q., Al-Feghali, A., Badhwar, S., Bocarsly, J. D., Bran, A. M., Bringuier, S., Brinson, L. C., Choudhary, K., Circi, D., et al. 14 examples of how LLMs can transform materials science and chemistry: A reflection on a large language model hackathon. Digital Discovery 2, 1233–1250 (2023).
+62. Jablonka, K. M., Ai, Q., Al-Feghali, A., Badhwar, S., Bocarsly, J. D., Bran, A. M., Bringuier, S., Brinson, L. C., Choudhary, K., Circi, D., et al. 14 examples of how LLMs can transform materials science and chemistry: A reflection on a large language model hackathon. Digital discovery 2, 1233–1250 (2023).
 
 63. Promoting transparency and reproducibility in enhanced molecular simulations. Nature methods 16, 670–673 (2019).
 
@@ -128,16 +128,18 @@
 
 65. Lála, J., O’Donoghue, O., Shtedritski, A., Cox, S., Rodriques, S. G. & White, A. D. Paperqa: Retrieval-augmented generative agent for scientific research. arXiv preprint arXiv:2312.07559 (2023).
 
-66. Cox, S., Hammerling, M., Lála, J., Laurent, J., Rodriques, S., Rubashkin, M. & White, A. WikiCrow: Automating synthesis of human scientific knowledge (2024).
+66. Cox, S., Hammerling, M., Lála, J., Laurent, J., Rodriques, S., Rubashkin, M. & White, A. Wikicrow: Automating synthesis of human scientific knowledge. Future House (2023).
 
-67. Ramos, M. C., Collison, C. J. & White, A. D. A review of large language models and autonomous agents in chemistry. arXiv preprint arXiv:2407.01603 (2024).
+67. Ramos, M. C., Collison, C. J. & White, A. D. A review of large language models and autonomous agents in chemistry. Chemical Science (2025).
 
-68. Tribello, G. A., Bonomi, M., Bussi, G., Camilloni, C., Armstrong, B. I., Arsiccio, A., Aureli, S., Ballabio, F., Bernetti, M., Bonati, L., Brookes, S. G. H., Brotzakis, Z. F., Capelli, R., Ceriotti, M., Chan, K.-T., Cossio, P., Dasetty, S., Donadio, D., Ensing, B., Ferguson, A. L., Fraux, G., Gale, J. D., Gervasio, F. L., Giorgino, T., Herringer, N. S. M., Hocky, G. M., Hoff, S. E., Invernizzi, M., Languin-Cattöen, O., Leone, V., Limongelli, V., Lopez-Acevedo, O., Marinelli, F., Martinez, P. F., Masetti, M., Mehdi, S., Michaelides, A., Murtada, M. H., Parrinello, M., Piaggi, P. M., Pietropaolo, A., Pietrucci, F., Pipolo, S., Pritchard, C., Raiteri, P., Raniolo, S., Rapetti, D., Rizzi, V., Rydzewski, J., Salvalaglio, M., Schran, C., Seal, A., Zadeh, A. S., Silva, T. F. D., Spiwok, V., Stirnemann, G., Sucerquia, D., Tiwary, P., Valsson, O., Vendruscolo, M., Voth, G. A., White, A. D. & Wu, J. PLUMED tutorials: A collaborative, community-driven learning ecosystem. (2024).
+68. Laurent, J. M., Janizek, J. D., Ruzo, M., Hinks, M. M., Hammerling, M. J., Narayanan, S., Ponnapati, M., White, A. D. & Rodriques, S. G. Lab-bench: Measuring capabilities of language models for biology research. arXiv preprint arXiv:2407.10362 (2024).
 
-69. Skarlinski, M. D., Cox, S., Laurent, J. M., Braza, J. D., Hinks, M., Hammerling, M. J., Ponnapati, M., Rodriques, S. G. & White, A. D. Language agents achieve superhuman synthesis of scientific knowledge. (2024).
+69. Skarlinski, M. D., Cox, S., Laurent, J. M., Braza, J. D., Hinks, M., Hammerling, M. J., Ponnapati, M., Rodriques, S. G. & White, A. D. Language agents achieve superhuman synthesis of scientific knowledge. arXiv preprint arXiv:2409.13740 (2024).
 
-70. Narayanan, S., Braza, J. D., Griffiths, R.-R., Ponnapati, M., Bou, A., Laurent, J., Kabeli, O., Wellawatte, G., Cox, S., Rodriques, S. G. & White, A. D. Aviary: Training language agents on challenging scientific tasks. (2024).
+70. Tribello, G. A., Bonomi, M., Bussi, G., Camilloni, C., Armstrong, B. I., Arsiccio, A., Aureli, S., Ballabio, F., Bernetti, M., Bonati, L., et al. PLUMED tutorials: A collaborative, community-driven learning ecosystem. arXiv preprint arXiv:2412.03595 (2024).
 
-71. Tribello, G. A., Bonomi, M., Bussi, G., Camilloni, C., Armstrong, B. I., Arsiccio, A., Aureli, S., Ballabio, F., Bernetti, M., Bonati, L., Brookes, S. G. H., Brotzakis, Z. F., Capelli, R., Ceriotti, M., Chan, K.-T., Cossio, P., Dasetty, S., Donadio, D., Ensing, B., Ferguson, A. L., Fraux, G., Gale, J. D., Gervasio, F. L., Giorgino, T., Herringer, N. S. M., Hocky, G. M., Hoff, S. E., Invernizzi, M., Languin-Cattöen, O., Leone, V., Limongelli, V., Lopez-Acevedo, O., Marinelli, F., Martinez, P. F., Masetti, M., Mehdi, S., Michaelides, A., Murtada, M. H., Parrinello, M., Piaggi, P. M., Pietropaolo, A., Pietrucci, F., Pipolo, S., Pritchard, C., Raiteri, P., Raniolo, S., Rapetti, D., Rizzi, V., Rydzewski, J., Salvalaglio, M., Schran, C., Seal, A., Zadeh, A. S., Silva, T. F. D., Spiwok, V., Stirnemann, G., Sucerquia, D., Tiwary, P., Valsson, O., Vendruscolo, M., Voth, G. A., White, A. D. & Wu, J. PLUMED tutorials: A collaborative, community-driven learning ecosystem. (2024).
+71. Narayanan, S., Braza, J. D., Griffiths, R.-R., Ponnapati, M., Bou, A., Laurent, J., Kabeli, O., Wellawatte, G., Cox, S., Rodriques, S. G., et al. Aviary: Training language agents on challenging scientific tasks. arXiv preprint arXiv:2412.21154 (2024).
 
 72. Le, Z., Ramos, M. C., Shou, Y., Li, R. R., Cheng, H. S., Jang, C. J., Liu, L., Xue, C., Li, X., Liu, H., et al. Bioactive sucralfate-based microneedles promote wound healing through reprogramming macrophages and protecting endogenous growth factors. Biomaterials 311, 122700 (2024).
+
+73. Campbell, Q., Cox, S., Medina, J., Watterson, B. & White, A. D. MDCrow: Automating molecular dynamics workflows with large language models. arXiv preprint arXiv:2502.09565 (2025).
