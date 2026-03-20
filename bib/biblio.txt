@@ -18,7 +18,7 @@
 
 10. Keefe, A. J., Caldwell, K. B., Nowinski, A. K., White, A. D., Thakkar, A. & Jiang, S. Screening nonspecific interactions of peptides without background interference. Biomaterials 34, 1871–1877 (2013).
 
-11. White, A. D., Keefe, A. J., Ella-Menye, J.-R., Nowinski, A. K., Shao, Q., Pfaendtner, J. & Jiang, S. Free energy of solvated salt bridges: A simulation and experimental study. The Journal of Physical Chemistry B 117, 7254–7259 (2013).
+11. White, A. D., Keefe, A. J., Ella-Menye, J.-R., Nowinski, A. K., Shao, Q., Pfaendtner, J. & Jiang, S. Free energy of solvated salt bridges: A simulation and experimental study. The journal of physical chemistry B 117, 7254–7259 (2013).
 
 12. Shao, Q., White, A. D. & Jiang, S. Difference of carboxybetaine and oligo (ethylene glycol) moieties in altering hydrophobic interactions: A molecular simulation study. The Journal of Physical Chemistry B 118, 189–194 (2014).
 
@@ -76,7 +76,7 @@
 
 39. Hocky, G. M. & White, A. D. Natural language processing models that automate programming will transform chemistry research and teaching. Digital discovery 1, 79–83 (2022).
 
-40. Ansari, M., Soriano-Paños, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. Physical Review E 106, 014306 (2022).
+40. Ansari, M., Soriano-Panos, D., Ghoshal, G. & White, A. D. Inferring spatial source of disease outbreaks using maximum entropy. Physical Review E 106, 014306 (2022).
 
 41. Hamsici, S., White, A. D. & Acar, H. Peptide framework for screening the effects of amino acids on assembly. Science Advances 8, eabj0305 (2022).
 
@@ -90,9 +90,9 @@
 
 46. Zhu, W., Luo, J. & White, A. D. Federated learning of molecular properties with graph neural networks in a heterogeneous setting. Patterns 100521 (2022).
 
-47. White, A. D. Deep learning for molecules and materials. Living journal of computational molecular science 3, 1499 (2022).
+47. White, A. D. Deep learning for molecules and materials. Living Journal of Computational Molecular Science 3, 1499 (2022).
 
-48. Yang, Z., Milas, K. A. & White, A. D. Now what sequence? Pre-trained ensembles for bayesian optimization of protein sequences. bioRxiv 2022–08 (2022).
+48. Yang, Z., Milas, K. A. & White, A. D. Now what sequence? Pre-trained ensembles for bayesian optimization of protein sequences. BioRxiv 2022–08 (2022).
 
 49. Gandhi, H. A. & White, A. D. Explaining molecular properties with natural language. (2022).
 
@@ -128,18 +128,26 @@
 
 65. Lála, J., O’Donoghue, O., Shtedritski, A., Cox, S., Rodriques, S. G. & White, A. D. Paperqa: Retrieval-augmented generative agent for scientific research. arXiv preprint arXiv:2312.07559 (2023).
 
-66. Cox, S., Hammerling, M., Lála, J., Laurent, J., Rodriques, S., Rubashkin, M. & White, A. Wikicrow: Automating synthesis of human scientific knowledge. Future House (2023).
+66. Ramos, M. C., Collison, C. J. & White, A. D. A review of large language models and autonomous agents in chemistry. Chemical science 16, 2514–2572 (2025).
 
-67. Ramos, M. C., Collison, C. J. & White, A. D. A review of large language models and autonomous agents in chemistry. Chemical Science (2025).
+67. Laurent, J. M., Janizek, J. D., Ruzo, M., Hinks, M. M., Hammerling, M. J., Narayanan, S., Ponnapati, M., White, A. D. & Rodriques, S. G. Lab-bench: Measuring capabilities of language models for biology research. arXiv preprint arXiv:2407.10362 (2024).
 
-68. Laurent, J. M., Janizek, J. D., Ruzo, M., Hinks, M. M., Hammerling, M. J., Narayanan, S., Ponnapati, M., White, A. D. & Rodriques, S. G. Lab-bench: Measuring capabilities of language models for biology research. arXiv preprint arXiv:2407.10362 (2024).
+68. Skarlinski, M. D., Cox, S., Laurent, J. M., Braza, J. D., Hinks, M., Hammerling, M. J., Ponnapati, M., Rodriques, S. G. & White, A. D. Language agents achieve superhuman synthesis of scientific knowledge. arXiv preprint arXiv:2409.13740 (2024).
 
-69. Skarlinski, M. D., Cox, S., Laurent, J. M., Braza, J. D., Hinks, M., Hammerling, M. J., Ponnapati, M., Rodriques, S. G. & White, A. D. Language agents achieve superhuman synthesis of scientific knowledge. arXiv preprint arXiv:2409.13740 (2024).
+69. Tribello, G. A., Bonomi, M., Bussi, G., Camilloni, C., Armstrong, B. I., Arsiccio, A., Aureli, S., Ballabio, F., Bernetti, M., Bonati, L., et al. PLUMED tutorials: A collaborative, community-driven learning ecosystem. The Journal of Chemical Physics 162, (2025).
 
-70. Tribello, G. A., Bonomi, M., Bussi, G., Camilloni, C., Armstrong, B. I., Arsiccio, A., Aureli, S., Ballabio, F., Bernetti, M., Bonati, L., et al. PLUMED tutorials: A collaborative, community-driven learning ecosystem. arXiv preprint arXiv:2412.03595 (2024).
+70. Narayanan, S., Braza, J. D., Griffiths, R.-R., Ponnapati, M., Bou, A., Laurent, J., Kabeli, O., Wellawatte, G., Cox, S., Rodriques, S. G., et al. Aviary: Training language agents on challenging scientific tasks. arXiv preprint arXiv:2412.21154 (2024).
 
-71. Narayanan, S., Braza, J. D., Griffiths, R.-R., Ponnapati, M., Bou, A., Laurent, J., Kabeli, O., Wellawatte, G., Cox, S., Rodriques, S. G., et al. Aviary: Training language agents on challenging scientific tasks. arXiv preprint arXiv:2412.21154 (2024).
+71. Le, Z., Ramos, M. C., Shou, Y., Li, R. R., Cheng, H. S., Jang, C. J., Liu, L., Xue, C., Li, X., Liu, H., et al. Bioactive sucralfate-based microneedles promote wound healing through reprogramming macrophages and protecting endogenous growth factors. Biomaterials 311, 122700 (2024).
 
-72. Le, Z., Ramos, M. C., Shou, Y., Li, R. R., Cheng, H. S., Jang, C. J., Liu, L., Xue, C., Li, X., Liu, H., et al. Bioactive sucralfate-based microneedles promote wound healing through reprogramming macrophages and protecting endogenous growth factors. Biomaterials 311, 122700 (2024).
+72. Campbell, Q., Cox, S., Medina, J., Watterson, B. & White, A. Mdcrow: Automating molecular dynamics workflows with large language models. Machine Learning: Science and Technology (2025).
 
-73. Campbell, Q., Cox, S., Medina, J., Watterson, B. & White, A. D. MDCrow: Automating molecular dynamics workflows with large language models. arXiv preprint arXiv:2502.09565 (2025).
+73. Mitchener, L., Laurent, J. M., Andonian, A., Tenmann, B., Narayanan, S., Wellawatte, G. P., White, A., Sani, L. & Rodriques, S. G. Bixbench: A comprehensive benchmark for llm-based agents in computational biology. arXiv preprint arXiv:2503.00096 (2025).
+
+74. Wei, Z., Ektefaie, Y., Zhou, A., Negatu, D., Aldridge, B., Dick, T., Skarlinski, M., White, A. D., Rodriques, S., Hosseiniporgham, S., et al. Fleming: An ai agent for antibiotic discovery in mycobacterium tuberculosis. bioRxiv 2025–04 (2025).
+
+75. Ghareeb, A. E., Chang, B., Mitchener, L., Yiu, A., Szostkiewicz, C. J., Laurent, J. M., Razzak, M. T., White, A. D., Hinks, M. M. & Rodriques, S. G. Robin: A multi-agent system for automating scientific discovery. arXiv preprint arXiv:2505.13400 (2025).
+
+76. Narayanan, S. M., Braza, J. D., Griffiths, R.-R., Bou, A., Wellawatte, G., Ramos, M. C., Mitchener, L., Rodriques, S. G. & White, A. D. Training a scientific reasoning model for chemistry. arXiv preprint arXiv:2506.17238 (2025).
+
+77. Mitchener, L., Yiu, A., Chang, B., Bourdenx, M., Nadolski, T., Sulovari, A., Landsness, E. C., Barabasi, D. L., Narayanan, S., Evans, N., et al. Kosmos: An ai scientist for autonomous discovery. arXiv preprint arXiv:2511.02824 (2025).
